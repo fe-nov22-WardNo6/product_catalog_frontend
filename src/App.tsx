@@ -1,7 +1,7 @@
 import React from 'react';
-import { Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { PhonesPage } from './pages/PhonesPage';
-import './App.scss';
+import './style/App.scss';
 
 export const App: React.FC = () => {
   return (
