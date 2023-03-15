@@ -1,5 +1,6 @@
 import React from 'react';
-import styles from './Footer.module.scss';
+import './Footer.scss';
+import '../../App.scss';
 import arrowIcon from './img/Vector.svg';
 import logo from './img/Logo.svg';
 
@@ -14,15 +15,15 @@ export const Footer: React.FC = () => {
   };
 
   return (
-    <footer className={styles.footer}>
-      <div className={styles.footer__container}>
-        <div className={styles.footer__logo}>
+    <footer className="footer">
+      <div className="container footer__wrapper">
+        <div className="footer__logo">
           <img src={logo} alt="Logo" />
         </div>
-        <ul className={styles.footer__list}>
-          <li className={styles.footer__list_item}>
+        <ul className="footer__list">
+          <li className="footer__list_item">
             <a
-              className={styles.footer__list_link}
+              className="footer__list_link"
               href="https://github.com/orgs/fe-nov22-WardNo6/repositories"
               target="_blank"
               rel="noreferrer"
@@ -30,21 +31,27 @@ export const Footer: React.FC = () => {
               Github
             </a>
           </li>
-          <li className={styles.footer__list_item}>
-            <a className={styles.footer__list_link} href="#">
+          <li className="footer__list_item">
+            <a className="footer__list_link"href="#">
               Contacts
             </a>
           </li>
-          <li className={styles.footer__list_item}>
-            <a className={styles.footer__list_link} href="#">
+          <li className="footer__list_item">
+            <a className="footer__list_link"href="#">
               Rights
             </a>
           </li>
         </ul>
-        <div className={styles.footer__top}>
-          <span className={styles.footer__top__text}>Back to top</span>
-          <div className={styles.footer__top__button} onClick={handleClick}>
-            <img className={styles.arrowIcon} src={arrowIcon} alt="to top" />
+        <div className="footer__top">
+          <span className="footer__top__text">Back to top</span>
+          <div
+            className="footer__top__button"
+            onClick={handleClick}
+          >
+            <img className="arrowIcon"
+              src={arrowIcon}
+              alt="to top"
+            />
           </div>
         </div>
       </div>
