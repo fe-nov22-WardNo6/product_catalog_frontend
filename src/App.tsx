@@ -21,7 +21,7 @@ function App() {
           <Route path="/favorites" element={<FavoritesPage />} />
         </Routes> */}
       </main>
-      <Footer/>
+      <Footer />
     </div>
   );
 }
