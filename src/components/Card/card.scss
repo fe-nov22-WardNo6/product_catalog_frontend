@@ -103,7 +103,7 @@ h1 {
       &:hover {
         background-color: #a378ff;
       }
-      
+
       &:active {
         background-color: #323542;
       }
@@ -117,16 +117,16 @@ h1 {
       height: 40px;
       background-color: #323542;
       text-decoration: none;
-      background-image: url("../../../public/icons/heart.svg");
+      background-image: url('../../../public/icons/heart.svg');
       background-repeat: no-repeat;
       background-position: center;
 
       &:hover {
         background-color: #4a4d58;
       }
-      
+
       &:active {
-        background-image: url("../../../public/icons/fullHeart.svg");
+        background-image: url('../../../public/icons/fullHeart.svg');
       }
     }
   }
