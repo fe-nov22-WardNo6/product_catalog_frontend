@@ -3,7 +3,7 @@ import './card.scss';
 
 export const Card: React.FC = () => {
   return (
-    <article className="card" data-qa="card">
+    <article className="card">
       <img
         className="card__image"
         src="./image.png"
