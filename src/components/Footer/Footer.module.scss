@@ -1,21 +1,79 @@
 .footer {
-  &__link {
-    font-family: 'Mont';
+  background: #0F1121;
+  border-top: 1px #3B3E4A;
+  width: 100%;
+
+  &__container {
+    padding: 32px 16px;
+
+    @media (min-width: 640px)  {
+      padding: 32px 24px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  &__logo {
+    display: flex;
+  }
+
+  &__list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    @media (min-width: 640px) {
+      display: flex;
+      flex-direction: row;
+      gap: 16px
+    }
+
+    @media (min-width: 1200px) {
+      gap: 106px;
+    }
+  }
+
+  &__list_link {
+    // font-family: 'Mont';
     font-style: normal;
     font-weight: 800;
     font-size: 12px;
     line-height: 11px;
-    /* identical to box height, or 92% */
 
     letter-spacing: 0.04em;
+    text-decoration: none;
     text-transform: uppercase;
-
-    /* Gray/White */
 
     color: #f1f2f9;
   }
 
-  &__toTopText {
-    color: aquamarine;
+  &__top {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+
+    &__text {
+      // font-family: 'Mont';
+      font-style: normal;
+      font-weight: 700;
+      font-size: 12px;
+      line-height: 15px;
+      text-align: right;
+      color: #75767F;
+    }
+
+    &__button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 32px;
+      height: 32px;
+      background: #323542;
+      cursor: pointer;
+    }
   }
 }
