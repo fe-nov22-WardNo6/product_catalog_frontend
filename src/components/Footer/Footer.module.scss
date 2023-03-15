@@ -1,0 +1,21 @@
+.footer {
+  &__link{
+    font-family: 'Mont';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 12px;
+    line-height: 11px;
+    /* identical to box height, or 92% */
+
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+
+    /* Gray/White */
+
+    color: #F1F2F9;
+  }
+
+  &__toTopText {
+    color: aquamarine;
+  }
+}

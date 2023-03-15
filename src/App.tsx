@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.scss';
+import { Footer } from './components/Footer';
 
 function App() {
   return (
@@ -20,7 +21,7 @@ function App() {
           <Route path="/favorites" element={<FavoritesPage />} />
         </Routes> */}
       </main>
-      {/* <Footer /> */}
+      <Footer/>
     </div>
   );
 }
