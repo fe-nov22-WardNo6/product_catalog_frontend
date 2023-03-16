@@ -13,9 +13,10 @@ h1 {
   height: 506px;
 
   &__image {
-    width: 208px;
-    height: 196px;
+    // width: 208px;
+    // height: 196px;
     margin: 0 0 24px;
+    border-radius: 15px;
   }
 
   &__name {
