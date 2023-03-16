@@ -32,26 +32,20 @@ export const Footer: React.FC = () => {
             </a>
           </li>
           <li className="footer__list_item">
-            <a className="footer__list_link"href="#">
+            <a className="footer__list_link" href="#">
               Contacts
             </a>
           </li>
           <li className="footer__list_item">
-            <a className="footer__list_link"href="#">
+            <a className="footer__list_link" href="#">
               Rights
             </a>
           </li>
         </ul>
         <div className="footer__top">
           <span className="footer__top__text">Back to top</span>
-          <div
-            className="footer__top__button"
-            onClick={handleClick}
-          >
-            <img className="arrowIcon"
-              src={arrowIcon}
-              alt="to top"
-            />
+          <div className="footer__top__button" onClick={handleClick}>
+            <img className="arrowIcon" src={arrowIcon} alt="to top" />
           </div>
         </div>
       </div>
