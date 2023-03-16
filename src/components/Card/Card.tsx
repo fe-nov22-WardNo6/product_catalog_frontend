@@ -1,10 +1,15 @@
 import React from 'react';
+import classNames from 'classnames';
 import './card.scss';
 import image from './image.png';
 
-export const Card: React.FC = () => {
+type Props = {
+  cardClass: string,
+}
+
+export const Card: React.FC<Props> = ({ cardClass}) => {
   return (
-    <article className="card">
+    <article className={classNames('card', `${cardClass}`)}>
       <img
         className="card__image"
         src={image}
