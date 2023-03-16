@@ -34,29 +34,17 @@ export const PhonesPage: React.FC = () => {
     <div className="phonesPage container">
       <p className="text">page navigation</p>
       <h1 className="phonesPage__title">Mobile phones</h1>
-
-      {isDataLoading && 'loading data'}
-
-      {!isDataLoading &&
-        !isError &&
-        phones.map((phone) => <Card key={phone.phoneId} phone={phone} />)}
-
-      {isError && 'not found'}
-
       <p className="phonesPage__countPhones">95 models</p>
-      <div className="phonesPage__displayOptions">
-        component with form
-      </div>
-      <div className="phonesPage__phones-container grid grid--desktop">
-        <Card cardClass="grid__item-desktop--1-6"/>
-        <Card cardClass="grid__item-desktop--7-12"/>
-        <Card cardClass="grid__item-desktop--13-18"/>
-        <Card cardClass="grid__item-desktop--19-24"/>
-        <Card cardClass="grid__item-desktop--1-6"/>
-        <Card cardClass="grid__item-desktop--7-12"/>
-        <Card cardClass="grid__item-desktop--13-18"/>
-        <Card cardClass="grid__item-desktop--19-24"/>
-      </div>
+      <div className="phonesPage__displayOptions">component with form</div>
+      {isDataLoading && 'loading data'}
+      {!isDataLoading && !isError && (
+        <div className="phonesPage__phones-container grid grid--desktop">
+          {phones.map((phone) => (
+            <Card key={phone.phoneId} phone={phone} />
+          ))}
+        </div>
+      )}
+      {isError && 'not found'}
     </div>
   );
 };
