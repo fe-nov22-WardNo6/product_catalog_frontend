@@ -32,10 +32,10 @@ export const PhonesPage: React.FC = () => {
 
   return (
     <div className="phonesPage container">
-      <p className="text">page navigation</p>
+      {/* <p className="text">page navigation</p>
       <h1 className="phonesPage__title">Mobile phones</h1>
       <p className="phonesPage__countPhones">95 models</p>
-      <div className="phonesPage__displayOptions">component with form</div>
+      <div className="phonesPage__displayOptions">component with form</div> */}
       {isDataLoading && 'loading data'}
       {!isDataLoading && !isError && (
         <div className="phonesPage__phones-container grid grid--desktop">
