@@ -57,9 +57,14 @@ export const Header = () => {
             />
           </a>
 
-          <a href="#" className="header__action">
+          <NavLink 
+            to="/cart"
+            className={({ isActive}) => 
+              cn('header__action', { 'is-active': isActive})
+            }
+          >
             <img src={cart_icon} alt="Nice Gadgets logo" className="icon" />
-          </a>
+          </NavLink>
 
           <a href="#" className="header__action">
             <img
