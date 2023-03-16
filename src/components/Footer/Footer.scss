@@ -3,12 +3,15 @@
   border-top: 1px #3b3e4a;
   width: 100%;
   padding: 32px 0;
+  position: fixed;
+  bottom: 0;
 
   &__wrapper {
     @media (min-width: 640px) {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
+      align-items: center;
     }
   }
 
@@ -43,7 +46,7 @@
   }
 
   &__list_link {
-    // font-family: 'Mont';
+    font-family: 'Mont';
     font-style: normal;
     font-weight: 800;
     font-size: 12px;
@@ -63,7 +66,7 @@
     gap: 16px;
 
     &__text {
-      // font-family: 'Mont';
+      font-family: 'Mont';
       font-style: normal;
       font-weight: 700;
       font-size: 12px;
