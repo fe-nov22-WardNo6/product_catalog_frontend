@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { getImage } from '../../api/api';
 import { Phone } from '../../types/PhoneDefault';
+import classNames from 'classnames';
 import './card.scss';
 
 type Props = {
@@ -41,6 +42,20 @@ export const Card: React.FC<Props> = ({ phone }) => {
         <img className="card__image" src={cardImage} alt={name} />
       )}
       <h1 className="card__name">{name}</h1>
+  cardClass: string,
+}
+
+export const Card: React.FC<Props> = ({ cardClass}) => {
+  return (
+    <article className={classNames('card', `${cardClass}`)}>
+      <img
+        className="card__image"
+        src={image}
+        alt="APPLE A1419 iMac 27"
+      />
+      <h1 className="card__name">
+        Apple iPhone 11 Pro Max 64GB Gold (iMT9G2FS/A)
+      </h1>
 
       <div className="card__price">
         <p className="card__price-new">{price}</p>
