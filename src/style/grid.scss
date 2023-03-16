@@ -29,8 +29,8 @@
   }
 
   &__item {
-    @include media-gridColumns-tablet (tablet, $tabletNumberColumns);
-    @include media-gridColumns-tabletLandscape (tablet, $tabletNumberColumns);
-    @include media-gridColumns-desktop (desktop, $desktopNumberColumns);
+    @include media-gridColumns-tablet(tablet, $tabletNumberColumns);
+    @include media-gridColumns-tabletLandscape(tablet, $tabletNumberColumns);
+    @include media-gridColumns-desktop(desktop, $desktopNumberColumns);
   }
 }
