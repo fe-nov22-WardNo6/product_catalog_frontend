@@ -80,6 +80,11 @@
       height: 32px;
       background: #323542;
       cursor: pointer;
+      transition: 300ms ease-in-out;
+    }
+
+    &__button:hover {
+      background: #4a4d58;
     }
   }
 }
