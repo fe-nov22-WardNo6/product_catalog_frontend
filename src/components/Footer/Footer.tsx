@@ -1,6 +1,6 @@
 import React from 'react';
 import './Footer.scss';
-import '../../App.scss';
+import '../../style/App.scss';
 import arrowIcon from './img/Vector.svg';
 import logo from './img/Logo.svg';
 
