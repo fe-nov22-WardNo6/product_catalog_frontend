@@ -7,6 +7,7 @@ import { Header } from './components/Header';
 import { HomePage } from './pages/HomePage';
 import { TabletPage } from './pages/TabletPage';
 import { AccessoriesPage } from './pages/AccessoriesPage';
+import { Cart } from './components/Cart';
 
 export const App: React.FC = () => {
   return (
@@ -19,6 +20,7 @@ export const App: React.FC = () => {
           <Route path="/phones" element={<PhonesPage />} />
           <Route path="/tablets" element={<TabletPage />} />
           <Route path="/accessories" element={<AccessoriesPage />} />
+          <Route path="/cart" element={<Cart />} />
 
           {/* <Route
           path="/phones/:productId"
