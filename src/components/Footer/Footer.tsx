@@ -1,8 +1,8 @@
 import React from 'react';
 import './Footer.scss';
-import '../../style/App.scss';
-import arrowIcon from './img/Vector.svg';
-import logo from './img/Logo.svg';
+import '../../App.scss';
+import logo from '../../icons/logo.svg';
+import arrowUp from '../../icons/arrowUp.svg';
 
 export const Footer: React.FC = () => {
   const handleClick = () => {
@@ -45,7 +45,11 @@ export const Footer: React.FC = () => {
         <div className="footer__top">
           <span className="footer__top__text">Back to top</span>
           <div className="footer__top__button" onClick={handleClick}>
-            <img className="arrowIcon" src={arrowIcon} alt="to top" />
+            <img
+              className="footer__top__button__icon"
+              src={arrowUp}
+              alt="to top"
+            />
           </div>
         </div>
       </div>
