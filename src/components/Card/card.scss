@@ -1,3 +1,5 @@
+@import '../../style/utils/vars.scss';
+
 p,
 h1 {
   margin: 0;
@@ -7,7 +9,7 @@ h1 {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  background-color: #161827;
+  background-color: $backgroundCardColor;
   padding: 32px;
   // width: 272px;
   height: 506px;
@@ -21,7 +23,7 @@ h1 {
   &__name {
     font-weight: 600;
     font-size: 14px;
-    color: #f1f2f9;
+    color: $primaryTextColor;
     line-height: 21px;
   }
 
@@ -35,7 +37,7 @@ h1 {
       font-weight: 800;
       font-size: 22px;
       line-height: 140%;
-      color: #f1f2f9;
+      color: $primaryTextColor;
     }
 
     &-old {
@@ -44,7 +46,7 @@ h1 {
       font-size: 22px;
       line-height: 28px;
       text-decoration-line: line-through;
-      color: #75767f;
+      color: $secondaryTextColor;
     }
   }
 
@@ -52,7 +54,7 @@ h1 {
     box-sizing: border-box;
     width: 208px;
     height: 0;
-    border: 0.5px solid #3b3e4a;
+    border: 0.5px solid $elementsBorderColor;
   }
 
   &__characteristics {
@@ -74,14 +76,14 @@ h1 {
       font-weight: 700;
       font-size: 12px;
       line-height: 15px;
-      color: #75767f;
+      color: $secondaryTextColor;
     }
 
     &-number {
       font-weight: 700;
       font-size: 12px;
       line-height: 15px;
-      color: #f1f2f9;
+      color: $primaryTextColor;
     }
   }
 
@@ -95,16 +97,16 @@ h1 {
       align-items: center;
       width: 160px;
       height: 40px;
-      background-color: #905bff;
-      color: #f1f2f9;
+      background-color: $primaryCardButtonColor;
+      color: $primaryTextColor;
       text-decoration: none;
 
       &:hover {
-        background-color: #a378ff;
+        background-color: $hoverCardButtonColor;
       }
 
       &:active {
-        background-color: #323542;
+        background-color: $selectedCardButtonColor;
       }
     }
 
@@ -114,18 +116,18 @@ h1 {
       align-items: center;
       width: 40px;
       height: 40px;
-      background-color: #323542;
+      background-color: $defaultButtonColor;
       text-decoration: none;
-      background-image: url('../../../public/icons/heart.svg');
+      background-image: url('../../icons/heart.svg');
       background-repeat: no-repeat;
       background-position: center;
 
       &:hover {
-        background-color: #4a4d58;
+        background-color: $hoverButtonColor;
       }
 
       &:active {
-        background-image: url('../../../public/icons/fullHeart.svg');
+        background-image: url('../../icons/fullHeart.svg');
       }
     }
   }
