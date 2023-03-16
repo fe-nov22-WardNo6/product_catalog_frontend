@@ -1,12 +1,13 @@
 import React from 'react';
 import './card.scss';
+import image from './image.png';
 
 export const Card: React.FC = () => {
   return (
     <article className="card">
       <img
         className="card__image"
-        src="./image.png"
+        src={image}
         alt="APPLE A1419 iMac 27"
       />
       <h1 className="card__name">
