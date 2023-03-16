@@ -4,6 +4,8 @@ import cart_icon from './img/cart_icon.svg';
 import favorites_icon from './img/favorites_icon.svg';
 import burger_menu_icon from './img/burger_menu_icon.svg';
 import './Header.scss';
+import { NavLink } from 'react-router-dom';
+import cn from 'classnames';
 
 export const Header = () => {
   return (
@@ -12,18 +14,38 @@ export const Header = () => {
         <div className="wrapper">
           <Logo />
           <div className="header__buttons">
-            <a href="/home" className="header__button is-active">
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                cn('header__button', { 'is-active': isActive })
+              }
+            >
               HOME
-            </a>
-            <a href="/phones" className="header__button">
+            </NavLink>
+            <NavLink
+              to="/phones"
+              className={({ isActive }) =>
+                cn('header__button', { 'is-active': isActive })
+              }
+            >
               PHONES
-            </a>
-            <a href="/tablets" className="header__button">
+            </NavLink>
+            <NavLink
+              to="/tablets"
+              className={({ isActive }) =>
+                cn('header__button', { 'is-active': isActive })
+              }
+            >
               TABLETS
-            </a>
-            <a href="/accessories" className="header__button">
+            </NavLink>
+            <NavLink
+              to="/accessories"
+              className={({ isActive }) =>
+                cn('header__button', { 'is-active': isActive })
+              }
+            >
               ACCESSORIES
-            </a>
+            </NavLink>
           </div>
         </div>
         <div className="header__actions">
@@ -40,7 +62,11 @@ export const Header = () => {
           </a>
 
           <a href="#" className="header__action">
-            <img src={burger_menu_icon } alt="Nice Gadgets logo" className="icon" />
+            <img
+              src={burger_menu_icon}
+              alt="Nice Gadgets logo"
+              className="icon"
+            />
           </a>
         </div>
       </div>
