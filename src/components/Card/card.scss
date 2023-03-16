@@ -1,0 +1,135 @@
+@import '../../style/utils/vars.scss';
+
+p,
+h1 {
+  margin: 0;
+}
+
+.card {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  background-color: $backgroundCardColor;
+  padding: 32px;
+  // width: 272px;
+  height: 506px;
+
+  &__image {
+    // width: 208px;
+    height: 196px;
+    margin: 0 0 24px;
+    border-radius: 15px;
+  }
+
+  &__name {
+    font-weight: 600;
+    font-size: 14px;
+    color: $primaryTextColor;
+    line-height: 21px;
+  }
+
+  &__price {
+    display: flex;
+    margin: 8px 0;
+
+    &-new {
+      margin-right: 8px;
+      font-style: normal;
+      font-weight: 800;
+      font-size: 22px;
+      line-height: 140%;
+      color: $primaryTextColor;
+    }
+
+    &-old {
+      font-style: normal;
+      font-weight: 600;
+      font-size: 22px;
+      line-height: 28px;
+      text-decoration-line: line-through;
+      color: $secondaryTextColor;
+    }
+  }
+
+  &__line {
+    box-sizing: border-box;
+    width: 208px;
+    height: 0;
+    border: 0.5px solid $elementsBorderColor;
+  }
+
+  &__characteristics {
+    display: flex;
+    flex-direction: column;
+    margin: 16px 0;
+  }
+
+  &__char {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &-text {
+      font-weight: 700;
+      font-size: 12px;
+      line-height: 15px;
+      color: $secondaryTextColor;
+    }
+
+    &-number {
+      font-weight: 700;
+      font-size: 12px;
+      line-height: 15px;
+      color: $primaryTextColor;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: space-between;
+
+    &-addCart {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 160px;
+      height: 40px;
+      background-color: $primaryCardButtonColor;
+      color: $primaryTextColor;
+      text-decoration: none;
+
+      &:hover {
+        background-color: $hoverCardButtonColor;
+      }
+
+      &:active {
+        background-color: $selectedCardButtonColor;
+      }
+    }
+
+    &-addList {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 40px;
+      height: 40px;
+      background-color: $defaultButtonColor;
+      text-decoration: none;
+      background-image: url('../../icons/heart.svg');
+      background-repeat: no-repeat;
+      background-position: center;
+
+      &:hover {
+        background-color: $hoverButtonColor;
+      }
+
+      &:active {
+        background-image: url('../../icons/fullHeart.svg');
+      }
+    }
+  }
+}

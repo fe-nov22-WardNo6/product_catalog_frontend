@@ -1,0 +1,96 @@
+import React, { useEffect, useState } from 'react';
+import { getImage } from '../../api/api';
+import { Phone } from '../../types/PhoneDefault';
+import classNames from 'classnames';
+import './card.scss';
+
+type Props = {
+  phone: Phone;
+};
+
+export const Card: React.FC<Props> = ({ phone }) => {
+  const [cardImage, setCardImage] = useState('');
+  const [isDataLoading, setIsDataLoading] = useState(false);
+  const [isError, setError] = useState(false);
+
+  const { name, image, price, fullPrice, screen, capacity, ram } = phone;
+
+  const getImageFromServer = async () => {
+    try {
+      setIsDataLoading(true);
+
+      const data = await getImage(image);
+
+      setCardImage(data);
+      setIsDataLoading(false);
+    } catch {
+      setError(true);
+      setIsDataLoading(false);
+    } finally {
+      setIsDataLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    getImageFromServer();
+  }, []);
+
+  return (
+    <article className="card">
+      {isDataLoading && 'loading...'}
+      {!isDataLoading && !isError && (
+        <img className="card__image" src={cardImage} alt={name} />
+      )}
+      <h1 className="card__name">{name}</h1>
+  cardClass: string,
+}
+
+export const Card: React.FC<Props> = ({ cardClass}) => {
+  return (
+    <article className={classNames('card', `${cardClass}`)}>
+      <img
+        className="card__image"
+        src={image}
+        alt="APPLE A1419 iMac 27"
+      />
+      <h1 className="card__name">
+        Apple iPhone 11 Pro Max 64GB Gold (iMT9G2FS/A)
+      </h1>
+
+      <div className="card__price">
+        <p className="card__price-new">{price}</p>
+
+        <p className="card__price-old">{fullPrice}</p>
+      </div>
+
+      <div className="card__line"></div>
+
+      <div className="card__characteristics">
+        <div className="card__char">
+          <p className="card__char-text">Screen</p>
+
+          <p className="card__char-number">{screen}</p>
+        </div>
+
+        <div className="card__char">
+          <p className="card__char-text">Capacity</p>
+
+          <p className="card__char-number">{capacity}</p>
+        </div>
+
+        <div className="card__char">
+          <p className="card__char-text">RAM</p>
+
+          <p className="card__char-number">{ram}</p>
+        </div>
+      </div>
+
+      <div className="card__buttons">
+        <a href="#AddToCart" className="card__buttons-addCart">
+          Add to cart
+        </a>
+        <a href="#AddToList" className="card__buttons-addList"></a>
+      </div>
+    </article>
+  );
+};

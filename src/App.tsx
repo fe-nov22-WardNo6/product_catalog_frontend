@@ -1,7 +1,8 @@
 import React from 'react';
+import './style/App.scss';
 import { Routes, Route } from 'react-router-dom';
 import { PhonesPage } from './pages/PhonesPage';
-import './style/App.scss';
+import { Footer } from './components/Footer';
 
 export const App: React.FC = () => {
   return (
@@ -26,7 +27,7 @@ export const App: React.FC = () => {
           {/* <Route path="/favorites" element={<FavoritesPage />} /> */}
         </Routes>
       </main>
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 };
