@@ -1,5 +1,4 @@
 import React from 'react';
-import '../../style/grid.scss';
 import './cart.scss';
 import { CartItem } from './CartItem';
 
