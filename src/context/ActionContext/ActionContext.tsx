@@ -8,11 +8,13 @@ type Props = {
 type ContextType = {
   addedToBuyPhones: Phone[];
   addPhoneToCart: (phone: Phone) => void;
+  deletePhoneFromCart: (id: string) => void;
 };
 
 export const ActionContext = createContext<ContextType>({
   addedToBuyPhones: [],
   addPhoneToCart: () => null,
+  deletePhoneFromCart: () => null,
 });
 
 export const ActionProvider: React.FC<Props> = ({ children }) => {
@@ -22,9 +24,16 @@ export const ActionProvider: React.FC<Props> = ({ children }) => {
     setAddedToBuyPhones((currentPhones) => [...currentPhones, phone]);
   }, []);
 
+  const deletePhoneFromCart = useCallback((id: string) => {
+    setAddedToBuyPhones((currentPhones) =>
+      currentPhones.filter((phone) => phone.id !== id),
+    );
+  }, []);
+
   const contextValue = {
     addedToBuyPhones,
     addPhoneToCart,
+    deletePhoneFromCart,
   };
 
   return (
