@@ -1,20 +1,24 @@
 {
   "files": {
-    "main.css": "/product_catalog_frontend/static/css/main.2e0e3556.css",
-    "main.js": "/product_catalog_frontend/static/js/main.c8a7cd48.js",
-    "static/media/Logo.svg": "/product_catalog_frontend/static/media/Logo.1b84728b90078b7eea014ac44cc8fc43.svg",
+    "main.css": "/product_catalog_frontend/static/css/main.da1f452a.css",
+    "main.js": "/product_catalog_frontend/static/js/main.43207aa9.js",
+    "static/media/image.jpg": "/product_catalog_frontend/static/media/image.94d434557d544a00319d.jpg",
+    "static/media/logo.svg": "/product_catalog_frontend/static/media/logo.1b84728b90078b7eea014ac44cc8fc43.svg",
     "static/media/Mont-Regular.otf": "/product_catalog_frontend/static/media/Mont-Regular.1d26d89f7339866d3133.otf",
     "static/media/Mont-SemiBold.otf": "/product_catalog_frontend/static/media/Mont-SemiBold.8979d71a3146ca1d761f.otf",
     "static/media/Mont-Bold.otf": "/product_catalog_frontend/static/media/Mont-Bold.03c8c2f6127c1da0fc39.otf",
+    "static/media/cart_icon.svg": "/product_catalog_frontend/static/media/cart_icon.c6d6212a3ea700d6002e8aed76be07ae.svg",
+    "static/media/favorites_icon.svg": "/product_catalog_frontend/static/media/favorites_icon.f8d9839400323f073144a1b28c304e6a.svg",
     "static/media/heart.svg": "/product_catalog_frontend/static/media/heart.28f6088c83570782c6af.svg",
     "static/media/fullHeart.svg": "/product_catalog_frontend/static/media/fullHeart.d554a185325e4fb06092.svg",
     "index.html": "/product_catalog_frontend/index.html",
-    "static/media/Vector.svg": "/product_catalog_frontend/static/media/Vector.f09c4afab860d8511c1ff9c9591ecb63.svg",
-    "main.2e0e3556.css.map": "/product_catalog_frontend/static/css/main.2e0e3556.css.map",
-    "main.c8a7cd48.js.map": "/product_catalog_frontend/static/js/main.c8a7cd48.js.map"
+    "static/media/burger_menu_icon.svg": "/product_catalog_frontend/static/media/burger_menu_icon.ccd1a9542b5bc584f2a1c0456d816ec9.svg",
+    "static/media/arrowUp.svg": "/product_catalog_frontend/static/media/arrowUp.a617e9ecb57a4e24fcfecbff7a7744a0.svg",
+    "main.da1f452a.css.map": "/product_catalog_frontend/static/css/main.da1f452a.css.map",
+    "main.43207aa9.js.map": "/product_catalog_frontend/static/js/main.43207aa9.js.map"
   },
   "entrypoints": [
-    "static/css/main.2e0e3556.css",
-    "static/js/main.c8a7cd48.js"
+    "static/css/main.da1f452a.css",
+    "static/js/main.43207aa9.js"
   ]
 }
