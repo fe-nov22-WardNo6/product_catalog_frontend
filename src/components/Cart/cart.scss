@@ -29,17 +29,17 @@ a {
     font-size: 12px;
     line-height: 15px;
     text-decoration: none;
-  
+
     &-svg {
       fill: $colorWhite;
       margin-bottom: 2px;
     }
-  
+
     &:hover {
       color: $primaryCardButtonColor;
-  
+
       .cart__link-svg {
-      fill: $primaryCardButtonColor;
+        fill: $primaryCardButtonColor;
       }
     }
   }
@@ -57,7 +57,7 @@ a {
   &__flex {
     display: flex;
     gap: 16px;
-  
+
     @media (max-width: 1199px) {
       flex-direction: column;
     }
@@ -65,7 +65,7 @@ a {
 
   &__item {
     flex-grow: 2;
-  
+
     @media (max-width: 1199px) {
       flex-grow: 1;
     }
@@ -81,7 +81,7 @@ a {
     box-sizing: border-box;
     background-color: $disabledButtonColor;
     height: 200px;
-  
+
     &-sum {
       color: $colorWhite;
       font-style: normal;
@@ -89,7 +89,7 @@ a {
       font-size: 32px;
       line-height: 41px;
     }
-  
+
     &-text {
       margin-bottom: 25px;
       font-style: normal;
@@ -98,7 +98,7 @@ a {
       line-height: 21px;
       color: $secondaryTextColor;
     }
-  
+
     &-line {
       width: 100%;
       border: 1px solid $elementsBorderColor;
@@ -107,7 +107,7 @@ a {
     &-link {
       width: 100%;
     }
-  
+
     &-button {
       width: 100%;
       margin-top: 24px;
@@ -119,11 +119,11 @@ a {
       font-size: 14px;
       line-height: 21px;
       border: none;
-  
+
       &:hover {
         background: $hoverCardButtonColor;
       }
-  
+
       &:active {
         background: $selectedCardButtonColor;
       }

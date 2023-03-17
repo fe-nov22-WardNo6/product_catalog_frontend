@@ -77,13 +77,13 @@
     }
   }
 
-  &__action:nth-child(n+1){
+  &__action:nth-child(n + 1) {
     @include onMobile {
       display: none;
     }
   }
 
-  &__action:nth-child(3){
+  &__action:nth-child(3) {
     display: none;
 
     @include onMobile {

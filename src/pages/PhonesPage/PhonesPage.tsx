@@ -53,7 +53,6 @@ export const PhonesPage: React.FC = () => {
       {!isDataLoading && !isError && (
         <div className="phones-page__phones-container grid grid--desktop grid--tablet grid--landscape">
           {phones.map((phone, i) => {
-
             const gridClassArray = [];
             if (width > 1199) {
               if ((i + 1) % 4 === 3) {
