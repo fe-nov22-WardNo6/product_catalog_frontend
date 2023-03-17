@@ -1,14 +1,40 @@
-import React from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import './cartItem.scss';
 import cn from 'classnames';
-import photo from './image.jpg';
+import { Phone } from '../../../types/PhoneDefault';
+import { getImage } from '../../../api/api';
+import { ActionContext } from '../../../context/ActionContext';
 
-export const CartItem: React.FC = () => {
+type Props = {
+  prod: Phone;
+};
+
+export const CartItem: React.FC<Props> = ({ prod }) => {
+  const { id, name, price, image } = prod;
+
+  const { deletePhoneFromCart } = useContext(ActionContext);
+
+  const [cardImage, setCardImage] = useState('');
+
+  const getImageFromServer = async () => {
+    try {
+      const data = await getImage(image);
+
+      setCardImage(data);
+    } catch {
+      // setError(true);
+    }
+  };
+
+  useEffect(() => {
+    getImageFromServer();
+  }, []);
+
   const test = true;
 
   return (
     <div className="item">
-      <a href="#delete" className="item__remove">
+      <button className="item__remove" onClick={() => deletePhoneFromCart(id)}>
         <svg
           className="item__remove-svg"
           width="16"
@@ -22,11 +48,11 @@ export const CartItem: React.FC = () => {
             d="M12.4716 4.4714C12.7319 4.21105 12.7319 3.78894 12.4716 3.52859C12.2112 3.26824 11.7891 3.26824 11.5288 3.52859L8.00016 7.05719L4.47157 3.52859C4.21122 3.26824 3.78911 3.26824 3.52876 3.52859C3.26841 3.78894 3.26841 4.21105 3.52876 4.4714L7.05735 7.99999L3.52876 11.5286C3.26841 11.7889 3.26841 12.211 3.52876 12.4714C3.78911 12.7317 4.21122 12.7317 4.47157 12.4714L8.00016 8.9428L11.5288 12.4714C11.7891 12.7317 12.2112 12.7317 12.4716 12.4714C12.7319 12.211 12.7319 11.7889 12.4716 11.5286L8.94297 7.99999L12.4716 4.4714Z"
           />
         </svg>
-      </a>
+      </button>
 
-      <img src={photo} alt="phone" className="item__image" />
+      <img src={cardImage} alt="phone" className="item__image" />
       <div className="item__conteiner">
-        <p className="item__title">Apple iPhone 14 Pro 128GB Silver (MQ023)</p>
+        <p className="item__title">{name}</p>
       </div>
 
       <div className="item__counter">
@@ -67,7 +93,7 @@ export const CartItem: React.FC = () => {
         </button>
       </div>
 
-      <p className="item__price">$1099</p>
+      <p className="item__price">{price}</p>
     </div>
   );
 };
