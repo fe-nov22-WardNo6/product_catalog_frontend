@@ -53,9 +53,9 @@ export const Card: React.FC<Props> = ({ phone, gridClass }) => {
 
 
       <div className="card__price">
-        <p className="card__price-new">{price}</p>
+        <p className="card__price-new">${price}</p>
 
-        <p className="card__price-old">{fullPrice}</p>
+        <p className="card__price-old">${fullPrice}</p>
       </div>
 
       <div className="card__line"></div>
