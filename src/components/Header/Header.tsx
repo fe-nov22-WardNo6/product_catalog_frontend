@@ -49,13 +49,14 @@ export const Header = () => {
           </div>
         </div>
         <div className="header__actions">
-          <a href="#" className="header__action">
-            <img
-              src={favorites_icon}
-              alt="Nice Gadgets logo"
-              className="icon"
-            />
-          </a>
+          <NavLink 
+            to="/favorites"
+            className={({ isActive}) => 
+              cn('header__action', { 'is-active': isActive})
+            }
+          >
+            <img src={favorites_icon} alt="Nice Gadgets logo" className="icon" />
+          </NavLink>
 
           <NavLink 
             to="/cart"
