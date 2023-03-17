@@ -1,0 +1,17 @@
+@import '../../style/utils/vars.scss';
+
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 25px 0;
+
+  &__link {
+    color: $colorWhite;
+    text-decoration: none;
+
+    &--is-active {
+      color: $colorGray;
+    }
+  }
+}

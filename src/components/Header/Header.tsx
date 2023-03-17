@@ -1,8 +1,8 @@
 import React from 'react';
 import { Logo } from '../Logo';
-import cart_icon from './img/cart_icon.svg';
-import favorites_icon from './img/favorites_icon.svg';
-import burger_menu_icon from './img/burger_menu_icon.svg';
+import cart_icon from '../../icons/cart.svg';
+import favorites_icon from '../../icons/heart.svg';
+import burger_menu_icon from '../../icons/menu.svg';
 import './Header.scss';
 import { NavLink } from 'react-router-dom';
 import cn from 'classnames';
@@ -49,13 +49,18 @@ export const Header = () => {
           </div>
         </div>
         <div className="header__actions">
-          <a href="#" className="header__action">
+          <NavLink
+            to="/favorites"
+            className={({ isActive }) =>
+              cn('header__action', { 'is-active': isActive })
+            }
+          >
             <img
               src={favorites_icon}
               alt="Nice Gadgets logo"
               className="icon"
             />
-          </a>
+          </NavLink>
 
           <NavLink
             to="/cart"
