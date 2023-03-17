@@ -1,7 +1,11 @@
 import React from 'react';
+import { BreadCrumbs } from '../../components/BreadCrumbs';
 
 export const AccessoriesPage: React.FC = () => {
   return (
-    <h1 style={{ color: 'red', height: '100vh' }}>AccessoriesPage Page</h1>
+    <>
+      <BreadCrumbs />
+      <h1 style={{ color: 'white', height: '100vh' }}>Accessories Page</h1>
+    </>
   );
 };

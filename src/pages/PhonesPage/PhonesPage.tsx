@@ -5,6 +5,7 @@ import '../../style/grid.scss';
 import { Card } from '../../components/Card';
 import { Phone } from '../../types/PhoneDefault';
 import { getPhones } from '../../api/api';
+import { BreadCrumbs } from '../../components/BreadCrumbs';
 
 export const PhonesPage: React.FC = () => {
   const [phones, setPhones] = useState<Phone[]>([]);
@@ -49,11 +50,11 @@ export const PhonesPage: React.FC = () => {
       <h1 className="phones-page__title">Mobile phones</h1>
       <p className="phones-page__countPhones">95 models</p>
       <div className="phones-page__displayOptions">component with form</div> */}
+      <BreadCrumbs />
       {isDataLoading && 'loading data'}
       {!isDataLoading && !isError && (
         <div className="phones-page__phones-container grid grid--desktop grid--tablet grid--landscape">
           {phones.map((phone, i) => {
-
             const gridClassArray = [];
             if (width > 1199) {
               if ((i + 1) % 4 === 3) {
