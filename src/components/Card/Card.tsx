@@ -3,6 +3,7 @@ import { getImage } from '../../api/api';
 import { Phone } from '../../types/PhoneDefault';
 import './card.scss';
 import cn from 'classnames';
+import { Link } from 'react-router-dom';
 
 type Props = {
   phone: Phone;
@@ -38,14 +39,18 @@ export const Card: React.FC<Props> = ({ phone, gridClass }) => {
 
   return (
     <article className={cn('card', gridClass)}>
-      {isDataLoading && 'loading...'}
-      {!isDataLoading && !isError && (
-        <div className="card__image-container">
-          <img className="card__image" src={cardImage} alt={name} />
-        </div>
-      )}
-      {isError && 'not found'}
-      <h1 className="card__name">{name}</h1>
+      <Link to='/' className="card__image-container"> 
+        <>
+          {isDataLoading && 'loading...'}
+
+          {!isDataLoading && !isError && (
+            <img className="card__image" src={cardImage} alt={name} />
+          )}
+          {isError && 'not found'}
+          <h1 className="card__name">{name}</h1>
+        </>
+      </Link>
+
 
       <div className="card__price">
         <p className="card__price-new">{price}</p>
