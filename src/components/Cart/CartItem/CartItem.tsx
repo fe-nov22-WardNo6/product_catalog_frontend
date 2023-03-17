@@ -6,16 +6,11 @@ import { getImage } from '../../../api/api';
 import { ActionContext } from '../../../context/ActionContext';
 
 type Props = {
-  prod: Phone,
+  prod: Phone;
 };
 
 export const CartItem: React.FC<Props> = ({ prod }) => {
-  const {
-    id,
-    name,
-    price,
-    image,
-  } = prod;
+  const { id, name, price, image } = prod;
 
   const { deletePhoneFromCart } = useContext(ActionContext);
 

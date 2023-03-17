@@ -31,12 +31,8 @@ export const Cart: React.FC = () => {
       <div className="cart__flex">
         <div className="cart__item">
           {addedToBuyPhones.map((prod) => (
-            <CartItem
-              key={prod.id}
-              prod={prod}
-            />
-          ))
-          }       
+            <CartItem key={prod.id} prod={prod} />
+          ))}
         </div>
 
         <div className="cart__total">

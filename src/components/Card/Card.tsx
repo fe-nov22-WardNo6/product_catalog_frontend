@@ -41,7 +41,7 @@ export const Card: React.FC<Props> = ({ phone, gridClass }) => {
 
   return (
     <article className={cn('card', gridClass)}>
-      <Link to='/' className="card__image-container"> 
+      <Link to="/" className="card__image-container">
         <>
           {isDataLoading && 'loading...'}
 
@@ -52,7 +52,6 @@ export const Card: React.FC<Props> = ({ phone, gridClass }) => {
           <h1 className="card__name">{name}</h1>
         </>
       </Link>
-
 
       <div className="card__price">
         <p className="card__price-new">${price}</p>
@@ -83,7 +82,10 @@ export const Card: React.FC<Props> = ({ phone, gridClass }) => {
       </div>
 
       <div className="card__buttons">
-        <button className="card__buttons-addCart" onClick={() => addPhoneToCart(phone)}>
+        <button
+          className="card__buttons-addCart"
+          onClick={() => addPhoneToCart(phone)}
+        >
           Add to cart
         </button>
         <a href="#AddToList" className="card__buttons-addList"></a>
