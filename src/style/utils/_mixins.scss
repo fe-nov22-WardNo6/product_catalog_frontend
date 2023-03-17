@@ -4,14 +4,20 @@
   }
 }
 
-@mixin onTablet {
-  @media (min-width: 640px) and (max-width: 1199px) {
+// @mixin onTablet {
+//   @media (min-width: 640px) and (max-width: 1199px) {
+//     @content;
+//   }
+// }
+
+@mixin onLandscape {
+  @media (min-width: 768px) {
     @content;
   }
 }
 
-@mixin onTabletLandscape {
-  @media (min-width: 768px) {
+@mixin onTablet {
+  @media (min-width: 640px) {
     @content;
   }
 }
@@ -34,8 +40,8 @@
   }
 }
 
-@mixin media-gridColumns-tabletLandscape($prefix, $numberOfColumns) {
-  @include onTablet {
+@mixin media-gridColumns-landscape($prefix, $numberOfColumns) {
+  @include onLandscape {
     @for $start from 1 through $numberOfColumns {
       @for $end from $start through $numberOfColumns {
         &-#{$prefix}--#{$start}-#{$end} {

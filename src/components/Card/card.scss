@@ -7,18 +7,56 @@ h1 {
 
 .card {
   box-sizing: border-box;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   background-color: $backgroundCardColor;
   padding: 32px;
-  // width: 272px;
-  height: 506px;
+  height: 440px;
+  width: 287px;
+
+  @media (min-width: 640px) {
+    height: 506px;
+    width: 288px;
+  }
+
+  @media (min-width: 768px) {
+    width: 229px;
+  }
+
+  @media (min-width: 1200px) {
+    width: 272px;
+  }
+
+  @media (max-width: 640px) {
+    margin-bottom: 40px;
+  }
+
+  &__image-container {
+    // max-width: 223px;
+    height: 130px;
+    margin: 0 auto 24px;
+    border-radius: 15px;
+
+    @media (min-width: 640px) {
+      height: 196px;
+      margin-bottom: 40px;
+    }
+
+    @media (min-width: 768px) {
+      height: 506px;
+      margin-bottom: 40px;
+    }
+  }
 
   &__image {
-    // width: 208px;
-    height: 196px;
-    margin: 0 0 24px;
-    border-radius: 15px;
+    display: block;
+    max-height: 130px;
+    margin: 0 auto;
+
+    @media (min-width: 640px) {
+      max-height: 196px;
+    }
   }
 
   &__name {
@@ -53,7 +91,8 @@ h1 {
 
   &__line {
     box-sizing: border-box;
-    width: 208px;
+    width: 100%;
+    // width: 208px;
     height: 0;
     border: 0.5px solid $elementsBorderColor;
   }
@@ -94,9 +133,11 @@ h1 {
 
     &-addCart {
       display: flex;
+      flex-grow: 1;
+      margin-right: 8px;
       justify-content: center;
       align-items: center;
-      width: 160px;
+      max-width: 160px;
       height: 40px;
       background-color: $primaryCardButtonColor;
       color: $primaryTextColor;
