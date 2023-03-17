@@ -1,18 +1,23 @@
+@import '../../../style/utils/vars';
+
 .item {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  padding: 24px;
   height: 128px;
-  background: #161827;
+  background: $backgroundCardColor;
   margin-bottom: 16px;
 
   &__remove {
-    margin-left: 30px;
-    text-decoration: none;
-    color: #4a4d58
+    fill: $hoverButtonColor;
+    
+    &:hover {
+      fill: $colorWhite;
+    }
   }
 
   &__image {
-    margin: 0 35px;
     width: 66px;
     height: 66px;
   }
@@ -22,37 +27,53 @@
   }
 
   &__title {
-    margin-right: 24px;
     font-style: normal;
     font-weight: 600;
     font-size: 14px;
     line-height: 21px;
-    color: #f1f2f9;
+    color: $colorWhite;
+  }
+
+  &__counter {
+    display: flex;
+    align-items: center;
   }
 
   &__count {
-    margin: 0 15px;
+    margin: 0 13px;
     font-style: normal;
     font-weight: 600;
     font-size: 14px;
     line-height: 21px;
-    color: #f1f2f9;
+    color: $colorWhite;
   }
 
   &__button {
     height: 32px;
     width: 32px;
-    background: #323542;
-    border: 1px solid #3b3e4a;
-    color: #f1f2f9;
+    background: $selectedCardButtonColor;
+    border: 1px solid $selectedCardButtonColor;
+    color: $colorWhite;
+
+    &-svg {
+      fill: $colorWhite;
+      margin-top: 2px;
+    }
   }
 
   &__price {
-    margin-left: 53px;
     font-style: normal;
     font-weight: 800;
     font-size: 22px;
     line-height: 140%;
-    color: #f1f2f9;
+    color: $colorWhite;
   }
+}
+
+.unactive-button {
+  background: $backgroundCardColor;
+}
+
+.unactive-button-svg {
+  fill: $elementsBorderColor;
 }
