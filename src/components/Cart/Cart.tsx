@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './cart.scss';
 import { CartItem } from './CartItem';
+import { ActionContext } from '../../context/ActionContext';
 
 export const Cart: React.FC = () => {
+  const { addedToBuyPhones } = useContext(ActionContext);
+
   return (
     <div className="conteiner">
       <a href="#home" className="cart__link">
@@ -27,10 +30,13 @@ export const Cart: React.FC = () => {
 
       <div className="cart__flex">
         <div className="cart__item">
-          <CartItem />
-          <CartItem />
-          <CartItem />
-          <CartItem />
+          {addedToBuyPhones.map((prod) => (
+            <CartItem
+              key={prod.id}
+              prod={prod}
+            />
+          ))
+          }       
         </div>
 
         <div className="cart__total">
