@@ -2,12 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { getImage } from '../../api/api';
 import { Phone } from '../../types/PhoneDefault';
 import './card.scss';
+import cn from 'classnames';
 
 type Props = {
   phone: Phone;
+  gridClass: string;
 };
 
-export const Card: React.FC<Props> = ({ phone }) => {
+export const Card: React.FC<Props> = ({ phone, gridClass }) => {
   const [cardImage, setCardImage] = useState('');
   const [isDataLoading, setIsDataLoading] = useState(false);
   const [isError, setError] = useState(false);
@@ -35,10 +37,12 @@ export const Card: React.FC<Props> = ({ phone }) => {
   }, []);
 
   return (
-    <article className="card">
+    <article className={cn('card', gridClass)}>
       {isDataLoading && 'loading...'}
       {!isDataLoading && !isError && (
-        <img className="card__image" src={cardImage} alt={name} />
+        <div className="card__image-container">
+          <img className="card__image" src={cardImage} alt={name} />
+        </div>
       )}
       {isError && 'not found'}
       <h1 className="card__name">{name}</h1>
