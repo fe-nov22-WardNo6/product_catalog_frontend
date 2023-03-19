@@ -1,10 +1,11 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import './cart.scss';
 import { CartItem } from './CartItem';
 import { ActionContext } from '../../context/ActionContext';
 
 export const Cart: React.FC = () => {
   const { addedToBuyPhones } = useContext(ActionContext);
+  const [fullCost] = useState(0);
 
   return (
     <div className="conteiner">
@@ -29,14 +30,22 @@ export const Cart: React.FC = () => {
       <h1 className="cart__title">Cart</h1>
 
       <div className="cart__flex">
-        <div className="cart__item">
-          {addedToBuyPhones.map((prod) => (
-            <CartItem key={prod.id} prod={prod} />
-          ))}
-        </div>
+        {addedToBuyPhones.length === 0 &&
+          <div className='cart__without'>
+            There are no products in the cart
+          </div>
+        } 
+        {addedToBuyPhones.length > 0 &&
+          <div className="cart__item">
+            {addedToBuyPhones.map((prod) => (
+              <CartItem key={prod.id} prod={prod} />
+            ))}
+          </div>
+        } 
+        
 
         <div className="cart__total">
-          <p className="cart__total-sum">$2657</p>
+          <p className="cart__total-sum">{fullCost}</p>
 
           <p className="cart__total-text">Total for 4 items</p>
 

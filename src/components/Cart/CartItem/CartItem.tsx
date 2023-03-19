@@ -15,6 +15,7 @@ export const CartItem: React.FC<Props> = ({ prod }) => {
   const { deletePhoneFromCart } = useContext(ActionContext);
 
   const [cardImage, setCardImage] = useState('');
+  const [counter, setCounter] = useState(1);
 
   const getImageFromServer = async () => {
     try {
@@ -30,7 +31,7 @@ export const CartItem: React.FC<Props> = ({ prod }) => {
     getImageFromServer();
   }, []);
 
-  const test = true;
+  const oneProd = counter === 1;
 
   return (
     <div className="item">
@@ -56,9 +57,13 @@ export const CartItem: React.FC<Props> = ({ prod }) => {
       </div>
 
       <div className="item__counter">
-        <button className={cn('item__button', { 'unactive-button': test })}>
+        <button 
+          className={cn('item__button', { 'unactive-button': oneProd })}
+          disabled={counter <= 1}
+          onClick={() => setCounter(counter - 1)}
+        >
           <svg
-            className={cn('item__button-svg', { 'unactive-button-svg': test })}
+            className={cn('item__button-svg', { 'unactive-button-svg': oneProd })}
             width="16"
             height="16"
             viewBox="0 0 16 16"
@@ -73,9 +78,12 @@ export const CartItem: React.FC<Props> = ({ prod }) => {
           </svg>
         </button>
 
-        <p className="item__count">1</p>
+        <p className="item__count">{counter}</p>
 
-        <button className="item__button">
+        <button 
+          className="item__button"
+          onClick={() => setCounter(counter + 1)}
+        >
           <svg
             className="item__button-svg"
             width="16"
@@ -93,7 +101,9 @@ export const CartItem: React.FC<Props> = ({ prod }) => {
         </button>
       </div>
 
-      <p className="item__price">{price}</p>
+      <p className="item__price">
+        {`$${price * counter}`}
+      </p>
     </div>
   );
 };
