@@ -17,7 +17,9 @@ export const Card: React.FC<Props> = ({ phone, gridClass }) => {
   const [isDataLoading, setIsDataLoading] = useState(false);
   const [isError, setError] = useState(false);
 
-  const { name, image, price, fullPrice, screen, capacity, ram } = phone;
+  const { name, image, price, fullPrice, screen, capacity, ram, phoneId } =
+    phone;
+  console.log(phone);
 
   const getImageFromServer = async () => {
     try {
@@ -41,7 +43,7 @@ export const Card: React.FC<Props> = ({ phone, gridClass }) => {
 
   return (
     <article className={cn('card', gridClass)}>
-      <Link to="/" className="card__image-container">
+      <Link to={`/phones/${phoneId}`} className="card__image-container">
         <>
           {isDataLoading && 'loading...'}
 

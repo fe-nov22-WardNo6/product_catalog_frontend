@@ -31,7 +31,7 @@ export const PhonesPage: React.FC = () => {
       setIsDataLoading(true);
       const data = await getPhones();
       setPhones(data);
-      console.log(data);
+      // console.log(data);
       setIsDataLoading(false);
     } catch {
       setError(true);

@@ -11,6 +11,17 @@ export const getPhones = async () => {
   }
 };
 
+export const getOnePhone = async (id: string) => {
+  try {
+    const response = await fetch(`${BASE_URL}/phones/${id}`);
+    const data = await response.json();
+
+    return data;
+  } catch {
+    throw new Error('bad request');
+  }
+};
+
 export const getImage = async (url: string) => {
   try {
     const response = await fetch(`${BASE_URL}/download?url=${url}`);
