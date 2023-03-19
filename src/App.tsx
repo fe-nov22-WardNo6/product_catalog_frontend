@@ -22,9 +22,7 @@ export const App: React.FC = () => {
           <Route path="/tablets" element={<TabletPage />} />
           <Route path="/accessories" element={<AccessoriesPage />} />
           <Route path="/cart" element={<Cart />} />
-          <Route
-            path="/phones/:phoneId"
-            element={<ItemCard />} />
+          <Route path="/phones/:phoneId" element={<ItemCard />} />
           {/* <Route path="/favorites" element={<FavoritesPage />} /> */}
         </Routes>
       </main>
