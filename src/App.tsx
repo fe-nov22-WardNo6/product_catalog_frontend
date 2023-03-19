@@ -8,6 +8,7 @@ import { HomePage } from './pages/HomePage';
 import { TabletPage } from './pages/TabletPage';
 import { AccessoriesPage } from './pages/AccessoriesPage';
 import { Cart } from './components/Cart';
+import { ItemCard } from './components/ItemCard';
 
 export const App: React.FC = () => {
   return (
@@ -21,21 +22,13 @@ export const App: React.FC = () => {
           <Route path="/tablets" element={<TabletPage />} />
           <Route path="/accessories" element={<AccessoriesPage />} />
           <Route path="/cart" element={<Cart />} />
-
-          {/* <Route
-          path="/phones/:productId"
-          element={<ProductDetailsPage />} /> */}
-          {/* <Route path="/tablets" element={<TabletsPage />} /> */}
-          {/* <Route
-            path="/tablets/:productId"
-            element={<ProductDetailsPage />}
-          /> */}
-          {/* <Route path="/accessories" element={<AccessoriesPage />} /> */}
-          {/* <Route path="/cart" element={<CartPage />} /> */}
+          <Route
+            path="/phones/:phoneId"
+            element={<ItemCard />} />
           {/* <Route path="/favorites" element={<FavoritesPage />} /> */}
         </Routes>
       </main>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };
