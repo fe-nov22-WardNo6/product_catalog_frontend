@@ -7,7 +7,7 @@ import cn from 'classnames';
 
 type Props = {
   phone: Phone;
-}
+};
 
 export const PhoneDescription: React.FC<Props> = ({ phone }) => {
   const [cardImage, setCardImage] = useState('');
@@ -16,7 +16,17 @@ export const PhoneDescription: React.FC<Props> = ({ phone }) => {
   const availableColors = ['gold', 'grey', 'black', 'white'];
   const availableCapacities = [64, 256, 512];
 
-  const { name, image, priceDiscount, priceRegular, screen, resolution, capacity, ram, color } = phone;
+  const {
+    name,
+    image,
+    priceDiscount,
+    priceRegular,
+    screen,
+    resolution,
+    capacity,
+    ram,
+    color,
+  } = phone;
 
   console.log(phone);
 
@@ -42,14 +52,9 @@ export const PhoneDescription: React.FC<Props> = ({ phone }) => {
 
   return (
     <div className="phone-info info">
-      <h2 className='phone-info__title'>{name}</h2>
-
-      
-
-
+      <h2 className="phone-info__title">{name}</h2>
 
       <div className="info__section visual">
-
         <div className="visual__container visual__container--photo">
           <div className="visual__photo photo">
             <div className="photo__container">
@@ -83,9 +88,13 @@ export const PhoneDescription: React.FC<Props> = ({ phone }) => {
         <div className="visual__container visual__container--price">
           <div className="visual__container-price--section colors">
             <p className="visual__container-price--text">Available colors</p>
-            <div className="colors__container" >
-              {availableColors.map(color => (
-                <button type="button" className={cn(`colors__color colors__${color}`)} key={color} >
+            <div className="colors__container">
+              {availableColors.map((color) => (
+                <button
+                  type="button"
+                  className={cn(`colors__color colors__${color}`)}
+                  key={color}
+                >
                   <div className={cn(`colors__fill-${color}`)}></div>
                 </button>
               ))}
@@ -94,16 +103,18 @@ export const PhoneDescription: React.FC<Props> = ({ phone }) => {
 
           <div className="visual__container-price--section capacities">
             <p className="visual__container-price--text">Select capacity</p>
-            <div className="capacities__container" >
-              {availableCapacities.map(capacity => (
-                <button type="button" className="capacities__capacity" key={capacity} >
+            <div className="capacities__container">
+              {availableCapacities.map((capacity) => (
+                <button
+                  type="button"
+                  className="capacities__capacity"
+                  key={capacity}
+                >
                   {capacity} GB
                 </button>
               ))}
             </div>
           </div>
-
-
 
           <div className="visual__container-price--section price-info">
             <div className="price-info__price">
@@ -114,7 +125,7 @@ export const PhoneDescription: React.FC<Props> = ({ phone }) => {
 
             <div className="price-info__buttons">
               <a href="#AddToCart" className="price-info__buttons-addCart">
-          Add to cart
+                Add to cart
               </a>
               <a href="#AddToList" className="price-info__buttons-addList"></a>
             </div>
@@ -147,14 +158,6 @@ export const PhoneDescription: React.FC<Props> = ({ phone }) => {
           </div>
         </div>
       </div>
-
-
-
-
-
-
-
-
 
       {/* <div className="info__section about">
         <div className="info-text__section info-text__section--about">

@@ -20,8 +20,6 @@
   }
 
   &__container {
-
-
     &--photo {
       // background-color: green;
       margin-bottom: 40px;
@@ -29,14 +27,14 @@
         display: flex;
         flex-grow: 1;
         flex-direction: row-reverse;
-        justify-content: flex-end ;
+        justify-content: flex-end;
         align-items: center;
       }
     }
 
     &--price {
       width: 100%;
-      
+
       @media (min-width: 640px) {
         width: 430px;
       }
@@ -45,7 +43,6 @@
       }
     }
   }
-
 
   &__container-price {
     &--section {
@@ -177,51 +174,50 @@
       margin-right: 0;
     }
   }
-  
+
   &__gold {
     border: 1px solid moccasin;
   }
-  
+
   &__fill-gold {
     border-radius: 50%;
     background-color: moccasin;
     width: 100%;
     height: 100%;
   }
-  
+
   &__white {
     border: 1px solid white;
   }
-  
+
   &__fill-white {
     border-radius: 50%;
     background-color: white;
     width: 100%;
     height: 100%;
   }
-  
+
   &__grey {
     border: 1px solid grey;
   }
-  
+
   &__fill-grey {
     border-radius: 50%;
     background-color: grey;
     width: 100%;
     height: 100%;
   }
-  
+
   &__black {
     border: 1px solid $elementsBorderColor;
   }
-  
+
   &__fill-black {
     border-radius: 50%;
     background-color: $elementsBorderColor;
     width: 100%;
     height: 100%;
   }
-  
 }
 
 .capacities {
@@ -242,16 +238,13 @@
       background-color: $primaryTextColor;
     }
   }
-
-
 }
 
 .price-info {
-
   &__price {
     display: flex;
     margin: 8px 0;
-  
+
     &-new {
       margin-right: 8px;
       font-style: normal;
@@ -260,7 +253,7 @@
       line-height: 140%;
       color: $primaryTextColor;
     }
-  
+
     &-old {
       font-style: normal;
       font-weight: 600;
@@ -268,7 +261,7 @@
       text-decoration-line: line-through;
       color: $secondaryTextColor;
     }
-  
+
     &__characteristics {
       display: flex;
       flex-direction: column;
@@ -286,18 +279,18 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 8px;
-  
+
     &:last-child {
       margin-bottom: 0;
     }
-  
+
     &-text {
       font-weight: 700;
       font-size: 12px;
       line-height: 15px;
       color: $secondaryTextColor;
     }
-  
+
     &-number {
       font-weight: 700;
       font-size: 12px;
@@ -309,7 +302,7 @@
   &__buttons {
     display: flex;
     justify-content: space-between;
-  
+
     &-addCart {
       display: flex;
       flex-grow: 1;
@@ -320,16 +313,16 @@
       background-color: $primaryCardButtonColor;
       color: $primaryTextColor;
       text-decoration: none;
-  
+
       &:hover {
         background-color: $hoverCardButtonColor;
       }
-  
+
       &:active {
         background-color: $selectedCardButtonColor;
       }
     }
-  
+
     &-addList {
       display: flex;
       justify-content: center;
@@ -341,11 +334,11 @@
       background-image: url('../../icons/heart.svg');
       background-repeat: no-repeat;
       background-position: center;
-  
+
       &:hover {
         background-color: $hoverButtonColor;
       }
-  
+
       &:active {
         background-image: url('../../icons/fullHeart.svg');
       }

@@ -33,19 +33,12 @@ export const ItemCard: React.FC = () => {
   return (
     <div className="item-card container">
       <BreadCrumbs />
-      <Link to='/phones' className="item-card__back">
+      <Link to="/phones" className="item-card__back">
         <img src={arrow} alt="Page phone" className="item-card__arrow-back" />
-        <p className="item-card__back-text">
-          Back
-        </p>
+        <p className="item-card__back-text">Back</p>
       </Link>
-
       {isDataLoading && 'loading data'}
-
-      {phone && !isError && (
-        <PhoneDescription phone={phone} />
-      )},
-
+      {phone && !isError && <PhoneDescription phone={phone} />},
       {isError && 'not found'}
     </div>
   );

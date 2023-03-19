@@ -57,7 +57,7 @@ export const PhonesPage: React.FC = () => {
         <div className="phones-page__phones-container grid grid--desktop grid--tablet grid--landscape">
           {phones.map((phone, i) => {
             const gridClass = getGridClass(width, i);
-         
+
             return (
               <Card key={phone.phoneId} phone={phone} gridClass={gridClass} />
             );
