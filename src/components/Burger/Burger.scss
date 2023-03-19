@@ -1,0 +1,72 @@
+@import '../../style/utils/vars';
+@import '../../style/utils/mixins';
+
+.burger {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background-color: $colorBlack;
+  z-index: 1;
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    height: 94%;
+    flex-direction: column;
+  }
+
+  &__button {
+    display: flex;
+    position: relative;
+    padding: 8px 0;
+    height: 100%;
+    font-weight: 800;
+    font-size: 12px;
+    line-height: 11px;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    text-align: center;
+    align-items: center;
+    text-transform: uppercase;
+    color: $colorGray;
+  }
+
+  &__buttons {
+    display: flex;
+    margin-top: 32px;
+    flex-direction: column;
+    height: auto;
+    align-items: center;
+    gap: 32px;
+  }
+
+  &__actions {
+    display: flex;
+  }
+
+  &__action {
+    display: flex;
+    position: sticky;
+    width: 50%;
+    height: 64px;
+    box-shadow: 0 0 0 1px #323542;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.is-active {
+  color: $colorWhite;
+
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 2px;
+    width: 100%;
+    background-color: $colorWhite;
+  }
+}
