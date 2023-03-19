@@ -9,16 +9,21 @@ type ContextType = {
   addedToBuyPhones: Phone[];
   addPhoneToCart: (phone: Phone) => void;
   deletePhoneFromCart: (id: string) => void;
+  countOfModels: number;
+  setCountModels: (count: number) => void;
 };
 
 export const ActionContext = createContext<ContextType>({
   addedToBuyPhones: [],
   addPhoneToCart: () => null,
   deletePhoneFromCart: () => null,
+  countOfModels: 0,
+  setCountModels: () => null,
 });
 
 export const ActionProvider: React.FC<Props> = ({ children }) => {
   const [addedToBuyPhones, setAddedToBuyPhones] = useState<Phone[]>([]);
+  const [countOfModels, setCountOfModels] = useState(0);
 
   const addPhoneToCart = useCallback((phone: Phone) => {
     setAddedToBuyPhones((currentPhones) => [...currentPhones, phone]);
@@ -30,10 +35,16 @@ export const ActionProvider: React.FC<Props> = ({ children }) => {
     );
   }, []);
 
+  const setCountModels = (count: number) => {
+    setCountOfModels(count);
+  };
+
   const contextValue = {
     addedToBuyPhones,
     addPhoneToCart,
     deletePhoneFromCart,
+    countOfModels,
+    setCountModels,
   };
 
   return (

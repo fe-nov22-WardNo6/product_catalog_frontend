@@ -33,3 +33,13 @@ export const getImage = async (url: string) => {
     throw new Error('not found');
   }
 };
+
+export const getCount = async (category: string) => {
+  try {
+    const response = await fetch(`${BASE_URL}/count/${category}`);
+    const data = await response.json();
+    return data;
+  } catch {
+    throw new Error('bad request');
+  }
+};
