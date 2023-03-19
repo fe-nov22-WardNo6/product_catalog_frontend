@@ -1,92 +1,132 @@
+@import '../../style/utils/vars';
+
 h1,
-p {
+p,
+a {
   margin: 0;
 }
 
-// .grid--desktop {
-//   row-gap: 0;
-// }
-
 .conteiner {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.cart__link {
-  margin: 40px 0 16px;
-  color: #f1f2f9;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 12px;
-  line-height: 15px;
-  text-decoration: none;
-}
-
-.cart__title {
-  margin-bottom: 32px;
-  color: #f1f2f9;
-  font-style: normal;
-  font-weight: 800;
-  font-size: 48px;
-  line-height: 56px;
-}
-
-.test {
-  height: 128px;
-  background-color: #fff;
-  margin-bottom: 16px;
-}
-
-.cart__total {
-  padding: 24px;
   display: flex;
-  align-items: center;
   flex-direction: column;
-  border: #3b3e4a 1px solid;
-  box-sizing: border-box;
-  background-color: #0f1121;
-  height: 200px;
+  max-width: 1150px;
+  margin: 0 auto;
+  padding: 40px 0;
 
-  &-sum {
-    color: #f1f2f9;
-    font-style: normal;
-    font-weight: 800;
-    font-size: 32px;
-    line-height: 41px;
+  @media (max-width: 1199px) {
+    margin: 0 24px;
   }
+}
 
-  &-text {
-    margin-bottom: 25px;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 21px;
-    color: #75767f;
-  }
-
-  &-line {
-    border: 1px solid #3b3e4a;
-    width: 321px;
-  }
-
-  &-button {
-    margin-top: 24px;
-    width: 321px;
-    height: 48px;
-    background: #905bff;
-    color: #f1f2f9;
+.cart {
+  &__link {
+    display: flex;
+    width: 50px;
+    align-items: center;
+    color: $colorWhite;
     font-style: normal;
     font-weight: 700;
-    font-size: 14px;
-    line-height: 21px;
-    border: none;
+    font-size: 12px;
+    line-height: 15px;
+    text-decoration: none;
 
-    &:hover {
-      background: #a378ff;
+    &-svg {
+      fill: $colorWhite;
+      margin-bottom: 2px;
     }
 
-    &:active {
-      background: #323542;
+    &:hover {
+      color: $primaryCardButtonColor;
+
+      .cart__link-svg {
+        fill: $primaryCardButtonColor;
+      }
+    }
+  }
+
+  &__title {
+    margin-top: 16px;
+    margin-bottom: 32px;
+    color: $colorWhite;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 48px;
+    line-height: 56px;
+  }
+
+  &__flex {
+    display: flex;
+    gap: 16px;
+
+    @media (max-width: 1199px) {
+      flex-direction: column;
+    }
+  }
+
+  &__item {
+    flex-grow: 2;
+
+    @media (max-width: 1199px) {
+      flex-grow: 1;
+    }
+  }
+
+  &__total {
+    flex-grow: 2;
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border: $elementsBorderColor 1px solid;
+    box-sizing: border-box;
+    background-color: $disabledButtonColor;
+    height: 200px;
+
+    &-sum {
+      color: $colorWhite;
+      font-style: normal;
+      font-weight: 800;
+      font-size: 32px;
+      line-height: 41px;
+    }
+
+    &-text {
+      margin-bottom: 25px;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 21px;
+      color: $secondaryTextColor;
+    }
+
+    &-line {
+      width: 100%;
+      border: 1px solid $elementsBorderColor;
+    }
+
+    &-link {
+      width: 100%;
+    }
+
+    &-button {
+      width: 100%;
+      margin-top: 24px;
+      height: 48px;
+      background: $primaryCardButtonColor;
+      color: $colorWhite;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 21px;
+      border: none;
+
+      &:hover {
+        background: $hoverCardButtonColor;
+      }
+
+      &:active {
+        background: $selectedCardButtonColor;
+      }
     }
   }
 }

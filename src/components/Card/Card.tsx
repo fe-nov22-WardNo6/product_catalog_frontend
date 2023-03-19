@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { getImage } from '../../api/api';
 import { Phone } from '../../types/PhoneDefault';
 import './card.scss';
 import cn from 'classnames';
 import { Link } from 'react-router-dom';
+import { ActionContext } from '../../context/ActionContext';
 
 type Props = {
   phone: Phone;
@@ -11,6 +12,7 @@ type Props = {
 };
 
 export const Card: React.FC<Props> = ({ phone, gridClass }) => {
+  const { addPhoneToCart } = useContext(ActionContext);
   const [cardImage, setCardImage] = useState('');
   const [isDataLoading, setIsDataLoading] = useState(false);
   const [isError, setError] = useState(false);
@@ -82,9 +84,12 @@ export const Card: React.FC<Props> = ({ phone, gridClass }) => {
       </div>
 
       <div className="card__buttons">
-        <a href="#AddToCart" className="card__buttons-addCart">
+        <button
+          className="card__buttons-addCart"
+          onClick={() => addPhoneToCart(phone)}
+        >
           Add to cart
-        </a>
+        </button>
         <a href="#AddToList" className="card__buttons-addList"></a>
       </div>
     </article>

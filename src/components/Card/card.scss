@@ -130,6 +130,7 @@
     &-addCart {
       display: flex;
       flex-grow: 1;
+      border: none;
       margin-right: 8px;
       justify-content: center;
       align-items: center;
@@ -137,7 +138,11 @@
       height: 40px;
       background-color: $primaryCardButtonColor;
       color: $primaryTextColor;
-      text-decoration: none;
+      font-family: 'Mont';
+      font-style: normal;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 21px;
 
       &:hover {
         background-color: $hoverCardButtonColor;
