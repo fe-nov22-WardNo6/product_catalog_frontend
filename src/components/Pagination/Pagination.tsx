@@ -9,8 +9,7 @@ type Props = {
 };
 
 export const Pagination: React.FC<Props> = ({ countOfModels }) => {
-  const [countAllPages, setCountAllPages] = useState(0);
-  const [allPages, setAllPages] = useState<number[]>([]);
+  const [countAllPages, setCountAllPages] = useState(countOfModels);
 
   const [searchParams, setSearchParams] = useSearchParams();
   const [currentPage, setCurrentPage] = useState(1);
@@ -19,37 +18,45 @@ export const Pagination: React.FC<Props> = ({ countOfModels }) => {
 
   const [isNextAvailible, setIsNextAvailible] = useState(false);
   const [isPrevAvailible, setIsPrevAvailible] = useState(false);
+  const [currentPerPage, setCurrentPerPage] = useState(16);
 
   const getCountOfPages = () => {
     const perPage = searchParams.get('perPage') || 16;
     const countPages = Math.ceil(countOfModels / +perPage);
+
     setCountAllPages(countPages);
     return countPages;
   };
 
   const getInitialCountOfPages = (countAll: number) => {
-    const allPages = [];
+    const allAvailablePages = [];
 
     for (let i = 1; i <= countAll; i++) {
-      allPages.push(i);
+      allAvailablePages.push(i);
     }
 
-    setAllPages(allPages);
-    return allPages;
+    return allAvailablePages;
   };
 
   const getInitialPages = () => {
-    const countAll = getCountOfPages();
-    const allPages = getInitialCountOfPages(countAll);
-    const pageInSearchParams = searchParams.get('currentPage') || 1;
-    getCurrentPages(+pageInSearchParams, allPages, countAll);
-    setCurrentPage(+pageInSearchParams);
+    const countOfAllPages = getCountOfPages();
+    const allPages = getInitialCountOfPages(countOfAllPages);
+    let pageInSearchParams = searchParams.get('currentPage') || 1;
+    const perPage = searchParams.get('perPage') || 16;
+
+    if (currentPerPage !== +perPage) {
+      pageInSearchParams = 1;
+      onPageHandler(1);
+      setCurrentPerPage(+perPage);
+    }
+
+    getCurrentPages(+pageInSearchParams, allPages, countOfAllPages);
   };
 
   const getCurrentPages = (
     page: number,
     allInitialPages: number[],
-    countAll: number,
+    countOfAllPages: number,
   ) => {
     let end = page;
 
@@ -58,7 +65,7 @@ export const Pagination: React.FC<Props> = ({ countOfModels }) => {
     }
     const currentPages = [...allInitialPages].slice(end - 5, end);
 
-    if (currentPages[currentPages.length - 1] < countAll) {
+    if (currentPages[currentPages.length - 1] < countOfAllPages) {
       setIsNextAvailible(true);
     } else {
       setIsNextAvailible(false);
@@ -69,21 +76,13 @@ export const Pagination: React.FC<Props> = ({ countOfModels }) => {
     } else {
       setIsPrevAvailible(false);
     }
-
+    setCurrentPage(page);
     setPages(currentPages);
   };
 
   useEffect(() => {
     getInitialPages();
-  }, [countOfModels]);
-
-  useEffect(() => {
-    setCountAllPages(getCountOfPages);
   }, [searchParams]);
-
-  useEffect(() => {
-    getCurrentPages(currentPage, allPages, countAllPages);
-  }, [currentPage]);
 
   const onPageHandler = (pageNumber: number) => {
     const updatedSearchParams = getSearchWith(searchParams, {
