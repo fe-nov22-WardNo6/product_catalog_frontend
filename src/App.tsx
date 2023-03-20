@@ -8,7 +8,7 @@ import { HomePage } from './pages/HomePage';
 import { TabletPage } from './pages/TabletPage';
 import { AccessoriesPage } from './pages/AccessoriesPage';
 import { Cart } from './components/Cart';
-import { ItemCard } from './components/ItemCard';
+import { ItemCard } from './pages/ProductPage';
 import { PageNotFound } from './pages/PageNotFound';
 
 export const App: React.FC = () => {

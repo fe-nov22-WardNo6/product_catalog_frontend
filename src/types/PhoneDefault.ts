@@ -1,5 +1,7 @@
+import { Description } from './Description';
+
 export type Phone = {
-  id: string;
+  id: number;
   category: string;
   phoneId: string;
   itemId: string;
@@ -13,7 +15,17 @@ export type Phone = {
   year: number;
   image: string;
   imageUrl: string;
+  count: number;
   priceDiscount: number;
   priceRegular: number;
   resolution: string;
+  images: string[];
+  colorsAvailable: string[];
+  namespaceId: string;
+  capacityAvailable: string[];
+  description: Description[];
+  processor: string;
+  camera: string;
+  zoom: string;
+  cell: string[];
 };

@@ -10,6 +10,7 @@ import { BreadCrumbs } from '../../components/BreadCrumbs';
 import { CounterItems } from '../../components/CounterItems';
 import { Pagination } from '../../components/Pagination';
 import { useSearchParams } from 'react-router-dom';
+import { SortPanel } from '../../components/SortPanel';
 
 export const PhonesPage: React.FC = () => {
   const [phones, setPhones] = useState<Phone[]>([]);
@@ -71,7 +72,9 @@ export const PhonesPage: React.FC = () => {
       <div className="phones-page__displayOptions">component with form</div> */}
       <BreadCrumbs />
       <h1 className="phones-page__title">Mobile phones</h1>
-      <CounterItems countOfModels={countOfModels} />
+      <CounterItems countOfModels={countOfModels} />     
+      <SortPanel />
+
       {isDataLoading && 'loading data'}
       {!isDataLoading && !isError && (
         <div className="phones-page__phones-container grid grid--desktop grid--tablet grid--landscape">

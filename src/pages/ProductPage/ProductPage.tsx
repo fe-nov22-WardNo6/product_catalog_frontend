@@ -2,10 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { getOnePhone } from '../../api/api';
 import { Phone } from '../../types/PhoneDefault';
-import { BreadCrumbs } from '../BreadCrumbs';
-import { PhoneDescription } from '../PhoneDescription';
+import { BreadCrumbs } from '../../components/BreadCrumbs';
+import { PhoneDescription } from '../../components/PhoneDescription';
 import arrow from '../../icons/arrowLeft.svg';
-import './ItemCard.scss';
+import './ProductPage.scss';
+import { AboutPhone } from '../../components/AboutPhone';
 
 export const ItemCard: React.FC = () => {
   const [phone, setPhone] = useState<Phone | null>(null);
@@ -13,7 +14,7 @@ export const ItemCard: React.FC = () => {
   const [isError, setError] = useState(false);
   const { phoneId = '' } = useParams();
 
-  const getOnePhoneFromServer = async () => {
+  const getOnePhoneFromServer = async (phoneId: string) => {
     try {
       setIsDataLoading(true);
       const data = await getOnePhone(phoneId);
@@ -27,8 +28,8 @@ export const ItemCard: React.FC = () => {
   };
 
   useEffect(() => {
-    getOnePhoneFromServer();
-  }, []);
+    getOnePhoneFromServer(phoneId);
+  }, [phoneId]);
 
   return (
     <div className="item-card container">
@@ -38,8 +39,13 @@ export const ItemCard: React.FC = () => {
         <p className="item-card__back-text">Back</p>
       </Link>
       {isDataLoading && 'loading data'}
-      {phone && !isError && <PhoneDescription phone={phone} />},
-      {isError && 'not found'}
+      {phone && !isError && (
+        <>
+          <PhoneDescription phone={phone} />
+          <AboutPhone phone={phone} />
+        </>
+      )}
+      ,{isError && 'not found'}
     </div>
   );
 };
