@@ -47,7 +47,7 @@ export const SortPanel: React.FC = () => {
 
   return (
     <div className="sortPanel">
-      <div className="sortPanel__wrapper container">
+      <div className="sortPanel__wrapper">
         <div className="sortPanel__category">
           <h2 className="dropdown-title">Sort by</h2>
           <div className="dropdown">
