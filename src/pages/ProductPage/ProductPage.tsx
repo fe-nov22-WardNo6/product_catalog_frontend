@@ -31,7 +31,6 @@ export const ItemCard: React.FC = () => {
     getOnePhoneFromServer(phoneId);
   }, [phoneId]);
 
-
   return (
     <div className="item-card container">
       <BreadCrumbs />
@@ -45,8 +44,8 @@ export const ItemCard: React.FC = () => {
           <PhoneDescription phone={phone} />
           <AboutPhone phone={phone} />
         </>
-      )},
-      {isError && 'not found'}
+      )}
+      ,{isError && 'not found'}
     </div>
   );
 };

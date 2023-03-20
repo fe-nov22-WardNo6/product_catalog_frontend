@@ -52,8 +52,8 @@ export const PhoneDescription: React.FC<Props> = ({ phone }) => {
 
   const getAllImages = async () => {
     try {
-      const data = await Promise.all(images.map(image => getImage(image)));
-      
+      const data = await Promise.all(images.map((image) => getImage(image)));
+
       setAllImages(data);
       setIsDataLoading(false);
     } catch {
@@ -123,20 +123,20 @@ export const PhoneDescription: React.FC<Props> = ({ phone }) => {
             <p className="visual__container-price--text">Select capacity</p>
             <div className="capacities__container">
               {capacityAvailable.map((capacity) => {
-
                 const link = `${namespaceId}-${capacity.toLowerCase()}-${color}`;
 
                 return (
                   <NavLink
                     to={`/phones/${link}`}
-                    className={({ isActive }) => cn(
-                      'capacities__capacity',
-                      {'capacities__capacity--isActive': isActive}
-                    )}
+                    className={({ isActive }) =>
+                      cn('capacities__capacity', {
+                        'capacities__capacity--isActive': isActive,
+                      })
+                    }
                     key={capacity}
                   >
                     {capacity}
-                  </NavLink >
+                  </NavLink>
                 );
               })}
             </div>
