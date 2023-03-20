@@ -23,7 +23,7 @@ export const Cart: React.FC = () => {
 
   return (
     <div className="conteiner grid grid--desktop">
-      <a href="#home" className="cart__link grid__item-desktop--1-2">
+      <a href="/" className="cart__link grid__item-desktop--1-2">
         Back
       </a>
 
