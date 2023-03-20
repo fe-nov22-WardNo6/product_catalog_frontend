@@ -80,21 +80,16 @@ export const Card: React.FC<Props> = ({ phone, gridClass }) => {
             <p className="card__char-number">{ram}</p>
           </div>
         </div>
-
-        <div className="card__buttons">
-          <button
-            className="card__buttons-addCart"
-            onClick={() => addPhoneToCart(phone)}
-          >
-          Add to cart
-          </button>
-          <a href="#AddToList" className="card__buttons-addList"></a>
-        </div>
       </Link>
-
-
-
-      
+      <div className="card__buttons">
+        <button
+          className="card__buttons-addCart"
+          onClick={() => addPhoneToCart(phone)}
+        >
+          Add to cart
+        </button>
+        <a href="#AddToList" className="card__buttons-addList"></a>
+      </div>
     </article>
   );
 };
