@@ -46,9 +46,7 @@ export const PhonesPage: React.FC = () => {
 
   return (
     <>
-      <SortPanel
-        getPhones={getPhonesFromServer}
-      />
+      <SortPanel getPhones={getPhonesFromServer} />
       <div className="phonesPage container">
         {/* <p className="text">page navigation</p>
     <h1 className="phones-page__title">Mobile phones</h1>
@@ -58,7 +56,6 @@ export const PhonesPage: React.FC = () => {
         {!isDataLoading && !isError && (
           <div className="phones-page__phones-container grid grid--desktop grid--tablet grid--landscape">
             {phones.map((phone, i) => {
-
               const gridClassArray = [];
               if (width > 1199) {
                 if ((i + 1) % 4 === 3) {

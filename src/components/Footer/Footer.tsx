@@ -17,7 +17,7 @@ export const Footer: React.FC = () => {
   return (
     <footer className="footer">
       <div className="container footer__wrapper">
-        <Logo/>
+        <Logo />
         <ul className="footer__list">
           <li className="footer__list_item">
             <a
