@@ -241,9 +241,7 @@
     height: 100%;
   }
 
-  spacegray
-
-  &__spacegray {
+  spacegray &__spacegray {
     border: 1px solid SlateGray;
   }
 
@@ -298,7 +296,6 @@
     height: 100%;
   }
 
-  
   &__midnightgreen {
     border: 1px solid DarkSlateGray;
   }
@@ -346,7 +343,6 @@
       background-color: $primaryTextColor;
     }
   }
-
 }
 
 .price-info {

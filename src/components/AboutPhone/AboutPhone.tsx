@@ -5,7 +5,7 @@ import './AboutPhone.scss';
 
 type Props = {
   phone: Phone;
-}
+};
 
 export const AboutPhone: React.FC<Props> = ({ phone }) => {
   const {
@@ -25,14 +25,16 @@ export const AboutPhone: React.FC<Props> = ({ phone }) => {
       <div className="about__container about__container--details details">
         <h3 className="about__container--title">About</h3>
 
-        {description.map(item => {
-          const { title, text} = item;
+        {description.map((item) => {
+          const { title, text } = item;
           return (
-            <div className="details__container" key={title} >
-              <h4 className="details__title" >{title}</h4>
+            <div className="details__container" key={title}>
+              <h4 className="details__title">{title}</h4>
 
-              {text.map(paragraph => (
-                <p className="details__text" key={paragraph} >{paragraph}</p>
+              {text.map((paragraph) => (
+                <p className="details__text" key={paragraph}>
+                  {paragraph}
+                </p>
               ))}
             </div>
           );
@@ -85,12 +87,8 @@ export const AboutPhone: React.FC<Props> = ({ phone }) => {
 
         <div className="specs__char">
           <p className="specs__char-text">Cell</p>
-          <p className="specs__char-number" >{cell.join(', ')}</p>
+          <p className="specs__char-number">{cell.join(', ')}</p>
         </div>
-
-        
-
-        
       </div>
     </div>
   );
