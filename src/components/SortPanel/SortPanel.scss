@@ -1,5 +1,5 @@
 .sortPanel {
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 
   &__wrapper {
     display: flex;
@@ -25,6 +25,7 @@
 }
 
 .dropdown-title {
+  margin-bottom: 4px;
   font-weight: 400;
   font-size: 12px;
   line-height: 15px;
