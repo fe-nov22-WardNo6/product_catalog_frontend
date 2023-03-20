@@ -14,7 +14,6 @@ export const PhoneDescription: React.FC<Props> = ({ phone }) => {
   const [allImages, setAllImages] = useState<string[] | []>([]);
   const [isDataLoading, setIsDataLoading] = useState(false);
   const [isError, setError] = useState(false);
-  const availableCapacities = [64, 256, 512];
 
   const {
     name,
@@ -185,15 +184,6 @@ export const PhoneDescription: React.FC<Props> = ({ phone }) => {
           </div>
         </div>
       </div>
-
-      {/* <div className="info__section about">
-        <div className="info-text__section info-text__section--about">
-          333
-        </div>
-        <div className="info-text__section info-text__section--specs">
-          444
-        </div>
-      </div> */}
     </div>
   );
 };

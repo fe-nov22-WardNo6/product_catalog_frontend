@@ -1,1 +1,1 @@
-export * from './ItemCard';
+export * from './ProductPage';
