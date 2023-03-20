@@ -72,7 +72,7 @@ export const PhonesPage: React.FC = () => {
       <div className="phones-page__displayOptions">component with form</div> */}
       <BreadCrumbs />
       <h1 className="phones-page__title">Mobile phones</h1>
-      <CounterItems countOfModels={countOfModels} />     
+      <CounterItems countOfModels={countOfModels} />
       <SortPanel />
 
       {isDataLoading && 'loading data'}
