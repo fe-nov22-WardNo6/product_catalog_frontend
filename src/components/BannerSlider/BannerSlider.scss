@@ -16,10 +16,10 @@
   justify-content: space-between;
   gap: 19px;
 
-  @include onTablet {
-    padding-left: 24px;
-    padding-right: 24px;
-  }
+  // @include onTablet {
+  //   padding-left: 24px;
+  //   padding-right: 24px;
+  // }
 }
 
 .slick-arrow {
