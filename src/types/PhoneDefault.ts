@@ -1,5 +1,5 @@
 export type Phone = {
-  id: string;
+  id: number;
   category: string;
   phoneId: string;
   itemId: string;
@@ -13,6 +13,7 @@ export type Phone = {
   year: number;
   image: string;
   imageUrl: string;
+  count: number;
   priceDiscount: number;
   priceRegular: number;
   resolution: string;

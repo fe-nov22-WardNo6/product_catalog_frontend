@@ -6,13 +6,13 @@ import { getImage } from '../../../api/api';
 import { ActionContext } from '../../../context/ActionContext';
 
 type Props = {
-  prod: Phone;
+  good: Phone;
 };
 
-export const CartItem: React.FC<Props> = ({ prod }) => {
-  const { id, name, price, image } = prod;
+export const CartItem: React.FC<Props> = ({ good }) => {
+  const { name, price, image } = good;
 
-  const { deletePhoneFromCart } = useContext(ActionContext);
+  const { addToCart, removeFromCart } = useContext(ActionContext);
 
   const [cardImage, setCardImage] = useState('');
 
@@ -30,11 +30,11 @@ export const CartItem: React.FC<Props> = ({ prod }) => {
     getImageFromServer();
   }, []);
 
-  const test = true;
+  const oneProd = good.count === 1;
 
   return (
     <div className="item">
-      <button className="item__remove" onClick={() => deletePhoneFromCart(id)}>
+      <button className="item__remove" onClick={() => removeFromCart(good)}>
         <svg
           className="item__remove-svg"
           width="16"
@@ -56,9 +56,15 @@ export const CartItem: React.FC<Props> = ({ prod }) => {
       </div>
 
       <div className="item__counter">
-        <button className={cn('item__button', { 'unactive-button': test })}>
+        <button
+          className={cn('item__button', { 'unactive-button': oneProd })}
+          disabled={good.count <= 1}
+          onClick={() => removeFromCart(good)}
+        >
           <svg
-            className={cn('item__button-svg', { 'unactive-button-svg': test })}
+            className={cn('item__button-svg', {
+              'unactive-button-svg': oneProd,
+            })}
             width="16"
             height="16"
             viewBox="0 0 16 16"
@@ -73,9 +79,9 @@ export const CartItem: React.FC<Props> = ({ prod }) => {
           </svg>
         </button>
 
-        <p className="item__count">1</p>
+        <p className="item__count">{good.count}</p>
 
-        <button className="item__button">
+        <button className="item__button" onClick={() => addToCart(good)}>
           <svg
             className="item__button-svg"
             width="16"
@@ -93,7 +99,7 @@ export const CartItem: React.FC<Props> = ({ prod }) => {
         </button>
       </div>
 
-      <p className="item__price">{price}</p>
+      <p className="item__price">{`$${price * good.count}` || 0}</p>
     </div>
   );
 };
