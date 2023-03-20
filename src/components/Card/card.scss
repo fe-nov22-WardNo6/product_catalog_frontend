@@ -10,15 +10,14 @@
   padding: 32px;
   height: 506px;
   width: 100%;
-  max-width: 272px;
+  max-width: 287px;
   border: 2px solid $backgroundCardColor;
   box-sizing: border-box;
-  transition: border, border-radius, transform $timeTransition;
+  transition: border, border-radius $timeTransition;
 
   &:hover {
     border: 2px solid $elementsBorderColor;
     border-radius: 5px;
-    transform: scale(1.1);
   }
 
   @media (max-width: 640px) {
@@ -138,6 +137,11 @@
       font-weight: 600;
       font-size: 14px;
       line-height: 21px;
+
+      &--added {
+        background-color: $primaryTextColor;
+        color: $colorBlack;
+      }
 
       &:hover {
         background-color: $hoverCardButtonColor;

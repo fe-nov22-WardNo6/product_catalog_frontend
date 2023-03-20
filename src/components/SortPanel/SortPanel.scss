@@ -1,9 +1,16 @@
 .sortPanel {
-  margin-bottom: 24px;
+  margin: 0 auto 24px;
+  width: 287px;
+
+  @media (min-width: 640px) {
+    margin: 0 0 24px;
+    width: 339px;
+  }
+
 
   &__wrapper {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     gap: 15px;
 
     @media (min-width: 640px) {
@@ -12,15 +19,11 @@
   }
 
   &__category {
-    @media (min-width: 640px) {
-      width: 190px;
-    }
+    width: 100%;
   }
 
   &__pages {
-    @media (min-width: 640px) {
-      width: 140px;
-    }
+      width: 136px;
   }
 }
 
