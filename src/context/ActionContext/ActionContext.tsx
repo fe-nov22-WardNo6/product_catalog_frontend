@@ -6,8 +6,8 @@ type Props = {
 };
 
 type ContextType = {
-  cartItems: Phone[],
-  addToCart: (phone: Phone) => void,
+  cartItems: Phone[];
+  addToCart: (phone: Phone) => void;
   removeFromCart: (phone: Phone) => void;
 };
 
@@ -19,7 +19,6 @@ export const ActionContext = createContext<ContextType>({
 
 export const ActionProvider: React.FC<Props> = ({ children }) => {
   const [cartItems, setCartItems] = useLocalStorage<Phone[]>('cart', []);
-
 
   function useLocalStorage<T>(key: string, initialValue: T) {
     const [storedValue, setStoredValue] = useState<T>(() => {
@@ -50,7 +49,7 @@ export const ActionProvider: React.FC<Props> = ({ children }) => {
   }
 
   const addToCart = (phone: Phone) => {
-    setCartItems(currentItems => {
+    setCartItems((currentItems) => {
       let cartItem = currentItems.find(({ id }) => id === phone.id);
 
       if (!cartItem) {
@@ -73,7 +72,7 @@ export const ActionProvider: React.FC<Props> = ({ children }) => {
   // };
 
   const removeFromCart = (phone: Phone) => {
-    setCartItems(currentItems => {
+    setCartItems((currentItems) => {
       const cartItem = currentItems.find(({ id }) => id === phone.id);
 
       if (!cartItem) {
@@ -113,9 +112,10 @@ export const ActionProvider: React.FC<Props> = ({ children }) => {
   //   });
   // };
 
-  const contextValue = useMemo(()=> (
-    { cartItems, addToCart, removeFromCart }
-  ), [cartItems]);
+  const contextValue = useMemo(
+    () => ({ cartItems, addToCart, removeFromCart }),
+    [cartItems],
+  );
 
   return (
     <ActionContext.Provider value={contextValue}>

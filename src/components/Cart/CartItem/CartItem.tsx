@@ -81,10 +81,7 @@ export const CartItem: React.FC<Props> = ({ good }) => {
 
         <p className="item__count">{good.count}</p>
 
-        <button
-          className="item__button"
-          onClick={() => addToCart(good)}
-        >
+        <button className="item__button" onClick={() => addToCart(good)}>
           <svg
             className="item__button-svg"
             width="16"
