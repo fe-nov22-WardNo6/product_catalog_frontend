@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { getImage } from '../../api/api';
 import { Phone } from '../../types/PhoneDefault';
 import './PhoneDescription.scss';
-import arrow from './00.png';
 import cn from 'classnames';
+import { Link, NavLink } from 'react-router-dom';
 
 type Props = {
   phone: Phone;
@@ -14,7 +14,6 @@ export const PhoneDescription: React.FC<Props> = ({ phone }) => {
   const [allImages, setAllImages] = useState<string[] | []>([]);
   const [isDataLoading, setIsDataLoading] = useState(false);
   const [isError, setError] = useState(false);
-  const availableColors = ['gold', 'grey', 'black', 'white'];
   const availableCapacities = [64, 256, 512];
 
   const {
@@ -26,6 +25,10 @@ export const PhoneDescription: React.FC<Props> = ({ phone }) => {
     resolution,
     capacity,
     ram,
+    colorsAvailable,
+    namespaceId,
+    capacityAvailable,
+    color,
   } = phone;
 
   const getImageFromServer = async () => {
@@ -46,12 +49,11 @@ export const PhoneDescription: React.FC<Props> = ({ phone }) => {
 
   useEffect(() => {
     getImageFromServer();
-  }, []);
+  }, [phone]);
 
   const getAllImages = async () => {
     try {
       const data = await Promise.all(images.map(image => getImage(image)));
-      console.log(data);
 
       setAllImages(data);
       setIsDataLoading(false);
@@ -65,13 +67,11 @@ export const PhoneDescription: React.FC<Props> = ({ phone }) => {
 
   useEffect(() => {
     getAllImages();
-  }, []);
+  }, [phone]);
 
   const changeImage = (image: string) => {
     setCardImage(image);
   };
-
-  console.log(cardImage);
 
   return (
     <div className="phone-info info">
@@ -103,30 +103,43 @@ export const PhoneDescription: React.FC<Props> = ({ phone }) => {
           <div className="visual__container-price--section colors">
             <p className="visual__container-price--text">Available colors</p>
             <div className="colors__container">
-              {availableColors.map((color) => (
-                <button
-                  type="button"
-                  className={cn(`colors__color colors__${color}`)}
-                  key={color}
-                >
-                  <div className={cn(`colors__fill-${color}`)}></div>
-                </button>
-              ))}
+              {colorsAvailable.map((color) => {
+                const link = `${namespaceId}-${capacity.toLowerCase()}-${color}`;
+
+                return (
+                  <Link
+                    to={`/phones/${link}`}
+                    className={cn(`colors__color colors__${color}`)}
+                    key={color}
+                    title={color}
+                  >
+                    <div className={cn(`colors__fill-${color}`)}></div>
+                  </Link>
+                );
+              })}
             </div>
           </div>
 
           <div className="visual__container-price--section capacities">
             <p className="visual__container-price--text">Select capacity</p>
             <div className="capacities__container">
-              {availableCapacities.map((capacity) => (
-                <button
-                  type="button"
-                  className="capacities__capacity"
-                  key={capacity}
-                >
-                  {capacity} GB
-                </button>
-              ))}
+              {capacityAvailable.map((capacity) => {
+
+                const link = `${namespaceId}-${capacity.toLowerCase()}-${color}`;
+
+                return (
+                  <NavLink
+                    to={`/phones/${link}`}
+                    className={({ isActive }) => cn(
+                      'capacities__capacity',
+                      {'capacities__capacity--isActive': isActive}
+                    )}
+                    key={capacity}
+                  >
+                    {capacity}
+                  </NavLink >
+                );
+              })}
             </div>
           </div>
 

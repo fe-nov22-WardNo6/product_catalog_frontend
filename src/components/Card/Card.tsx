@@ -42,8 +42,8 @@ export const Card: React.FC<Props> = ({ phone, gridClass }) => {
 
   return (
     <article className={cn('card', gridClass)}>
-      <Link to={`/phones/${phoneId}`} className="card__image-container">
-        <>
+      <Link to={`/phones/${phoneId}`} >
+        <div className="card__image-container">
           {isDataLoading && 'loading...'}
 
           {!isDataLoading && !isError && (
@@ -51,46 +51,50 @@ export const Card: React.FC<Props> = ({ phone, gridClass }) => {
           )}
           {isError && 'not found'}
           <h1 className="card__name">{name}</h1>
-        </>
+        </div>
+
+        <div className="card__price">
+          <p className="card__price-new">${price}</p>
+
+          <p className="card__price-old">${fullPrice}</p>
+        </div>
+
+        <div className="card__line"></div>
+
+        <div className="card__characteristics">
+          <div className="card__char">
+            <p className="card__char-text">Screen</p>
+
+            <p className="card__char-number">{screen}</p>
+          </div>
+
+          <div className="card__char">
+            <p className="card__char-text">Capacity</p>
+
+            <p className="card__char-number">{capacity}</p>
+          </div>
+
+          <div className="card__char">
+            <p className="card__char-text">RAM</p>
+
+            <p className="card__char-number">{ram}</p>
+          </div>
+        </div>
+
+        <div className="card__buttons">
+          <button
+            className="card__buttons-addCart"
+            onClick={() => addPhoneToCart(phone)}
+          >
+          Add to cart
+          </button>
+          <a href="#AddToList" className="card__buttons-addList"></a>
+        </div>
       </Link>
 
-      <div className="card__price">
-        <p className="card__price-new">${price}</p>
 
-        <p className="card__price-old">${fullPrice}</p>
-      </div>
 
-      <div className="card__line"></div>
-
-      <div className="card__characteristics">
-        <div className="card__char">
-          <p className="card__char-text">Screen</p>
-
-          <p className="card__char-number">{screen}</p>
-        </div>
-
-        <div className="card__char">
-          <p className="card__char-text">Capacity</p>
-
-          <p className="card__char-number">{capacity}</p>
-        </div>
-
-        <div className="card__char">
-          <p className="card__char-text">RAM</p>
-
-          <p className="card__char-number">{ram}</p>
-        </div>
-      </div>
-
-      <div className="card__buttons">
-        <button
-          className="card__buttons-addCart"
-          onClick={() => addPhoneToCart(phone)}
-        >
-          Add to cart
-        </button>
-        <a href="#AddToList" className="card__buttons-addList"></a>
-      </div>
+      
     </article>
   );
 };
