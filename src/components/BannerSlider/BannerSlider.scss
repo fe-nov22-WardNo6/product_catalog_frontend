@@ -1,5 +1,5 @@
-@import "~slick-carousel/slick/slick.scss";
-@import "~slick-carousel/slick/slick-theme.scss";
+@import '~slick-carousel/slick/slick.scss';
+@import '~slick-carousel/slick/slick-theme.scss';
 
 @import '../../style/utils/mixins.scss';
 
@@ -16,7 +16,7 @@
   justify-content: space-between;
   gap: 19px;
 
-  @include onTablet{
+  @include onTablet {
     padding-left: 24px;
     padding-right: 24px;
   }
@@ -51,7 +51,7 @@
 }
 
 .slick-arrow::before {
-  content: "";
+  content: '';
   display: block;
   width: 32px;
   height: 32px;
@@ -103,14 +103,14 @@
 }
 
 .slick-dots li button:before {
-  content: "";
+  content: '';
   width: 14px;
   height: 4px;
-  background-color: #3B3E4A;
+  background-color: #3b3e4a;
   opacity: 0.25;
 }
 
 .slick-dots li.slick-active button:before {
-  background-color: #F1F2F9;
+  background-color: #f1f2f9;
   opacity: 0.75;
 }

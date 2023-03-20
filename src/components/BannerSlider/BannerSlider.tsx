@@ -30,12 +30,12 @@ export const BannerSlider: React.FC = () => {
     prevArrow: <Arrow className="slick-prev slick-arrow" />,
     nextArrow: <Arrow className="slick-next slick-arrow" />,
   };
-  return(
-    <div className='corousel'>
+  return (
+    <div className="corousel">
       <Slider {...settings}>
-        <div className='slick-slide'></div>
-        <div className='slick-slide'></div>
-        <div className='slick-slide'></div>
+        <div className="slick-slide"></div>
+        <div className="slick-slide"></div>
+        <div className="slick-slide"></div>
       </Slider>
     </div>
   );
