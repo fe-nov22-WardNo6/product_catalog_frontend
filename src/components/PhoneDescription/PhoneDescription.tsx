@@ -11,6 +11,7 @@ type Props = {
 
 export const PhoneDescription: React.FC<Props> = ({ phone }) => {
   const [cardImage, setCardImage] = useState('');
+  const [allImages, setAllImages] = useState<string[] | []>([]);
   const [isDataLoading, setIsDataLoading] = useState(false);
   const [isError, setError] = useState(false);
   const availableColors = ['gold', 'grey', 'black', 'white'];
@@ -18,23 +19,20 @@ export const PhoneDescription: React.FC<Props> = ({ phone }) => {
 
   const {
     name,
-    image,
+    images,
     priceDiscount,
     priceRegular,
     screen,
     resolution,
     capacity,
     ram,
-    color,
   } = phone;
-
-  console.log(phone);
 
   const getImageFromServer = async () => {
     try {
       setIsDataLoading(true);
 
-      const data = await getImage(image);
+      const data = await getImage(images[0]);
 
       setCardImage(data);
       setIsDataLoading(false);
@@ -50,6 +48,31 @@ export const PhoneDescription: React.FC<Props> = ({ phone }) => {
     getImageFromServer();
   }, []);
 
+  const getAllImages = async () => {
+    try {
+      const data = await Promise.all(images.map(image => getImage(image)));
+      console.log(data);
+
+      setAllImages(data);
+      setIsDataLoading(false);
+    } catch {
+      setError(true);
+      setIsDataLoading(false);
+    } finally {
+      setIsDataLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    getAllImages();
+  }, []);
+
+  const changeImage = (image: string) => {
+    setCardImage(image);
+  };
+
+  console.log(cardImage);
+
   return (
     <div className="phone-info info">
       <h2 className="phone-info__title">{name}</h2>
@@ -58,30 +81,21 @@ export const PhoneDescription: React.FC<Props> = ({ phone }) => {
         <div className="visual__container visual__container--photo">
           <div className="visual__photo photo">
             <div className="photo__container">
-              <img src={arrow} alt="Phone image" className="photo__image" />
+              <img src={cardImage} alt="Phone image" className="photo__image" />
             </div>
           </div>
 
           <div className="visual__angles angles">
-            <button type="button" className="angles__container">
-              <img src={arrow} alt="Phone image" className="angles__photo" />
-            </button>
-
-            <button type="button" className="angles__container">
-              <img src={arrow} alt="Phone image" className="angles__photo" />
-            </button>
-
-            <button type="button" className="angles__container">
-              <img src={arrow} alt="Phone image" className="angles__photo" />
-            </button>
-
-            <button type="button" className="angles__container">
-              <img src={arrow} alt="Phone image" className="angles__photo" />
-            </button>
-
-            <button className="angles__container">
-              <img src={arrow} alt="Phone image" className="angles__photo" />
-            </button>
+            {allImages.map(image => (
+              <button 
+                type="button" 
+                className="angles__container" 
+                key={image}
+                onClick={() => changeImage(image)}
+              >
+                <img src={image} alt="Phone image" className="angles__photo" />
+              </button>
+            ))}
           </div>
         </div>
 
