@@ -1,8 +1,8 @@
 import React from 'react';
 import './Footer.scss';
 import '../../style/App.scss';
-import logo from '../../icons/logo.svg';
 import arrowUp from '../../icons/arrowUp.svg';
+import { Logo } from '../Logo';
 
 export const Footer: React.FC = () => {
   const handleClick = () => {
@@ -17,9 +17,7 @@ export const Footer: React.FC = () => {
   return (
     <footer className="footer">
       <div className="container footer__wrapper">
-        <div className="footer__logo">
-          <img src={logo} alt="Logo" />
-        </div>
+        <Logo />
         <ul className="footer__list">
           <li className="footer__list_item">
             <a

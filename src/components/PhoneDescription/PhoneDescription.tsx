@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { getImage } from '../../api/api';
 import { Phone } from '../../types/PhoneDefault';
 import './PhoneDescription.scss';
-import arrow from './00.png';
 import cn from 'classnames';
 
 type Props = {
@@ -50,7 +49,7 @@ export const PhoneDescription: React.FC<Props> = ({ phone }) => {
 
   const getAllImages = async () => {
     try {
-      const data = await Promise.all(images.map(image => getImage(image)));
+      const data = await Promise.all(images.map((image) => getImage(image)));
       console.log(data);
 
       setAllImages(data);
@@ -86,10 +85,10 @@ export const PhoneDescription: React.FC<Props> = ({ phone }) => {
           </div>
 
           <div className="visual__angles angles">
-            {allImages.map(image => (
-              <button 
-                type="button" 
-                className="angles__container" 
+            {allImages.map((image) => (
+              <button
+                type="button"
+                className="angles__container"
                 key={image}
                 onClick={() => changeImage(image)}
               >

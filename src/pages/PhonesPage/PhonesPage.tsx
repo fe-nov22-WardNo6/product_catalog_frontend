@@ -8,6 +8,7 @@ import { getPhones } from '../../api/api';
 import { getGridClass } from '../../utils/getGridClass';
 import { BreadCrumbs } from '../../components/BreadCrumbs';
 import { CounterItems } from '../../components/CounterItems';
+import { SortPanel } from '../../components/SortPanel';
 
 export const PhonesPage: React.FC = () => {
   const [phones, setPhones] = useState<Phone[]>([]);
@@ -55,6 +56,7 @@ export const PhonesPage: React.FC = () => {
       <BreadCrumbs />
       <h1 className="phones-page__title">Mobile phones</h1>
       <CounterItems />
+      <SortPanel />
       {isDataLoading && 'loading data'}
       {!isDataLoading && !isError && (
         <div className="phones-page__phones-container grid grid--desktop grid--tablet grid--landscape">
