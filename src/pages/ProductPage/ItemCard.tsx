@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { getOnePhone } from '../../api/api';
 import { Phone } from '../../types/PhoneDefault';
 import { BreadCrumbs } from '../../components/BreadCrumbs';
@@ -13,7 +13,7 @@ export const ItemCard: React.FC = () => {
   const [isError, setError] = useState(false);
   const { phoneId = '' } = useParams();
 
-  const getOnePhoneFromServer = async () => {
+  const getOnePhoneFromServer = async (phoneId: string) => {
     try {
       setIsDataLoading(true);
       const data = await getOnePhone(phoneId);
@@ -27,8 +27,9 @@ export const ItemCard: React.FC = () => {
   };
 
   useEffect(() => {
-    getOnePhoneFromServer();
-  }, []);
+    getOnePhoneFromServer(phoneId);
+  }, [phoneId]);
+
 
   return (
     <div className="item-card container">
