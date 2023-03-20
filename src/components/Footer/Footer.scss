@@ -2,27 +2,18 @@
 
 .footer {
   background: $colorBlack;
-  border-top: 1px $elementsBorderColor;
+  box-shadow: 0 0 0 1px #323542;
   width: 100%;
   padding: 32px 0;
-  position: fixed;
-  bottom: 0;
 
   &__wrapper {
+    gap: 32px;
+
     @media (min-width: 640px) {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
-    }
-  }
-
-  &__logo {
-    display: flex;
-    margin-bottom: 32px;
-
-    @media (min-width: 640px) {
-      margin-bottom: 0;
     }
   }
 
@@ -34,12 +25,13 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 16px;
-    margin-bottom: 40px;
+
+    margin: 32px 0;
 
     @media (min-width: 640px) {
       display: flex;
       flex-direction: row;
-      margin-bottom: 0;
+      margin: 0;
     }
 
     @media (min-width: 1200px) {
@@ -48,8 +40,6 @@
   }
 
   &__list_link {
-    font-family: 'Mont';
-    font-style: normal;
     font-weight: 800;
     font-size: 12px;
     line-height: 11px;
@@ -62,14 +52,12 @@
   }
 
   &__top {
-    display: inline-flex;
+    display: flex;
     justify-content: center;
     align-items: center;
     gap: 16px;
 
     &__text {
-      font-family: 'Mont';
-      font-style: normal;
       font-weight: 700;
       font-size: 12px;
       line-height: 15px;

@@ -14,4 +14,11 @@ export type Phone = {
   image: string;
   imageUrl: string;
   count: number;
+  priceDiscount: number;
+  priceRegular: number;
+  resolution: string;
+  images: string[];
+  colorsAvailable: string[];
+  namespaceId: string;
+  capacityAvailable: string[];
 };

@@ -11,6 +11,15 @@
   height: 506px;
   width: 100%;
   max-width: 272px;
+  border: 2px solid $backgroundCardColor;
+  box-sizing: border-box;
+  transition: border, border-radius, transform $timeTransition;
+
+  &:hover {
+    border: 2px solid $elementsBorderColor;
+    border-radius: 5px;
+    transform: scale(1.1);
+  }
 
   @media (max-width: 640px) {
     margin-bottom: 40px;
@@ -67,7 +76,6 @@
       font-style: normal;
       font-weight: 600;
       font-size: 22px;
-      line-height: 28px;
       text-decoration-line: line-through;
       color: $secondaryTextColor;
     }

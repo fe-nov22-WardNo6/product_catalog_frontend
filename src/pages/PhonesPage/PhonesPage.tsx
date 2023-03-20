@@ -7,6 +7,8 @@ import { Phone } from '../../types/PhoneDefault';
 import { getPhones } from '../../api/api';
 import { getGridClass } from '../../utils/getGridClass';
 import { BreadCrumbs } from '../../components/BreadCrumbs';
+import { CounterItems } from '../../components/CounterItems';
+import { SortPanel } from '../../components/SortPanel';
 
 export const PhonesPage: React.FC = () => {
   const [phones, setPhones] = useState<Phone[]>([]);
@@ -31,7 +33,7 @@ export const PhonesPage: React.FC = () => {
       setIsDataLoading(true);
       const data = await getPhones();
       setPhones(data);
-      console.log(data);
+      // console.log(data);
       setIsDataLoading(false);
     } catch {
       setError(true);
@@ -52,6 +54,9 @@ export const PhonesPage: React.FC = () => {
       <p className="phones-page__countPhones">95 models</p>
       <div className="phones-page__displayOptions">component with form</div> */}
       <BreadCrumbs />
+      <h1 className="phones-page__title">Mobile phones</h1>
+      <CounterItems />
+      <SortPanel />
       {isDataLoading && 'loading data'}
       {!isDataLoading && !isError && (
         <div className="phones-page__phones-container grid grid--desktop grid--tablet grid--landscape">

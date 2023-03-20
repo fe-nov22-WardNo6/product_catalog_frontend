@@ -8,7 +8,7 @@ import cn from 'classnames';
 
 export const BreadCrumbs: React.FC = () => {
   const breadcrumbs = useBreadcrumbs();
-  console.log(breadcrumbs);
+  // console.log(breadcrumbs);
 
   return (
     <div className="breadcrumbs">
