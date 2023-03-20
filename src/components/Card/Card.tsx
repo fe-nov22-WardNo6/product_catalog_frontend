@@ -19,7 +19,6 @@ export const Card: React.FC<Props> = ({ phone, gridClass }) => {
 
   const { name, image, price, fullPrice, screen, capacity, ram, phoneId } =
     phone;
-  console.log(phone);
 
   const getImageFromServer = async () => {
     try {

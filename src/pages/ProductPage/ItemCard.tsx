@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { getOnePhone } from '../../api/api';
 import { Phone } from '../../types/PhoneDefault';
-import { BreadCrumbs } from '../BreadCrumbs';
-import { PhoneDescription } from '../PhoneDescription';
+import { BreadCrumbs } from '../../components/BreadCrumbs';
+import { PhoneDescription } from '../../components/PhoneDescription';
 import arrow from '../../icons/arrowLeft.svg';
 import './ItemCard.scss';
 

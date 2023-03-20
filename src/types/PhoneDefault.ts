@@ -16,4 +16,5 @@ export type Phone = {
   priceDiscount: number;
   priceRegular: number;
   resolution: string;
+  images: string[];
 };
