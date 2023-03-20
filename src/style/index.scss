@@ -1,3 +1,5 @@
+@import './utils/reset.scss';
+
 @font-face {
   font-family: Mont;
   src: url(./fonts/Mont-Regular.otf);
@@ -17,6 +19,7 @@
 
 body {
   margin: 0;
+  box-sizing: border-box;
   font-family: Mont, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

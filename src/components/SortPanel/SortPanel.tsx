@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-// import { Dropdown } from '../Dropdown';
 import './SortPanel.scss';
 import '../../style/App.scss';
 import arrowUp from '../../icons/arrowUp.svg';
@@ -11,11 +10,7 @@ import { useSearchParams } from 'react-router-dom';
 const sortBy = ['Expence', 'Newest', 'Chipest'];
 const pages = ['4', '8', '16', '32', '48'];
 
-type Props = {
-  getPhones: (searchParams: string) => void;
-};
-
-export const SortPanel: React.FC<Props> = () => {
+export const SortPanel: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const [isActiveCategory, setisActiveCategory] = useState(false);

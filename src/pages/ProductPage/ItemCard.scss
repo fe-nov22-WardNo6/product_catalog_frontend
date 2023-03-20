@@ -1,0 +1,19 @@
+@import '../../style/utils/vars';
+
+.item-card__back {
+  display: flex;
+  margin-top: 20px;
+  margin-bottom: 16px;
+}
+
+.item-card__arrow-back {
+  margin-right: 10px;
+}
+
+.item-card__back-text {
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 15px;
+  line-height: 18px;
+  color: $colorWhite;
+}

@@ -13,4 +13,8 @@ export type Phone = {
   year: number;
   image: string;
   imageUrl: string;
+  priceDiscount: number;
+  priceRegular: number;
+  resolution: string;
+  images: string[];
 };

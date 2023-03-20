@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { getImage } from '../../api/api';
 import { Phone } from '../../types/PhoneDefault';
 import './card.scss';
 import cn from 'classnames';
+import { Link } from 'react-router-dom';
+import { ActionContext } from '../../context/ActionContext';
 
 type Props = {
   phone: Phone;
@@ -10,11 +12,13 @@ type Props = {
 };
 
 export const Card: React.FC<Props> = ({ phone, gridClass }) => {
+  const { addPhoneToCart } = useContext(ActionContext);
   const [cardImage, setCardImage] = useState('');
   const [isDataLoading, setIsDataLoading] = useState(false);
   const [isError, setError] = useState(false);
 
-  const { name, image, price, fullPrice, screen, capacity, ram } = phone;
+  const { name, image, price, fullPrice, screen, capacity, ram, phoneId } =
+    phone;
 
   const getImageFromServer = async () => {
     try {
@@ -38,19 +42,22 @@ export const Card: React.FC<Props> = ({ phone, gridClass }) => {
 
   return (
     <article className={cn('card', gridClass)}>
-      {isDataLoading && 'loading...'}
-      {!isDataLoading && !isError && (
-        <div className="card__image-container">
-          <img className="card__image" src={cardImage} alt={name} />
-        </div>
-      )}
-      {isError && 'not found'}
-      <h1 className="card__name">{name}</h1>
+      <Link to={`/phones/${phoneId}`} className="card__image-container">
+        <>
+          {isDataLoading && 'loading...'}
+
+          {!isDataLoading && !isError && (
+            <img className="card__image" src={cardImage} alt={name} />
+          )}
+          {isError && 'not found'}
+          <h1 className="card__name">{name}</h1>
+        </>
+      </Link>
 
       <div className="card__price">
-        <p className="card__price-new">{price}</p>
+        <p className="card__price-new">${price}</p>
 
-        <p className="card__price-old">{fullPrice}</p>
+        <p className="card__price-old">${fullPrice}</p>
       </div>
 
       <div className="card__line"></div>
@@ -76,9 +83,12 @@ export const Card: React.FC<Props> = ({ phone, gridClass }) => {
       </div>
 
       <div className="card__buttons">
-        <a href="#AddToCart" className="card__buttons-addCart">
+        <button
+          className="card__buttons-addCart"
+          onClick={() => addPhoneToCart(phone)}
+        >
           Add to cart
-        </a>
+        </button>
         <a href="#AddToList" className="card__buttons-addList"></a>
       </div>
     </article>
