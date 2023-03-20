@@ -16,7 +16,7 @@
   @media (min-width: 640px) {
     display: flex;
     justify-content: space-between;
-    gap: 24px;
+    gap: 64px;
   }
 
   &__container {
@@ -51,11 +51,11 @@
       padding: 24px 0;
 
       @media (min-width: 640px) {
-        width: 260px;
+        width: 200px;
       }
 
       @media (min-width: 720px) {
-        width: 320px;
+        width: 260px;
       }
 
       &:last-child {
