@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import pageNotFoundIcon from '../../icons/pageNotFound.svg';
 import './PageNotFound.scss';
 
-export const PageNotFound = () => {
+export const PageNotFound: React.FC = () => {
   const navigate = useNavigate();
   const [seconds, setSeconds] = useState(5);
   const timerId = setInterval(() => setSeconds(seconds - 1), 1000);

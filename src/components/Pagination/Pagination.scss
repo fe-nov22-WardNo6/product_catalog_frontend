@@ -1,0 +1,70 @@
+@import '../../style/utils/vars.scss';
+
+.pagination {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  align-items: center;
+  color: $primaryTextColor;
+
+  &__container {
+    margin-top: 40px;
+  }
+
+  &__arrow {
+    height: 32px;
+    width: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $selectedCardButtonColor;
+    fill: $colorWhite;
+    cursor: pointer;
+    transition: background-color $timeTransition;
+
+    &:hover {
+      background-color: $hoverButtonColor;
+    }
+
+    &--disabled {
+      background-color: $colorBlack;
+      border: 1px solid $hoverButtonColor;
+      fill: $hoverButtonColor;
+      cursor: default;
+
+      &:hover {
+        fill: $hoverButtonColor;
+        background-color: $colorBlack;
+      }
+    }
+  }
+
+  &__items {
+    display: flex;
+    gap: 8px;
+    justify-content: space-between;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 32px;
+    width: 32px;
+    background-color: $backgroundCardColor;
+    font-weight: 400;
+    transition: background-color $timeTransition;
+
+    &:hover {
+      background-color: $elementsBorderColor;
+    }
+
+    &--selected {
+      background-color: $primaryCardButtonColor;
+
+      &:hover {
+        background-color: $primaryCardButtonColor;
+      }
+    }
+  }
+}

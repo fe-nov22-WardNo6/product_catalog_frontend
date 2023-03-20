@@ -1,24 +1,10 @@
-import React, { useContext, useEffect } from 'react';
-import { getCount } from '../../api/api';
+import React from 'react';
 import './counterItems.scss';
-import { ActionContext } from '../../context/ActionContext';
 
-export const CounterItems: React.FC = () => {
-  const { countOfModels, setCountModels } = useContext(ActionContext);
+type Props = {
+  countOfModels: number;
+};
 
-  const getCountFromServer = async () => {
-    try {
-      const data = await getCount('phones');
-      const countFromServer = data.count;
-      setCountModels(countFromServer);
-    } catch {
-      setCountModels(0);
-    }
-  };
-
-  useEffect(() => {
-    getCountFromServer();
-  }, []);
-
+export const CounterItems: React.FC<Props> = ({ countOfModels }) => {
   return <p className="counterItmes">{`${countOfModels} models`}</p>;
 };
