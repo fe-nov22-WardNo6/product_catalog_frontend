@@ -54,7 +54,7 @@ export const PhoneDescription: React.FC<Props> = ({ phone }) => {
   const getAllImages = async () => {
     try {
       const data = await Promise.all(images.map(image => getImage(image)));
-
+      
       setAllImages(data);
       setIsDataLoading(false);
     } catch {
@@ -86,10 +86,10 @@ export const PhoneDescription: React.FC<Props> = ({ phone }) => {
           </div>
 
           <div className="visual__angles angles">
-            {allImages.map(image => (
-              <button 
-                type="button" 
-                className="angles__container" 
+            {allImages.map((image) => (
+              <button
+                type="button"
+                className="angles__container"
                 key={image}
                 onClick={() => changeImage(image)}
               >

@@ -27,7 +27,7 @@ export const App: React.FC = () => {
           {/* <Route path="/favorites" element={<FavoritesPage />} /> */}
         </Routes>
       </main>
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 };
