@@ -1,11 +1,25 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import './cart.scss';
 import { CartItem } from './CartItem';
 import { ActionContext } from '../../context/ActionContext';
 
 export const Cart: React.FC = () => {
-  const { addedToBuyPhones } = useContext(ActionContext);
-  const [fullCost] = useState(0);
+  const { cartItems } = useContext(ActionContext);
+  const countArr = cartItems.map(el => el.count);
+  const countSum = getSum(countArr);
+  const totalItem = cartItems.map(el => el.count * el.price);
+  const totalItems = getSum(totalItem);
+  // const totalCost: number = cartItems.reduce((a, b) => a + b.price, 0);
+
+  function getSum(arr: number[]) {
+    let sum = 0;
+
+    for (let i = 0; i < arr.length; i++) {
+      sum += arr[i];
+    }
+
+    return sum;
+  }
 
   return (
     <div className="conteiner">
@@ -30,24 +44,24 @@ export const Cart: React.FC = () => {
       <h1 className="cart__title">Cart</h1>
 
       <div className="cart__flex">
-        {addedToBuyPhones.length === 0 &&
-          <div className='cart__without'>
-            There are no products in the cart
-          </div>
-        } 
-        {addedToBuyPhones.length > 0 &&
+        {cartItems.length === 0 && (
+          <div className="cart__without">There are no products in the cart</div>
+        )}
+        {cartItems.length > 0 && (
           <div className="cart__item">
-            {addedToBuyPhones.map((prod) => (
-              <CartItem key={prod.id} prod={prod} />
+            {cartItems.map((good) => (
+              <CartItem 
+                key={good.id}
+                good={good}
+              />
             ))}
           </div>
-        } 
-        
+        )}
 
         <div className="cart__total">
-          <p className="cart__total-sum">{fullCost}</p>
+          <p className="cart__total-sum">{`$${totalItems}`}</p>
 
-          <p className="cart__total-text">Total for 4 items</p>
+          <p className="cart__total-text">{`Total for ${countSum} items`}</p>
 
           <div className="cart__total-line"></div>
 

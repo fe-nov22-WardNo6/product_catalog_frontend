@@ -12,7 +12,7 @@ type Props = {
 };
 
 export const Card: React.FC<Props> = ({ phone, gridClass }) => {
-  const { addPhoneToCart } = useContext(ActionContext);
+  const { addToCart } = useContext(ActionContext);
   const [cardImage, setCardImage] = useState('');
   const [isDataLoading, setIsDataLoading] = useState(false);
   const [isError, setError] = useState(false);
@@ -84,7 +84,7 @@ export const Card: React.FC<Props> = ({ phone, gridClass }) => {
       <div className="card__buttons">
         <button
           className="card__buttons-addCart"
-          onClick={() => addPhoneToCart(phone)}
+          onClick={() => addToCart(phone)}
         >
           Add to cart
         </button>
