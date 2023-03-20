@@ -5,6 +5,7 @@ import './card.scss';
 import cn from 'classnames';
 import { Link } from 'react-router-dom';
 import { ActionContext } from '../../context/ActionContext';
+import { Loader } from '../Loader';
 
 type Props = {
   phone: Phone;
@@ -65,7 +66,7 @@ export const Card: React.FC<Props> = ({ phone, gridClass }) => {
     <article className={cn('card', gridClass)}>
       <Link to={`/phones/${phoneId}`}>
         <div className="card__image-container">
-          {isDataLoading && 'loading...'}
+          {isDataLoading && <Loader />}
 
           {!isDataLoading && !isError && (
             <img className="card__image" src={cardImage} alt={name} />
