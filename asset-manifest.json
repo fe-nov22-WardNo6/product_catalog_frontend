@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/product_catalog_frontend/static/css/main.b8509bf2.css",
-    "main.js": "/product_catalog_frontend/static/js/main.cdcda753.js",
+    "main.css": "/product_catalog_frontend/static/css/main.fd034932.css",
+    "main.js": "/product_catalog_frontend/static/js/main.9e5bcf87.js",
     "static/media/logo.svg": "/product_catalog_frontend/static/media/logo.1b84728b90078b7eea014ac44cc8fc43.svg",
     "static/media/Mont-Regular.otf": "/product_catalog_frontend/static/media/Mont-Regular.1d26d89f7339866d3133.otf",
     "static/media/Mont-SemiBold.otf": "/product_catalog_frontend/static/media/Mont-SemiBold.8979d71a3146ca1d761f.otf",
@@ -17,11 +17,11 @@
     "static/media/arrowRight.svg": "/product_catalog_frontend/static/media/arrowRight.c9171b88f2b5c91378fd891a0ea3fe83.svg",
     "static/media/arrowDown.svg": "/product_catalog_frontend/static/media/arrowDown.0a75b98d9165f32dc53134e728970af1.svg",
     "static/media/arrowUp.svg": "/product_catalog_frontend/static/media/arrowUp.a617e9ecb57a4e24fcfecbff7a7744a0.svg",
-    "main.b8509bf2.css.map": "/product_catalog_frontend/static/css/main.b8509bf2.css.map",
-    "main.cdcda753.js.map": "/product_catalog_frontend/static/js/main.cdcda753.js.map"
+    "main.fd034932.css.map": "/product_catalog_frontend/static/css/main.fd034932.css.map",
+    "main.9e5bcf87.js.map": "/product_catalog_frontend/static/js/main.9e5bcf87.js.map"
   },
   "entrypoints": [
-    "static/css/main.b8509bf2.css",
-    "static/js/main.cdcda753.js"
+    "static/css/main.fd034932.css",
+    "static/js/main.9e5bcf87.js"
   ]
 }
