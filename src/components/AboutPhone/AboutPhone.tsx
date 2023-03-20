@@ -1,6 +1,5 @@
 import React from 'react';
 import { Phone } from '../../types/PhoneDefault';
-import { Description } from '../../types/Description';
 import './AboutPhone.scss';
 
 type Props = {
