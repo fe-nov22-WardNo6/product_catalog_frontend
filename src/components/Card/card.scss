@@ -139,8 +139,7 @@
       line-height: 21px;
 
       &--added {
-        background-color: $primaryTextColor;
-        color: $colorBlack;
+        background-color: $defaultButtonColor;
       }
 
       &:hover {
