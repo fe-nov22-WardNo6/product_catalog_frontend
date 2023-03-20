@@ -7,7 +7,7 @@ import cn from 'classnames';
 import { getSearchWith } from '../utils/searchParamsHelper';
 import { useSearchParams } from 'react-router-dom';
 
-const sortBy = ['Expence', 'Newest', 'Chipest'];
+const sortBy = ['Expensive', 'Newest', 'Cheapest'];
 const pages = ['4', '8', '16', '32', '48'];
 
 export const SortPanel: React.FC = () => {
@@ -18,8 +18,7 @@ export const SortPanel: React.FC = () => {
   const isSelectedCategory = Boolean(selectedCategory.length);
 
   const [isActivePages, setisActivePages] = useState(false);
-  const [selectedPages, setSelectedPages] = useState('');
-  const isSelectedPages = Boolean(selectedPages.length);
+  const [selectedPages, setSelectedPages] = useState('16');
 
   const handleClickSortList = () => {
     setisActiveCategory(!isActiveCategory);
@@ -109,8 +108,7 @@ export const SortPanel: React.FC = () => {
               onClick={handleClickPagesList}
             >
               <div className="dropdown__button-text">
-                {isSelectedPages && selectedPages}
-                {!isSelectedPages && 'Choose items'}
+                {selectedPages}
               </div>
               <img
                 className="dropdown__button__icon"
@@ -122,19 +120,17 @@ export const SortPanel: React.FC = () => {
               <div className="dropdown__content">
                 {pages.map((page) => {
                   return (
-                    <>
-                      <div
-                        key={page}
-                        className="dropdown__item"
-                        onClick={() => {
-                          onPerPageHandler(page);
-                          setSelectedPages(page);
-                          setisActivePages(false);
-                        }}
-                      >
-                        {page}
-                      </div>
-                    </>
+                    <div
+                      key={page}
+                      className="dropdown__item"
+                      onClick={() => {
+                        onPerPageHandler(page);
+                        setSelectedPages(page);
+                        setisActivePages(false);
+                      }}
+                    >
+                      {page}
+                    </div>
                   );
                 })}
 
@@ -142,7 +138,7 @@ export const SortPanel: React.FC = () => {
                   className="dropdown__item"
                   onClick={() => {
                     onPerPageHandler(null);
-                    setSelectedPages('');
+                    setSelectedPages('16');
                     setisActivePages(false);
                   }}
                 >

@@ -13,7 +13,8 @@ type Props = {
 };
 
 export const Card: React.FC<Props> = ({ phone, gridClass }) => {
-  const { addToCart } = useContext(ActionContext);
+  const { addToCart, removeFromCart, cartItems } = useContext(ActionContext);
+  const [addedToCart, setAddedToCart] = useState(false);
   const [cardImage, setCardImage] = useState('');
   const [isDataLoading, setIsDataLoading] = useState(false);
   const [isError, setError] = useState(false);
@@ -40,6 +41,26 @@ export const Card: React.FC<Props> = ({ phone, gridClass }) => {
   useEffect(() => {
     getImageFromServer();
   }, []);
+
+  const checkCart = () => {
+    if (cartItems.some(item => item.id === phone.id)) {
+      setAddedToCart(true);
+    }
+  };
+
+  useEffect(() => {
+    checkCart();
+  }, [cartItems]);
+
+  const handleAdd = () => {
+    if (addedToCart) {
+      removeFromCart(phone);
+      setAddedToCart(false);
+    } else {
+      addToCart(phone);
+      setAddedToCart(true);
+    }
+  };
 
   return (
     <article className={cn('card', gridClass)}>
@@ -84,10 +105,12 @@ export const Card: React.FC<Props> = ({ phone, gridClass }) => {
       </Link>
       <div className="card__buttons">
         <button
-          className="card__buttons-addCart"
-          onClick={() => addToCart(phone)}
+          className={cn('card__buttons-addCart',
+            {'card__buttons-addCart--added': addedToCart}
+          )}
+          onClick={() => handleAdd()}
         >
-          Add to cart
+          {addedToCart ? 'Added to cart' : 'Add to cart'}
         </button>
         <a href="#AddToList" className="card__buttons-addList"></a>
       </div>
