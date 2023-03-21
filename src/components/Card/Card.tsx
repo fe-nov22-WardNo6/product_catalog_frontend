@@ -133,10 +133,10 @@ export const Card: React.FC<Props> = ({ phone, gridClass }) => {
       </Link>
       <div className="card__buttons">
         <button
-          className={cn('card__buttons-addCart', {
-            'card__buttons-addCart--added': addedToCart,
-          })}
-          onClick={() => handleAdd()}
+          className={cn('card__buttons-addCart',
+            {'card__buttons-addCart--added': addedToCart}
+          )}
+          onClick={() => handleAddToCart()}
         >
           {addedToCart ? 'Added to cart' : 'Add to cart'}
         </button>
