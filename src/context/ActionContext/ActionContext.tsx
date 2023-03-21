@@ -127,28 +127,11 @@ export const ActionProvider: React.FC<Props> = ({ children }) => {
     });
   };
 
-  // const removeFromCart = (phone: Phone) => {
-  //   const filteredCart = cartItems?.filter(el => el.id !== phone.id);
-  //   setCartItems(filteredCart);
-  // };
-
-  // const removeOne = (productId: number): void => {
-  //   setCartItems(currentItems => {
-  //     const cartItem = currentItems.find(({ id }) => id === productId);
-
-  //     if (!cartItem) {
-  //       return [...currentItems];
-  //     }
-
-  //     cartItem.count--;
-
-  //     if (cartItem.count <= 0) {
-  //       return currentItems.filter(({ id }) => id !== productId);
-  //     }
-
-  //     return [...currentItems];
-  //   });
-  // };
+  const removeAllFromCart = (phone: Phone) => {
+    setCartItems((currentItems) => {
+      return currentItems.filter(({ id }) => id !== phone.id);
+    });
+  };
 
   const contextValue = useMemo(
     () => ({
@@ -161,11 +144,6 @@ export const ActionProvider: React.FC<Props> = ({ children }) => {
       removeAllFromCart
     }),
     [cartItems, favoritesItems],
-  const removeAllFromCart = (phone: Phone) => {
-    setCartItems((currentItems) => {
-      return currentItems.filter(({ id }) => id !== phone.id);
-    });
-  };
   );
 
   return (

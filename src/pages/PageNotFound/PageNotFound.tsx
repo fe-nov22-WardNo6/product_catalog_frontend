@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import pageNotFoundIcon from '../../icons/pageNotFound.svg';
-import './PageNotFound.scss';
+import './PageNotfound.scss';
 
 export const PageNotFound: React.FC = () => {
   const navigate = useNavigate();
