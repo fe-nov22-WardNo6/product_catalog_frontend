@@ -11,6 +11,7 @@ import { Cart } from './components/Cart';
 import { Burger } from './components/Burger';
 import { ItemCard } from './pages/ProductPage';
 import { PageNotFound } from './pages/PageNotFound';
+import { FavoritesPage } from './pages/FavoritesPage/FavoritesPage';
 
 export const App: React.FC = () => {
   const [isBurgerActive, setIsBurgerActive] = useState(false);
@@ -20,7 +21,7 @@ export const App: React.FC = () => {
       <Header setIsBurgerActive={setIsBurgerActive} isBurgerActive={isBurgerActive} />
       { isBurgerActive ?
         <Burger />
-        : 
+        :
         <>
           <main>
             <Routes>
@@ -31,7 +32,7 @@ export const App: React.FC = () => {
               <Route path="/accessories" element={<AccessoriesPage />} />
               <Route path="/cart" element={<Cart />} />
               <Route path="/phones/:phoneId" element={<ItemCard />} />
-              {/* <Route path="/favorites" element={<FavoritesPage />} /> */}
+              <Route path="/favorites" element={<FavoritesPage />} />
             </Routes>
           </main>
           <Footer />
