@@ -17,10 +17,13 @@ export const App: React.FC = () => {
 
   return (
     <div className="App">
-      <Header setIsBurgerActive={setIsBurgerActive} isBurgerActive={isBurgerActive} />
-      { isBurgerActive ?
+      <Header
+        setIsBurgerActive={setIsBurgerActive}
+        isBurgerActive={isBurgerActive}
+      />
+      {isBurgerActive ? (
         <Burger />
-        : 
+      ) : (
         <>
           <main>
             <Routes>
@@ -36,7 +39,7 @@ export const App: React.FC = () => {
           </main>
           <Footer />
         </>
-      }
+      )}
     </div>
   );
 };

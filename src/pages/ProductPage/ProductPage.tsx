@@ -17,14 +17,13 @@ export const ItemCard: React.FC = () => {
   const { phoneId = '' } = useParams();
   const [phonesRecommended, setPhonesRecommended] = useState<Phone[]>([]);
 
-
   const getRecommendedFromServer = async (collection: string) => {
     try {
       const data = await getCollection(collection);
       setPhonesRecommended(data);
     } catch {
       console.log(123);
-    } 
+    }
   };
 
   useEffect(() => {
@@ -63,11 +62,7 @@ export const ItemCard: React.FC = () => {
         </>
       )}
       ,{isError && 'not found'}
-
-      <Roundabout 
-        title="You may also like"
-        phones={phonesRecommended}
-      />
+      <Roundabout title="You may also like" phones={phonesRecommended} />
     </div>
   );
 };

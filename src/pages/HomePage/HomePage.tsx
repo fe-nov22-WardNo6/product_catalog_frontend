@@ -16,7 +16,7 @@ export const HomePage: React.FC = () => {
       setPhonesNew(data);
     } catch {
       console.log(123);
-    } 
+    }
   };
 
   const getHotFromServer = async (collection: string) => {
@@ -25,7 +25,7 @@ export const HomePage: React.FC = () => {
       setPhonesHot(data);
     } catch {
       console.log(123);
-    } 
+    }
   };
 
   useEffect(() => {
@@ -37,18 +37,12 @@ export const HomePage: React.FC = () => {
     <div className="homePage container">
       <h1 className="title">Welcome to Nice Gadgets store!</h1>
       <BannerSlider />
-      <div className='roundaCon'>
-        <Roundabout 
-          title="Brand new models"
-          phones={phonesNew}
-        />
+      <div className="roundaCon">
+        <Roundabout title="Brand new models" phones={phonesNew} />
       </div>
 
-      <div className='roundaCon'>
-        <Roundabout 
-          title="Hot prices"
-          phones={phonesHot}
-        />
+      <div className="roundaCon">
+        <Roundabout title="Hot prices" phones={phonesHot} />
       </div>
     </div>
   );
