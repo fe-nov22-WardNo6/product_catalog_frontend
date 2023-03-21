@@ -14,6 +14,19 @@ export const getPhones = async (searchParams: string) => {
   }
 };
 
+export const getCollection = async (collectionName: string) => {
+  const fetchUrl = `${BASE_URL}/phones/collection/${collectionName}`;
+
+  try {
+    const response = await fetch(fetchUrl);
+    const data = await response.json();
+
+    return data;
+  } catch {
+    throw new Error('bad request');
+  }
+};
+
 export const getOnePhone = async (id: string) => {
   try {
     const response = await fetch(`${BASE_URL}/phones/${id}`);

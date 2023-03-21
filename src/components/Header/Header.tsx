@@ -9,11 +9,14 @@ import { NavLink } from 'react-router-dom';
 import cn from 'classnames';
 
 type Props = {
-  setIsBurgerActive: (boolean: boolean) => void,
-  isBurgerActive: boolean,
+  setIsBurgerActive: (boolean: boolean) => void;
+  isBurgerActive: boolean;
 };
 
-export const Header: React.FC<Props> = ({ setIsBurgerActive, isBurgerActive }) => {
+export const Header: React.FC<Props> = ({
+  setIsBurgerActive,
+  isBurgerActive,
+}) => {
   return (
     <header className="header">
       <div className="header__content">
@@ -76,23 +79,29 @@ export const Header: React.FC<Props> = ({ setIsBurgerActive, isBurgerActive }) =
           >
             <img src={cart_icon} alt="Nice Gadgets logo" className="icon" />
           </NavLink>
-          {isBurgerActive ?
-            <button className="header__action" onClick={() => setIsBurgerActive(false)}>
+          {isBurgerActive ? (
+            <button
+              className="header__action"
+              onClick={() => setIsBurgerActive(false)}
+            >
               <img
                 src={burger_close_icon}
                 alt="Nice Gadgets logo"
                 className="icon"
               />
             </button>
-            : 
-            <button className="header__action" onClick={() => setIsBurgerActive(true)}>
+          ) : (
+            <button
+              className="header__action"
+              onClick={() => setIsBurgerActive(true)}
+            >
               <img
                 src={burger_menu_icon}
                 alt="Nice Gadgets logo"
                 className="icon"
               />
             </button>
-          }
+          )}
         </div>
       </div>
     </header>

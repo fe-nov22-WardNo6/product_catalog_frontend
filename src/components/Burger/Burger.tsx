@@ -7,8 +7,8 @@ import './Burger.scss';
 
 export const Burger = () => {
   return (
-    <div className='burger'>
-      <div className='burger__content'>
+    <div className="burger">
+      <div className="burger__content">
         <div className="burger__buttons">
           <NavLink
             to="/"
@@ -16,7 +16,7 @@ export const Burger = () => {
               cn('burger__button', { 'is-active': isActive })
             }
           >
-              HOME
+            HOME
           </NavLink>
           <NavLink
             to="/phones"
@@ -24,7 +24,7 @@ export const Burger = () => {
               cn('burger__button', { 'is-active': isActive })
             }
           >
-              PHONES
+            PHONES
           </NavLink>
           <NavLink
             to="/tablets"
@@ -32,7 +32,7 @@ export const Burger = () => {
               cn('burger__button', { 'is-active': isActive })
             }
           >
-              TABLETS
+            TABLETS
           </NavLink>
           <NavLink
             to="/accessories"
@@ -40,7 +40,7 @@ export const Burger = () => {
               cn('burger__button', { 'is-active': isActive })
             }
           >
-              ACCESSORIES
+            ACCESSORIES
           </NavLink>
         </div>
         <div className="burger__actions">
@@ -67,6 +67,6 @@ export const Burger = () => {
           </NavLink>
         </div>
       </div>
-    </div>    
+    </div>
   );
 };
