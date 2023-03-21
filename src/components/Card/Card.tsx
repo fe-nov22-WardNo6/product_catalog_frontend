@@ -13,8 +13,16 @@ type Props = {
 };
 
 export const Card: React.FC<Props> = ({ phone, gridClass }) => {
-  const { addToCart, removeFromCart, cartItems } = useContext(ActionContext);
+  const {
+    addToCart,
+    removeAllFromCart,
+    cartItems,
+    favoritesItems,
+    addToFavorites,
+    removeFromFavorites
+  } = useContext(ActionContext);
   const [addedToCart, setAddedToCart] = useState(false);
+  const [addedToFavorites, setAddedToFavorites] = useState(false);
   const [cardImage, setCardImage] = useState('');
   const [isDataLoading, setIsDataLoading] = useState(false);
   const [isError, setError] = useState(false);
@@ -52,13 +60,33 @@ export const Card: React.FC<Props> = ({ phone, gridClass }) => {
     checkCart();
   }, [cartItems]);
 
-  const handleAdd = () => {
+  const checkFavorites = () => {
+    if (favoritesItems.some(item => item.id === phone.id)) {
+      setAddedToFavorites(true);
+    }
+  };
+
+  useEffect(() => {
+    checkFavorites();
+  }, [favoritesItems]);
+
+  const handleAddToCart = () => {
     if (addedToCart) {
-      removeFromCart(phone);
+      removeAllFromCart(phone);
       setAddedToCart(false);
     } else {
       addToCart(phone);
       setAddedToCart(true);
+    }
+  };
+
+  const handleAddToFavorites = () => {
+    if (addedToFavorites) {
+      removeFromFavorites(phone);
+      setAddedToFavorites(false);
+    } else {
+      addToFavorites(phone);
+      setAddedToFavorites(true);
     }
   };
 
@@ -112,7 +140,12 @@ export const Card: React.FC<Props> = ({ phone, gridClass }) => {
         >
           {addedToCart ? 'Added to cart' : 'Add to cart'}
         </button>
-        <a href="#AddToList" className="card__buttons-addList"></a>
+        <button
+          className={cn('card__buttons-addList',
+            {'card__buttons-addList--active': addedToFavorites}
+          )}
+          onClick={() => handleAddToFavorites()}
+        ></button>
       </div>
     </article>
   );

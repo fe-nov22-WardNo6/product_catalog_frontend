@@ -9,16 +9,25 @@ type ContextType = {
   cartItems: Phone[];
   addToCart: (phone: Phone) => void;
   removeFromCart: (phone: Phone) => void;
+  favoritesItems: Phone[];
+  addToFavorites: (phone: Phone) => void;
+  removeFromFavorites: (phone: Phone) => void;
+  removeAllFromCart: (phone: Phone) => void;
 };
 
 export const ActionContext = createContext<ContextType>({
   cartItems: [],
   addToCart: () => null,
   removeFromCart: () => null,
+  favoritesItems: [],
+  addToFavorites: () => null,
+  removeFromFavorites: () => null,
+  removeAllFromCart: () => null,
 });
 
 export const ActionProvider: React.FC<Props> = ({ children }) => {
   const [cartItems, setCartItems] = useLocalStorage<Phone[]>('cart', []);
+  const [favoritesItems, setFavoritesItems] = useLocalStorage<Phone[]>('favorites', []);
 
   function useLocalStorage<T>(key: string, initialValue: T) {
     const [storedValue, setStoredValue] = useState<T>(() => {
@@ -33,6 +42,7 @@ export const ActionProvider: React.FC<Props> = ({ children }) => {
         return initialValue;
       }
     });
+
     const setValue = (value: T | ((val: T) => T)) => {
       try {
         const valueToStore =
@@ -45,6 +55,7 @@ export const ActionProvider: React.FC<Props> = ({ children }) => {
         console.log(error);
       }
     };
+
     return [storedValue, setValue] as const;
   }
 
@@ -64,15 +75,42 @@ export const ActionProvider: React.FC<Props> = ({ children }) => {
     });
   };
 
-  // const addToCart = (phone: Phone) => {
-  //   setcartItems(prevState => {
-  //     prevState.push(phone);
-  //     return prevState;
-  //   });
-  // };
-
   const removeFromCart = (phone: Phone) => {
     setCartItems((currentItems) => {
+      const cartItem = currentItems.find(({ id }) => id === phone.id);
+
+      if (!cartItem) {
+        return [...currentItems];
+      }
+
+      cartItem.count--;
+
+      if (cartItem.count <= 0) {
+        return currentItems.filter(({ id }) => id !== phone.id);
+      }
+
+      return [...currentItems];
+    });
+  };
+
+  const addToFavorites = (phone: Phone) => {
+    setFavoritesItems((currentItems) => {
+      let cartItem = currentItems.find(({ id }) => id === phone.id);
+
+      if (!cartItem) {
+        cartItem = { ...phone, count: 1 };
+
+        return [...currentItems, cartItem];
+      }
+
+      cartItem.count++;
+
+      return [...currentItems];
+    });
+  };
+
+  const removeFromFavorites = (phone: Phone) => {
+    setFavoritesItems((currentItems) => {
       const cartItem = currentItems.find(({ id }) => id === phone.id);
 
       if (!cartItem) {
@@ -113,8 +151,21 @@ export const ActionProvider: React.FC<Props> = ({ children }) => {
   // };
 
   const contextValue = useMemo(
-    () => ({ cartItems, addToCart, removeFromCart }),
-    [cartItems],
+    () => ({
+      cartItems,
+      addToCart,
+      removeFromCart,
+      favoritesItems,
+      addToFavorites,
+      removeFromFavorites,
+      removeAllFromCart
+    }),
+    [cartItems, favoritesItems],
+  const removeAllFromCart = (phone: Phone) => {
+    setCartItems((currentItems) => {
+      return currentItems.filter(({ id }) => id !== phone.id);
+    });
+  };
   );
 
   return (
