@@ -2,12 +2,18 @@ import React from 'react';
 import { Logo } from '../Logo';
 import cart_icon from '../../icons/cart.svg';
 import favorites_icon from '../../icons/heart.svg';
+import burger_close_icon from '../../icons/close.svg';
 import burger_menu_icon from '../../icons/menu.svg';
 import './Header.scss';
 import { NavLink } from 'react-router-dom';
 import cn from 'classnames';
 
-export const Header = () => {
+type Props = {
+  setIsBurgerActive: (boolean: boolean) => void,
+  isBurgerActive: boolean,
+};
+
+export const Header: React.FC<Props> = ({ setIsBurgerActive, isBurgerActive }) => {
   return (
     <header className="header">
       <div className="header__content">
@@ -70,14 +76,23 @@ export const Header = () => {
           >
             <img src={cart_icon} alt="Nice Gadgets logo" className="icon" />
           </NavLink>
-
-          <a href="#" className="header__action">
-            <img
-              src={burger_menu_icon}
-              alt="Nice Gadgets logo"
-              className="icon"
-            />
-          </a>
+          {isBurgerActive ?
+            <button className="header__action" onClick={() => setIsBurgerActive(false)}>
+              <img
+                src={burger_close_icon}
+                alt="Nice Gadgets logo"
+                className="icon"
+              />
+            </button>
+            : 
+            <button className="header__action" onClick={() => setIsBurgerActive(true)}>
+              <img
+                src={burger_menu_icon}
+                alt="Nice Gadgets logo"
+                className="icon"
+              />
+            </button>
+          }
         </div>
       </div>
     </header>
