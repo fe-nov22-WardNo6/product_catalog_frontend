@@ -59,3 +59,16 @@ export const getCount = async (category: string) => {
     throw new Error('bad request');
   }
 };
+
+export const getCategories = async () => {
+  const fetchUrl = `${BASE_URL}/categories`;
+
+  try {
+    const response = await fetch(fetchUrl);
+    const data = await response.json();
+
+    return data;
+  } catch {
+    throw new Error('bad request');
+  }
+};

@@ -3,6 +3,7 @@ import { BannerSlider } from '../../components/BannerSlider/BannerSlider';
 import { Roundabout } from '../../components/Roundabout/Roundabout';
 import { Phone } from '../../types/PhoneDefault';
 import { getCollection } from '../../api/api';
+import { ShopByCategory } from '../../components/ShopByCategory';
 import './HomePage.scss';
 import '../../style/App.scss';
 
@@ -40,6 +41,8 @@ export const HomePage: React.FC = () => {
       <div className="roundaCon">
         <Roundabout title="Brand new models" phones={phonesNew} />
       </div>
+      
+      <ShopByCategory />
 
       <div className="roundaCon">
         <Roundabout title="Hot prices" phones={phonesHot} />

@@ -67,13 +67,11 @@ export const PhonesPage: React.FC = () => {
 
   return (
     <div className="phonesPage container">
-      {/* <p className="text">page navigation</p>
-      <h1 className="phones-page__title">Mobile phones</h1>
-      <p className="phones-page__countPhones">95 models</p>
-      <div className="phones-page__displayOptions">component with form</div> */}
       <BreadCrumbs />
       <h1 className="phones-page__title">Mobile phones</h1>
-      <CounterItems countOfModels={countOfModels} />
+      <div className="phones-page__counterItem-container">
+        <CounterItems countOfModels={countOfModels} text="models" />
+      </div>
       <SortPanel />
       {isDataLoading && <Loader />}
       {!isDataLoading && !isError && (
@@ -88,7 +86,7 @@ export const PhonesPage: React.FC = () => {
         </div>
       )}
       {isError && 'not found'}
-      {countOfModels > 0 && <Pagination countOfModels={countOfModels} />}
+      {!!countOfModels && <Pagination countOfModels={countOfModels} />}
     </div>
   );
 };

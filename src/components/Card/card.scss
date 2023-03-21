@@ -167,7 +167,7 @@
         background-color: $hoverButtonColor;
       }
 
-      &:active {
+      &--active {
         background-image: url('../../icons/fullHeart.svg');
       }
     }
