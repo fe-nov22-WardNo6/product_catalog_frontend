@@ -1,0 +1,70 @@
+@import '../../style/utils/vars';
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.titleCar {
+  font-weight: 800;
+  font-size: 32px;
+  line-height: 41px;
+  letter-spacing: -0.01em;
+  color: $colorWhite;
+}
+
+.carousel {
+  width: 100%;
+  overflow: hidden;
+}
+
+.list {
+  display: flex;
+  gap: 16px;
+
+  transition: transform 0.3s;
+}
+
+.test {
+  width: 288px;
+}
+
+.actions {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  background: $selectedCardButtonColor;
+  border: 1px solid $selectedCardButtonColor;
+  cursor: pointer;
+
+  &:hover {
+    background: $hoverButtonColor;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: default;
+    background: $primaryBackground;
+
+    .icon {
+      fill: $hoverButtonColor;
+    }
+  }
+}
+
+.icon {
+  fill: $colorWhite;
+}
+
+.section {
+  height: 550px;
+}

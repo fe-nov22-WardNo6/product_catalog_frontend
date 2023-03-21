@@ -2,7 +2,7 @@ import React from 'react';
 import Slider from 'react-slick';
 
 import './BannerSlider.scss';
-
+ 
 type Props = {
   className: string;
   onClick?: React.MouseEventHandler<HTMLElement>;
