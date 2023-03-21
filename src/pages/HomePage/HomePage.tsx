@@ -5,8 +5,8 @@ import '../../style/App.scss';
 
 export const HomePage: React.FC = () => {
   return (
-    <div className='homePage container'>
-      <h1 className='title'>Welcome to Nice Gadgets store!</h1>
+    <div className="homePage container">
+      <h1 className="title">Welcome to Nice Gadgets store!</h1>
       <BannerSlider />
     </div>
   );

@@ -12,6 +12,7 @@ type ContextType = {
   favoritesItems: Phone[];
   addToFavorites: (phone: Phone) => void;
   removeFromFavorites: (phone: Phone) => void;
+  removeAllFromCart: (phone: Phone) => void;
 };
 
 export const ActionContext = createContext<ContextType>({
@@ -21,6 +22,7 @@ export const ActionContext = createContext<ContextType>({
   favoritesItems: [],
   addToFavorites: () => null,
   removeFromFavorites: () => null,
+  removeAllFromCart: () => null,
 });
 
 export const ActionProvider: React.FC<Props> = ({ children }) => {
@@ -72,13 +74,6 @@ export const ActionProvider: React.FC<Props> = ({ children }) => {
       return [...currentItems];
     });
   };
-
-  // const addToCart = (phone: Phone) => {
-  //   setcartItems(prevState => {
-  //     prevState.push(phone);
-  //     return prevState;
-  //   });
-  // };
 
   const removeFromCart = (phone: Phone) => {
     setCartItems((currentItems) => {
@@ -162,9 +157,15 @@ export const ActionProvider: React.FC<Props> = ({ children }) => {
       removeFromCart,
       favoritesItems,
       addToFavorites,
-      removeFromFavorites
+      removeFromFavorites,
+      removeAllFromCart
     }),
     [cartItems, favoritesItems],
+  const removeAllFromCart = (phone: Phone) => {
+    setCartItems((currentItems) => {
+      return currentItems.filter(({ id }) => id !== phone.id);
+    });
+  };
   );
 
   return (

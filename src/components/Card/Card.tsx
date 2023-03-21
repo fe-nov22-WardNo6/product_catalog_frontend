@@ -15,7 +15,7 @@ type Props = {
 export const Card: React.FC<Props> = ({ phone, gridClass }) => {
   const {
     addToCart,
-    removeFromCart,
+    removeAllFromCart,
     cartItems,
     favoritesItems,
     addToFavorites,
@@ -51,7 +51,7 @@ export const Card: React.FC<Props> = ({ phone, gridClass }) => {
   }, []);
 
   const checkCart = () => {
-    if (cartItems.some(item => item.id === phone.id)) {
+    if (cartItems.some((item) => item.id === phone.id)) {
       setAddedToCart(true);
     }
   };
@@ -72,7 +72,7 @@ export const Card: React.FC<Props> = ({ phone, gridClass }) => {
 
   const handleAddToCart = () => {
     if (addedToCart) {
-      removeFromCart(phone);
+      removeAllFromCart(phone);
       setAddedToCart(false);
     } else {
       addToCart(phone);
