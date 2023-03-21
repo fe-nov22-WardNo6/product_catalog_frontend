@@ -107,9 +107,7 @@ export const SortPanel: React.FC = () => {
               })}
               onClick={handleClickPagesList}
             >
-              <div className="dropdown__button-text">
-                {selectedPages}
-              </div>
+              <div className="dropdown__button-text">{selectedPages}</div>
               <img
                 className="dropdown__button__icon"
                 src={isActivePages ? arrowUp : arrowDown}

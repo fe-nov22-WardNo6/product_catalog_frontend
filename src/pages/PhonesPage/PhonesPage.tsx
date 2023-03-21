@@ -92,4 +92,3 @@ export const PhonesPage: React.FC = () => {
     </div>
   );
 };
- 

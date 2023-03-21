@@ -7,15 +7,15 @@ import { getImage } from '../../../api/api';
 import { ActionContext } from '../../../context/ActionContext';
 import { Loader } from '../../../components/Loader';
 
-
 type Props = {
   good: Phone;
 };
- 
+
 export const CartItem: React.FC<Props> = ({ good }) => {
   const { phoneId, name, price, image } = good;
 
-  const { addToCart, removeFromCart, removeAllFromCart } = useContext(ActionContext);
+  const { addToCart, removeFromCart, removeAllFromCart } =
+    useContext(ActionContext);
 
   const [cardImage, setCardImage] = useState('');
   const [isDataLoading, setIsDataLoading] = useState(false);
