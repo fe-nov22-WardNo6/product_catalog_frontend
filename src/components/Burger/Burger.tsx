@@ -5,7 +5,11 @@ import cart_icon from '../../icons/cart.svg';
 import favorites_icon from '../../icons/heart.svg';
 import './Burger.scss';
 
-export const Burger = () => {
+type Props = {
+  setIsBurgerActive: (boolean: boolean) => void;
+};
+
+export const Burger: React.FC<Props> = ({ setIsBurgerActive }) => {
   return (
     <div className="burger">
       <div className="burger__content">
@@ -15,6 +19,7 @@ export const Burger = () => {
             className={({ isActive }) =>
               cn('burger__button', { 'is-active': isActive })
             }
+            onClick={() => setIsBurgerActive(false)}
           >
             HOME
           </NavLink>
@@ -23,6 +28,7 @@ export const Burger = () => {
             className={({ isActive }) =>
               cn('burger__button', { 'is-active': isActive })
             }
+            onClick={() => setIsBurgerActive(false)}
           >
             PHONES
           </NavLink>
@@ -31,6 +37,7 @@ export const Burger = () => {
             className={({ isActive }) =>
               cn('burger__button', { 'is-active': isActive })
             }
+            onClick={() => setIsBurgerActive(false)}
           >
             TABLETS
           </NavLink>
@@ -39,6 +46,7 @@ export const Burger = () => {
             className={({ isActive }) =>
               cn('burger__button', { 'is-active': isActive })
             }
+            onClick={() => setIsBurgerActive(false)}
           >
             ACCESSORIES
           </NavLink>
