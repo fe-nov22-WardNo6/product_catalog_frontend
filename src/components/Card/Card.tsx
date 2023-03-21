@@ -13,7 +13,7 @@ type Props = {
 };
 
 export const Card: React.FC<Props> = ({ phone, gridClass }) => {
-  const { addToCart, removeFromCart, cartItems } = useContext(ActionContext);
+  const { addToCart, removeAllFromCart, cartItems } = useContext(ActionContext);
   const [addedToCart, setAddedToCart] = useState(false);
   const [cardImage, setCardImage] = useState('');
   const [isDataLoading, setIsDataLoading] = useState(false);
@@ -54,7 +54,7 @@ export const Card: React.FC<Props> = ({ phone, gridClass }) => {
 
   const handleAdd = () => {
     if (addedToCart) {
-      removeFromCart(phone);
+      removeAllFromCart(phone);
       setAddedToCart(false);
     } else {
       addToCart(phone);

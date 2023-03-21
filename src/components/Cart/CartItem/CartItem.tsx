@@ -22,8 +22,8 @@ export const CartItem: React.FC<Props> = ({ good }) => {
 
   const getImageFromServer = async () => {
     try {
-      const data = await getImage(image);
       setIsDataLoading(true);
+      const data = await getImage(image);
       setCardImage(data);
     } catch {
       setIsDataLoading(false);
