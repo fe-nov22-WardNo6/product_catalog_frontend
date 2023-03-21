@@ -67,10 +67,6 @@ export const PhonesPage: React.FC = () => {
 
   return (
     <div className="phonesPage container">
-      {/* <p className="text">page navigation</p>
-      <h1 className="phones-page__title">Mobile phones</h1>
-      <p className="phones-page__countPhones">95 models</p>
-      <div className="phones-page__displayOptions">component with form</div> */}
       <BreadCrumbs />
       <h1 className="phones-page__title">Mobile phones</h1>
       <CounterItems countOfModels={countOfModels} />
