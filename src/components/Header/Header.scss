@@ -10,6 +10,7 @@
   box-sizing: border-box;
   box-shadow: 0 2px 0 0 #323542;
   background-color: $colorBlack;
+  z-index: 2;
 
   @include onTablet {
     height: 48px;

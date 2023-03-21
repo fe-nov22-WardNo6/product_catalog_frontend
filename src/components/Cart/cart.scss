@@ -6,6 +6,10 @@ a {
   margin: 0;
 }
 
+body {
+  background-color: $colorBlack;
+}
+
 .conteiner {
   display: flex;
   flex-direction: column;
@@ -65,6 +69,21 @@ a {
 
   &__item {
     flex-grow: 2;
+
+    @media (max-width: 1199px) {
+      flex-grow: 1;
+    }
+  }
+
+  &__without {
+    flex-grow: 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    height: 128px;
+    background: $backgroundCardColor;
+    color: $colorWhite;
 
     @media (max-width: 1199px) {
       flex-grow: 1;

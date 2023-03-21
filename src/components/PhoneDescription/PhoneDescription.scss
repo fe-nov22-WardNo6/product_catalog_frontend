@@ -16,7 +16,7 @@
   @media (min-width: 640px) {
     display: flex;
     justify-content: space-between;
-    gap: 24px;
+    gap: 64px;
   }
 
   &__container {
@@ -51,11 +51,11 @@
       padding: 24px 0;
 
       @media (min-width: 640px) {
-        width: 260px;
+        width: 200px;
       }
 
       @media (min-width: 720px) {
-        width: 320px;
+        width: 260px;
       }
 
       &:last-child {
@@ -218,11 +218,111 @@
     width: 100%;
     height: 100%;
   }
+
+  &__rosegold {
+    border: 1px solid PeachPuff;
+  }
+
+  &__fill-rosegold {
+    border-radius: 50%;
+    background-color: PeachPuff;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__silver {
+    border: 1px solid silver;
+  }
+
+  &__fill-silver {
+    border-radius: 50%;
+    background-color: silver;
+    width: 100%;
+    height: 100%;
+  }
+
+  spacegray &__spacegray {
+    border: 1px solid SlateGray;
+  }
+
+  &__fill-spacegray {
+    border-radius: 50%;
+    background-color: SlateGray;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__green {
+    border: 1px solid Aquamarine;
+  }
+
+  &__fill-green {
+    border-radius: 50%;
+    background-color: Aquamarine;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__purple {
+    border: 1px solid Thistle;
+  }
+
+  &__fill-purple {
+    border-radius: 50%;
+    background-color: Thistle;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__red {
+    border: 1px solid red;
+  }
+
+  &__fill-red {
+    border-radius: 50%;
+    background-color: red;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__yellow {
+    border: 1px solid yellow;
+  }
+
+  &__fill-yellow {
+    border-radius: 50%;
+    background-color: yellow;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__midnightgreen {
+    border: 1px solid DarkSlateGray;
+  }
+
+  &__fill-midnightgreen {
+    border-radius: 50%;
+    background-color: DarkSlateGray;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__coral {
+    border: 1px solid coral;
+  }
+
+  &__fill-coral {
+    border-radius: 50%;
+    background-color: coral;
+    width: 100%;
+    height: 100%;
+  }
 }
 
 .capacities {
   &__capacity {
-    height: 32px;
+    display: inline-block;
+    padding: 6px;
     margin-right: 8px;
     box-sizing: border-box;
     border: 1px solid $primaryTextColor;
@@ -234,6 +334,11 @@
     color: $primaryTextColor;
 
     &:hover {
+      color: $colorBlack;
+      background-color: $primaryTextColor;
+    }
+
+    &--isActive {
       color: $colorBlack;
       background-color: $primaryTextColor;
     }

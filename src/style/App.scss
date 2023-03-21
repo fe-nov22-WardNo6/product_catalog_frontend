@@ -1,7 +1,15 @@
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-content: flex-start;
+}
 .container {
   margin: 0 auto;
   max-width: 1200px;
   padding: 0 16px;
+  box-sizing: border-box;
 
   @media (min-width: 640px) {
     padding: 0 24px;
@@ -14,4 +22,8 @@
 
 main {
   background-color: #0f1121;
+  padding-bottom: 40px;
+  flex-grow: 1;
+  padding-top: 24px;
+  padding-bottom: 40px;
 }

@@ -10,6 +10,8 @@
   margin-bottom: 16px;
 
   &__remove {
+    border: none;
+    background-color: $backgroundCardColor;
     fill: $hoverButtonColor;
 
     &:hover {
@@ -18,8 +20,8 @@
   }
 
   &__image {
-    width: 66px;
-    height: 66px;
+    width: 60px;
+    height: 75px;
   }
 
   &__conteiner {
@@ -62,18 +64,11 @@
   }
 
   &__price {
+    width: 70px;
     font-style: normal;
     font-weight: 800;
     font-size: 22px;
     line-height: 140%;
     color: $colorWhite;
   }
-}
-
-.unactive-button {
-  background: $backgroundCardColor;
-}
-
-.unactive-button-svg {
-  fill: $elementsBorderColor;
 }

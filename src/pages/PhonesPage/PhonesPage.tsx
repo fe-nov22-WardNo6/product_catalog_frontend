@@ -4,16 +4,22 @@ import '../../style/App.scss';
 import '../../style/grid.scss';
 import { Card } from '../../components/Card';
 import { Phone } from '../../types/PhoneDefault';
-import { getPhones } from '../../api/api';
+import { getCount, getPhones } from '../../api/api';
 import { getGridClass } from '../../utils/getGridClass';
 import { BreadCrumbs } from '../../components/BreadCrumbs';
 import { CounterItems } from '../../components/CounterItems';
+import { Pagination } from '../../components/Pagination';
+import { useSearchParams } from 'react-router-dom';
+import { SortPanel } from '../../components/SortPanel';
+import { Loader } from '../../components/Loader';
 
 export const PhonesPage: React.FC = () => {
   const [phones, setPhones] = useState<Phone[]>([]);
   const [isDataLoading, setIsDataLoading] = useState(false);
   const [isError, setError] = useState(false);
   const [width, setWidth] = useState(window.screen.width);
+  const [countOfModels, setCountModels] = useState(0);
+  const [searchParams] = useSearchParams();
 
   useEffect(() => {
     const resizeHandler = () => {
@@ -27,12 +33,21 @@ export const PhonesPage: React.FC = () => {
     };
   }, []);
 
+  const getCountFromServer = async () => {
+    try {
+      const data = await getCount('phones');
+      const countFromServer = data.count;
+      setCountModels(countFromServer);
+    } catch {
+      setCountModels(0);
+    }
+  };
+
   const getPhonesFromServer = async () => {
     try {
       setIsDataLoading(true);
-      const data = await getPhones();
+      const data = await getPhones(searchParams.toString());
       setPhones(data);
-      // console.log(data);
       setIsDataLoading(false);
     } catch {
       setError(true);
@@ -43,8 +58,12 @@ export const PhonesPage: React.FC = () => {
   };
 
   useEffect(() => {
-    getPhonesFromServer();
+    getCountFromServer();
   }, []);
+
+  useEffect(() => {
+    getPhonesFromServer();
+  }, [searchParams]);
 
   return (
     <div className="phonesPage container">
@@ -54,8 +73,9 @@ export const PhonesPage: React.FC = () => {
       <div className="phones-page__displayOptions">component with form</div> */}
       <BreadCrumbs />
       <h1 className="phones-page__title">Mobile phones</h1>
-      <CounterItems />
-      {isDataLoading && 'loading data'}
+      <CounterItems countOfModels={countOfModels} />
+      <SortPanel />
+      {isDataLoading && <Loader />}
       {!isDataLoading && !isError && (
         <div className="phones-page__phones-container grid grid--desktop grid--tablet grid--landscape">
           {phones.map((phone, i) => {
@@ -68,6 +88,7 @@ export const PhonesPage: React.FC = () => {
         </div>
       )}
       {isError && 'not found'}
+      {countOfModels && <Pagination countOfModels={countOfModels} />}
     </div>
   );
 };

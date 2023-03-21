@@ -10,10 +10,10 @@
   padding: 32px;
   height: 506px;
   width: 100%;
-  max-width: 272px;
+  max-width: 287px;
   border: 2px solid $backgroundCardColor;
   box-sizing: border-box;
-  transition: border $timeTransition, border-radius $timeTransition;
+  transition: border, border-radius $timeTransition;
 
   &:hover {
     border: 2px solid $elementsBorderColor;
@@ -33,11 +33,6 @@
     height: 237px;
     margin: 0 auto 24px;
     border-radius: 15px;
-    transition: transform $timeTransition;
-
-    &:hover {
-      transform: scale(1.1);
-    }
 
     @media (max-width: 640px) {
       margin-bottom: 40px;
@@ -80,7 +75,6 @@
       font-style: normal;
       font-weight: 600;
       font-size: 22px;
-      line-height: 28px;
       text-decoration-line: line-through;
       color: $secondaryTextColor;
     }
@@ -143,6 +137,10 @@
       font-weight: 600;
       font-size: 14px;
       line-height: 21px;
+
+      &--added {
+        background-color: $defaultButtonColor;
+      }
 
       &:hover {
         background-color: $hoverCardButtonColor;
