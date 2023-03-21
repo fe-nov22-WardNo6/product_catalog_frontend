@@ -118,12 +118,20 @@ export const Pagination: React.FC<Props> = ({ countOfModels }) => {
       </button>
 
       {isPrevAvailible && (
-        <div
-          className={cn('pagination__item')}
-          onClick={() => onPageHandler(pages[0] - 1)}
-        >
-          ...
-        </div>
+        <>
+          <div
+            className={cn('pagination__item', {})}
+            onClick={() => onPageHandler(1)}
+          >
+            1
+          </div>
+          <div
+            className={cn('pagination__item')}
+            onClick={() => onPageHandler(pages[0] - 1)}
+          >
+            ...
+          </div>
+        </>
       )}
 
       <div className="pagination__items">
@@ -141,12 +149,20 @@ export const Pagination: React.FC<Props> = ({ countOfModels }) => {
       </div>
 
       {isNextAvailible && (
-        <div
-          className={cn('pagination__item')}
-          onClick={() => onPageHandler(pages[pages.length - 1] + 1)}
-        >
-          ...
-        </div>
+        <>
+          <div
+            className={cn('pagination__item')}
+            onClick={() => onPageHandler(pages[pages.length - 1] + 1)}
+          >
+            ...
+          </div>
+          <div
+            className={cn('pagination__item')}
+            onClick={() => onPageHandler(countAllPages)}
+          >
+            {countAllPages}
+          </div>
+        </>
       )}
 
       <button

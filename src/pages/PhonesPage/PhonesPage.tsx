@@ -88,7 +88,7 @@ export const PhonesPage: React.FC = () => {
         </div>
       )}
       {isError && 'not found'}
-      {countOfModels > 0 && <Pagination countOfModels={countOfModels} />}
+      {!!countOfModels && <Pagination countOfModels={countOfModels} />}
     </div>
   );
 };

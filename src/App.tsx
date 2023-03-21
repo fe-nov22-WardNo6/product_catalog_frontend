@@ -17,15 +17,18 @@ export const App: React.FC = () => {
 
   return (
     <div className="App">
-      <Header setIsBurgerActive={setIsBurgerActive} isBurgerActive={isBurgerActive} />
-      { isBurgerActive ?
+      <Header
+        setIsBurgerActive={setIsBurgerActive}
+        isBurgerActive={isBurgerActive}
+      />
+      {isBurgerActive ? (
         <Burger />
-        : 
+      ) : (
         <>
           <main>
             <Routes>
               <Route path="/" element={<HomePage />} />
-              <Route path="*" element={<p>Page not found</p>} />
+              <Route path="*" element={<PageNotFound />} />
               <Route path="/phones" element={<PhonesPage />} />
               <Route path="/tablets" element={<TabletPage />} />
               <Route path="/accessories" element={<AccessoriesPage />} />
@@ -36,7 +39,7 @@ export const App: React.FC = () => {
           </main>
           <Footer />
         </>
-      }
+      )}
     </div>
   );
 };
