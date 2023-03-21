@@ -9,12 +9,14 @@ type ContextType = {
   cartItems: Phone[];
   addToCart: (phone: Phone) => void;
   removeFromCart: (phone: Phone) => void;
+  removeAllFromCart: (phone: Phone) => void;
 };
 
 export const ActionContext = createContext<ContextType>({
   cartItems: [],
   addToCart: () => null,
   removeFromCart: () => null,
+  removeAllFromCart: () => null,
 });
 
 export const ActionProvider: React.FC<Props> = ({ children }) => {
@@ -64,13 +66,6 @@ export const ActionProvider: React.FC<Props> = ({ children }) => {
     });
   };
 
-  // const addToCart = (phone: Phone) => {
-  //   setcartItems(prevState => {
-  //     prevState.push(phone);
-  //     return prevState;
-  //   });
-  // };
-
   const removeFromCart = (phone: Phone) => {
     setCartItems((currentItems) => {
       const cartItem = currentItems.find(({ id }) => id === phone.id);
@@ -89,31 +84,14 @@ export const ActionProvider: React.FC<Props> = ({ children }) => {
     });
   };
 
-  // const removeFromCart = (phone: Phone) => {
-  //   const filteredCart = cartItems?.filter(el => el.id !== phone.id);
-  //   setCartItems(filteredCart);
-  // };
-
-  // const removeOne = (productId: number): void => {
-  //   setCartItems(currentItems => {
-  //     const cartItem = currentItems.find(({ id }) => id === productId);
-
-  //     if (!cartItem) {
-  //       return [...currentItems];
-  //     }
-
-  //     cartItem.count--;
-
-  //     if (cartItem.count <= 0) {
-  //       return currentItems.filter(({ id }) => id !== productId);
-  //     }
-
-  //     return [...currentItems];
-  //   });
-  // };
+  const removeAllFromCart = (phone: Phone) => {
+    setCartItems((currentItems) => {
+      return currentItems.filter(({ id }) => id !== phone.id);
+    });
+  };
 
   const contextValue = useMemo(
-    () => ({ cartItems, addToCart, removeFromCart }),
+    () => ({ cartItems, addToCart, removeFromCart, removeAllFromCart }),
     [cartItems],
   );
 

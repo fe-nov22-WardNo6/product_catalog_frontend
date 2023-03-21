@@ -1,28 +1,34 @@
 import React, { useState, useEffect, useContext } from 'react';
 import './cartItem.scss';
 import cn from 'classnames';
+import { Link } from 'react-router-dom';
 import { Phone } from '../../../types/PhoneDefault';
 import { getImage } from '../../../api/api';
 import { ActionContext } from '../../../context/ActionContext';
+import { Loader } from '../../../components/Loader';
+
 
 type Props = {
   good: Phone;
 };
-
+ 
 export const CartItem: React.FC<Props> = ({ good }) => {
-  const { name, price, image } = good;
+  const { phoneId, name, price, image } = good;
 
-  const { addToCart, removeFromCart } = useContext(ActionContext);
+  const { addToCart, removeFromCart, removeAllFromCart } = useContext(ActionContext);
 
   const [cardImage, setCardImage] = useState('');
+  const [isDataLoading, setIsDataLoading] = useState(false);
 
   const getImageFromServer = async () => {
     try {
       const data = await getImage(image);
-
+      setIsDataLoading(true);
       setCardImage(data);
     } catch {
-      // setError(true);
+      setIsDataLoading(false);
+    } finally {
+      setIsDataLoading(false);
     }
   };
 
@@ -34,7 +40,7 @@ export const CartItem: React.FC<Props> = ({ good }) => {
 
   return (
     <div className="item">
-      <button className="item__remove" onClick={() => removeFromCart(good)}>
+      <button className="item__remove" onClick={() => removeAllFromCart(good)}>
         <svg
           className="item__remove-svg"
           width="16"
@@ -50,7 +56,13 @@ export const CartItem: React.FC<Props> = ({ good }) => {
         </svg>
       </button>
 
-      <img src={cardImage} alt="phone" className="item__image" />
+      <Link to={`/phones/${phoneId}`}>
+        {isDataLoading && <Loader />}
+        {!isDataLoading && (
+          <img src={cardImage} alt="phone" className="item__image" />
+        )}
+      </Link>
+
       <div className="item__conteiner">
         <p className="item__title">{name}</p>
       </div>

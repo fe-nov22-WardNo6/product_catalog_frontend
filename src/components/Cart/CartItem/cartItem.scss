@@ -72,3 +72,11 @@
     color: $colorWhite;
   }
 }
+
+.unactive-button {
+  background: $backgroundCardColor
+}
+
+.unactive-button-svg {
+  fill: $hoverButtonColor;
+}
