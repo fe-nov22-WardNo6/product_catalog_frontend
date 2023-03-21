@@ -23,7 +23,7 @@ export const App: React.FC = () => {
         isBurgerActive={isBurgerActive}
       />
       {isBurgerActive ? (
-        <Burger />
+        <Burger setIsBurgerActive={setIsBurgerActive} />
       ) : (
         <>
           <main>
