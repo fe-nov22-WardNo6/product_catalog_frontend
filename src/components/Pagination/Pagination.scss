@@ -54,6 +54,7 @@
     background-color: $backgroundCardColor;
     font-weight: 400;
     transition: background-color $timeTransition;
+    cursor: pointer;
 
     &:hover {
       background-color: $elementsBorderColor;
@@ -61,6 +62,7 @@
 
     &--selected {
       background-color: $primaryCardButtonColor;
+      cursor: default;
 
       &:hover {
         background-color: $primaryCardButtonColor;
