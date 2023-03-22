@@ -9,6 +9,7 @@ import { AboutPhone } from '../../components/AboutPhone';
 import { Roundabout } from '../../components/Roundabout/Roundabout';
 import { getCollection } from '../../api/api';
 import { Back } from '../../components/Back';
+import { ModelNotFound } from '../../components/ModelNotFound';
 
 export const ItemCard: React.FC = () => {
   const [phone, setPhone] = useState<Phone | null>(null);
@@ -53,14 +54,13 @@ export const ItemCard: React.FC = () => {
       <div className="item-back">
         <Back />
       </div>
-      {isDataLoading && 'loading data'}
+      {isError && <ModelNotFound />}
       {phone && !isError && (
         <>
           <PhoneDescription phone={phone} />
           <AboutPhone phone={phone} />
         </>
       )}
-      ,{isError && 'not found'}
       <Roundabout title="You may also like" phones={phonesRecommended} />
     </div>
   );
