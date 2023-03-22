@@ -3,7 +3,7 @@
 
   &__svg {
     margin-right: 10px;
-    fill: #F1F2F9;
+    fill: #f1f2f9;
   }
 
   &__text {
@@ -11,17 +11,16 @@
     font-size: 12px;
     line-height: 15px;
     line-height: 18px;
-    color: #F1F2F9;
+    color: #f1f2f9;
   }
 
   &:hover {
-    .back__svg{
-      fill: #905BFF;
+    .back__svg {
+      fill: #905bff;
     }
 
     .back__text {
-      color: #905BFF;
+      color: #905bff;
     }
   }
 }
-

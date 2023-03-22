@@ -23,7 +23,7 @@ export const Cart: React.FC = () => {
 
   return (
     <>
-      <div className='componemt__conteiner'>
+      <div className="componemt__conteiner">
         <Back />
       </div>
 
@@ -32,7 +32,9 @@ export const Cart: React.FC = () => {
 
         <div className="cart__flex">
           {cartItems.length === 0 && (
-            <div className="cart__without">There are no products in the cart</div>
+            <div className="cart__without">
+              There are no products in the cart
+            </div>
           )}
           {cartItems.length > 0 && (
             <div className="cart__item">
@@ -58,6 +60,6 @@ export const Cart: React.FC = () => {
           </div>
         </div>
       </div>
-    </ >
+    </>
   );
 };

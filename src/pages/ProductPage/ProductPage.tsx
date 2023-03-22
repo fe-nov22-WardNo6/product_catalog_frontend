@@ -50,7 +50,7 @@ export const ItemCard: React.FC = () => {
   return (
     <div className="item-card container">
       <BreadCrumbs />
-      <div className='item-back'>
+      <div className="item-back">
         <Back />
       </div>
       {isDataLoading && 'loading data'}
