@@ -73,7 +73,8 @@
 
     &-counter {
       position: absolute;
-      top: 10px; right: 10px;
+      top: 10px;
+      right: 10px;
       box-sizing: border-box;
       display: flex;
       align-items: center;
@@ -82,7 +83,7 @@
       font-weight: 600;
       font-size: 9px;
       line-height: 12px;
-      color: #F1F2F9;
+      color: #f1f2f9;
       background-color: #eb5757;
       border-radius: 50%;
       width: 14px;

@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, { useContext } from 'react';
 import { Logo } from '../Logo';
 import cart_icon from '../../icons/cart.svg';
 import favorites_icon from '../../icons/heart.svg';
@@ -8,7 +8,6 @@ import './Header.scss';
 import { NavLink } from 'react-router-dom';
 import cn from 'classnames';
 import { ActionContext } from '../../context/ActionContext';
-
 
 type Props = {
   setIsBurgerActive: (boolean: boolean) => void;
@@ -88,9 +87,9 @@ export const Header: React.FC<Props> = ({
               className="icon"
             />
 
-            {countSumFav > 0 && <div className='header__action-counter'>
-              {countSumFav}
-            </div>}
+            {countSumFav > 0 && (
+              <div className="header__action-counter">{countSumFav}</div>
+            )}
           </NavLink>
 
           <NavLink
@@ -101,9 +100,9 @@ export const Header: React.FC<Props> = ({
           >
             <img src={cart_icon} alt="Nice Gadgets logo" className="icon" />
 
-            {countSumCart > 0 && <div className='header__action-counter'>
-              {countSumCart}
-            </div>}
+            {countSumCart > 0 && (
+              <div className="header__action-counter">{countSumCart}</div>
+            )}
           </NavLink>
           {isBurgerActive ? (
             <button
@@ -130,6 +129,6 @@ export const Header: React.FC<Props> = ({
           )}
         </div>
       </div>
-    </header> 
+    </header>
   );
 };
