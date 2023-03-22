@@ -1,5 +1,5 @@
-const BASE_URL = 'https://product-catalog-backend-vhc5.onrender.com';
-// const BASE_URL = 'http://localhost:5000';
+// const BASE_URL = 'https://product-catalog-backend-vhc5.onrender.com';
+const BASE_URL = 'http://localhost:5000';
 
 export const getPhones = async (searchParams: string) => {
   const fetchUrl = `${BASE_URL}/phones?${searchParams}`;

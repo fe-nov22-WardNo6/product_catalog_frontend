@@ -27,7 +27,7 @@ export const SearchPanel: React.FC = () => {
       <p className="search__title">Search</p>
       <input
         className="search__input"
-        placeholder="write a text..."
+        placeholder="look for..."
         onChange={(event) => {
           applyQuery(event);
           inputHandler(event);

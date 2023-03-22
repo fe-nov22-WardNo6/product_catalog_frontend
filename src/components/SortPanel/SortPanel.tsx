@@ -184,7 +184,6 @@ export const SortPanel: React.FC = () => {
           </div>
         </div>
       </div>
-      <SearchPanel />
     </div>
   );
 };
