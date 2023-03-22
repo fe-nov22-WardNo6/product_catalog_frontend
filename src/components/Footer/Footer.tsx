@@ -3,6 +3,7 @@ import './Footer.scss';
 import '../../style/App.scss';
 import arrowUp from '../../icons/arrowUp.svg';
 import { Logo } from '../Logo';
+import { NavLink } from 'react-router-dom';
 
 export const Footer: React.FC = () => {
   const handleClick = () => {
@@ -30,10 +31,13 @@ export const Footer: React.FC = () => {
             </a>
           </li>
           <li className="footer__list_item">
-            <a className="footer__list_link" href="#">
+            <NavLink
+              to="/contacts"
+              className="footer__list_link"
+            >
               Contacts
-            </a>
-          </li>
+            </NavLink>
+          </li> 
           <li className="footer__list_item">
             <a className="footer__list_link" href="#">
               Rights

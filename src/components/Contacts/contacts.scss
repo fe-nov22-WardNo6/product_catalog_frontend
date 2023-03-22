@@ -1,0 +1,37 @@
+.dev {
+  margin: 0 auto 20px;
+  width: 100%;
+  max-width: 1200px;
+  height: 175px;
+  background-color: #161827;
+  padding: 25px;
+
+  &__name {
+    color: #f1f2f9;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 28px;
+  }
+
+  &__information {
+    display: flex;
+    margin-top: 15px;
+  }
+
+  &__text-main {
+    margin-right: 40px;
+    color: #f1f2f9;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    text-decoration: none;
+  }
+
+  &__text-normal {
+    text-decoration: underline;
+    font-size: 16px;
+    color: #f1f2f9;
+    font-style: normal;
+    font-weight: 500;
+  }
+}
