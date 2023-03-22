@@ -41,7 +41,7 @@ export const HomePage: React.FC = () => {
       <div className="roundaCon">
         <Roundabout title="Brand new models" phones={phonesNew} />
       </div>
-      
+
       <ShopByCategory />
 
       <div className="roundaCon">

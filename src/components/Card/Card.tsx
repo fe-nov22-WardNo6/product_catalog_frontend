@@ -19,7 +19,7 @@ export const Card: React.FC<Props> = ({ phone, gridClass }) => {
     cartItems,
     favoritesItems,
     addToFavorites,
-    removeFromFavorites
+    removeFromFavorites,
   } = useContext(ActionContext);
   const [addedToCart, setAddedToCart] = useState(false);
   const [addedToFavorites, setAddedToFavorites] = useState(false);
@@ -61,7 +61,7 @@ export const Card: React.FC<Props> = ({ phone, gridClass }) => {
   }, [cartItems]);
 
   const checkFavorites = () => {
-    if (favoritesItems.some(item => item.id === phone.id)) {
+    if (favoritesItems.some((item) => item.id === phone.id)) {
       setAddedToFavorites(true);
     }
   };
@@ -133,17 +133,17 @@ export const Card: React.FC<Props> = ({ phone, gridClass }) => {
       </Link>
       <div className="card__buttons">
         <button
-          className={cn('card__buttons-addCart',
-            {'card__buttons-addCart--added': addedToCart}
-          )}
+          className={cn('card__buttons-addCart', {
+            'card__buttons-addCart--added': addedToCart,
+          })}
           onClick={() => handleAddToCart()}
         >
           {addedToCart ? 'Added to cart' : 'Add to cart'}
         </button>
         <button
-          className={cn('card__buttons-addList',
-            {'card__buttons-addList--active': addedToFavorites}
-          )}
+          className={cn('card__buttons-addList', {
+            'card__buttons-addList--active': addedToFavorites,
+          })}
           onClick={() => handleAddToFavorites()}
         ></button>
       </div>
