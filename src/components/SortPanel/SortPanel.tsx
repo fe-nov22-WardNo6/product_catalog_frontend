@@ -21,7 +21,7 @@ export const SortPanel: React.FC = () => {
 
   const [isActivePages, setisActivePages] = useState(false);
   const [selectedPages, setSelectedPages] = useState(
-    searchParams.get('perPage'),
+    searchParams.get('perPage') || 16,
   );
 
   const refSort = useRef<HTMLDivElement>(null);
