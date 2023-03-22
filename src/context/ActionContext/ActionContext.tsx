@@ -24,7 +24,7 @@ export const ActionContext = createContext<ContextType>({
   removeFromFavorites: () => null,
   removeAllFromCart: () => null,
 });
-
+ 
 export const ActionProvider: React.FC<Props> = ({ children }) => {
   const [cartItems, setCartItems] = useLocalStorage<Phone[]>('cart', []);
   const [favoritesItems, setFavoritesItems] = useLocalStorage<Phone[]>(

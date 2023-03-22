@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { Logo } from '../Logo';
 import cart_icon from '../../icons/cart.svg';
 import favorites_icon from '../../icons/heart.svg';
@@ -7,6 +7,8 @@ import burger_menu_icon from '../../icons/menu.svg';
 import './Header.scss';
 import { NavLink } from 'react-router-dom';
 import cn from 'classnames';
+import { ActionContext } from '../../context/ActionContext';
+
 
 type Props = {
   setIsBurgerActive: (boolean: boolean) => void;
@@ -17,6 +19,22 @@ export const Header: React.FC<Props> = ({
   setIsBurgerActive,
   isBurgerActive,
 }) => {
+  const { cartItems, favoritesItems } = useContext(ActionContext);
+  const countArrCart = cartItems.map((el) => el.count);
+  const countSumCart = getSum(countArrCart);
+  const countArrFav = favoritesItems.map((el) => el.count);
+  const countSumFav = getSum(countArrFav);
+
+  function getSum(arr: number[]) {
+    let sum = 0;
+
+    for (let i = 0; i < arr.length; i++) {
+      sum += arr[i];
+    }
+
+    return sum;
+  }
+
   return (
     <header className="header">
       <div className="header__content">
@@ -69,6 +87,10 @@ export const Header: React.FC<Props> = ({
               alt="Nice Gadgets logo"
               className="icon"
             />
+
+            {countSumFav > 0 && <div className='header__action-counter'>
+              {countSumFav}
+            </div>}
           </NavLink>
 
           <NavLink
@@ -78,6 +100,10 @@ export const Header: React.FC<Props> = ({
             }
           >
             <img src={cart_icon} alt="Nice Gadgets logo" className="icon" />
+
+            {countSumCart > 0 && <div className='header__action-counter'>
+              {countSumCart}
+            </div>}
           </NavLink>
           {isBurgerActive ? (
             <button
@@ -104,6 +130,6 @@ export const Header: React.FC<Props> = ({
           )}
         </div>
       </div>
-    </header>
+    </header> 
   );
 };
