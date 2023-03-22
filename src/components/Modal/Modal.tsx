@@ -1,0 +1,58 @@
+import React, { Dispatch, MouseEvent, useEffect } from 'react';
+import ReactDOM from 'react-dom';
+import './Modal.scss';
+import '../../style/App.scss';
+
+type Props = {
+  setActive: Dispatch<React.SetStateAction<boolean>>;
+  children: JSX.Element[];
+}
+
+export const Modal: React.FC<Props> = ({ setActive, children }) => {
+  const mouseDownClouse = (e: MouseEvent) => {
+    if (e.target === e.currentTarget) {
+      setActive(false);
+    }
+  };
+
+  useEffect(() => {
+    const keyDownClose = (e: KeyboardEvent) => {
+      if (e.code === 'Escape') {
+        setActive(false);
+      }
+    };
+
+    window.addEventListener('keydown', keyDownClose);
+    return () => {
+      window.removeEventListener('keydown', keyDownClose);
+    };
+  }, [setActive]);
+
+  return ReactDOM.createPortal(
+    <div className='modal__overlay' onClick={mouseDownClouse}>
+      <div className='modal__content'>
+        <button
+          autoFocus
+          className='modal__closeBtn'
+          onClick={() => setActive(false)}
+        >
+          <svg
+            className='icon'
+            width="16"
+            height="16"
+            viewBox="0 0 16 16"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fillRule="evenodd"
+              clipRule="evenodd" d="M12.4716 4.4714C12.7319 4.21105 12.7319 3.78894 12.4716 3.52859C12.2112 3.26824 11.7891 3.26824 11.5288 3.52859L8.00016 7.05719L4.47157 3.52859C4.21122 3.26824 3.78911 3.26824 3.52876 3.52859C3.26841 3.78894 3.26841 4.21105 3.52876 4.4714L7.05735 7.99999L3.52876 11.5286C3.26841 11.7889 3.26841 12.211 3.52876 12.4714C3.78911 12.7317 4.21122 12.7317 4.47157 12.4714L8.00016 8.9428L11.5288 12.4714C11.7891 12.7317 12.2112 12.7317 12.4716 12.4714C12.7319 12.211 12.7319 11.7889 12.4716 11.5286L8.94297 7.99999L12.4716 4.4714Z"
+            />
+          </svg>
+        </button>
+        {children}
+      </div>
+    </div>,
+      document.querySelector('#modal-root') as Element
+  );
+};
