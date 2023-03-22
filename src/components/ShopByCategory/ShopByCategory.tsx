@@ -6,7 +6,7 @@ import { Loader } from '../Loader';
 import './ShopByCategory.scss';
 
 export const ShopByCategory: React.FC = () => {
-  const [categories, setCategoties] = useState([]); 
+  const [categories, setCategoties] = useState([]);
   const [allImages, setAllImages] = useState<string[] | []>([]);
   const [isDataLoading, setIsDataLoading] = useState(false);
   const [isError, setError] = useState(false);
@@ -32,9 +32,10 @@ export const ShopByCategory: React.FC = () => {
 
   const getAllImages = async () => {
     try {
-
       setIsDataLoading(true);
-      const data = await Promise.all(categories.map((category: Category) => getImage(category.image)));
+      const data = await Promise.all(
+        categories.map((category: Category) => getImage(category.image)),
+      );
 
       setAllImages(data);
       setIsDataLoading(false);
@@ -60,26 +61,28 @@ export const ShopByCategory: React.FC = () => {
   //   }
   // };
 
-  
   // useEffect(() => {
   //   getCountFromServer();
   // }, [categories]);
 
   return (
     <div className="shop">
-      <h1 className="shop__title">
-        Shop by category
-      </h1>
+      <h1 className="shop__title">Shop by category</h1>
       {isDataLoading && <Loader />}
-        
+
       {!isDataLoading && !isError && (
         <div className="shop__container">
           {categories.map((category: Category, i) => {
             const { id, name } = category;
-            const nameFixed = name.slice(0, 1).toLocaleUpperCase() + name.slice(1);
+            const nameFixed =
+              name.slice(0, 1).toLocaleUpperCase() + name.slice(1);
 
             return (
-              <Link to={`/${name}`} className="shop__category category" key={id} >
+              <Link
+                to={`/${name}`}
+                className="shop__category category"
+                key={id}
+              >
                 <div className="category__image-container">
                   <img src={allImages[i]} alt="" className="category__image" />
                 </div>

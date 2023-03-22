@@ -1,6 +1,5 @@
 @import './../../style/utils/vars';
 
-
 .shop {
   padding-top: 80px;
   &__title {
@@ -9,7 +8,7 @@
     font-size: 32px;
     line-height: 41px;
     letter-spacing: -0.01em;
-    color: #F1F2F9;
+    color: #f1f2f9;
   }
 
   &__container {
@@ -20,7 +19,6 @@
 }
 
 .category {
-
   &__image-container {
     margin-bottom: 24px;
     background-color: gray;

@@ -29,7 +29,10 @@ export const ActionContext = createContext<ContextType>({
 
 export const ActionProvider: React.FC<Props> = ({ children }) => {
   const [cartItems, setCartItems] = useLocalStorage<Phone[]>('cart', []);
-  const [favoritesItems, setFavoritesItems] = useLocalStorage<Phone[]>('favorites', []);
+  const [favoritesItems, setFavoritesItems] = useLocalStorage<Phone[]>(
+    'favorites',
+    [],
+  );
 
   function useLocalStorage<T>(key: string, initialValue: T) {
     const [storedValue, setStoredValue] = useState<T>(() => {
@@ -148,7 +151,7 @@ export const ActionProvider: React.FC<Props> = ({ children }) => {
       addToFavorites,
       removeFromFavorites,
       removeAllFromCart,
-      clearCart
+      clearCart,
     }),
     [cartItems, favoritesItems],
   );
