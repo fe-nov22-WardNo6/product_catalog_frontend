@@ -95,7 +95,7 @@ export const PhonesPage: React.FC = () => {
         </div>
       )}
       {isError && <PageNotFound />}
-      {currentCountOfPhones === 0 && (
+      {currentCountOfPhones === 0 && !isDataLoading && (
         <h3 className="phones-page__noPhones">
           Phones not found, we are sorry...
         </h3>
