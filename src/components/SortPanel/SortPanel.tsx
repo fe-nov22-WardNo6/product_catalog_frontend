@@ -6,7 +6,6 @@ import arrowDown from '../../icons/arrowDown.svg';
 import cn from 'classnames';
 import { getSearchWith } from '../utils/searchParamsHelper';
 import { useSearchParams } from 'react-router-dom';
-import { SearchPanel } from '../SearchPanel';
 
 const sortBy = ['Expensive', 'Newest', 'Cheapest'];
 const pages = ['4', '8', '16', '32', '48'];
@@ -80,6 +79,11 @@ export const SortPanel: React.FC = () => {
 
     setSearchParams(updateSearchParams);
   };
+
+  useEffect(() => {
+    setSelectedCategory(searchParams.get('sortBy') || '');
+    setSelectedPages(searchParams.get('perPage') || 16);
+  }, [searchParams]);
 
   return (
     <div className="sortPanel">

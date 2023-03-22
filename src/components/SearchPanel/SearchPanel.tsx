@@ -11,6 +11,8 @@ export const SearchPanel: React.FC = () => {
   const onQueryHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     const updateSearchParams = getSearchWith(searchParams, {
       searchQuery: event.target.value || null,
+      currentPage: '1',
+      perPage: searchParams.get('perPage'),
     });
 
     setSearchParams(updateSearchParams);
