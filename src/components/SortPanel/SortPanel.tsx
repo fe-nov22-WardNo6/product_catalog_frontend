@@ -6,6 +6,7 @@ import arrowDown from '../../icons/arrowDown.svg';
 import cn from 'classnames';
 import { getSearchWith } from '../utils/searchParamsHelper';
 import { useSearchParams } from 'react-router-dom';
+import { SearchPanel } from '../SearchPanel';
 
 const sortBy = ['Expensive', 'Newest', 'Cheapest'];
 const pages = ['4', '8', '16', '32', '48'];
@@ -85,7 +86,7 @@ export const SortPanel: React.FC = () => {
       <div className="sortPanel__wrapper">
         <div className="sortPanel__category">
           <h2 className="dropdown-title">Sort by</h2>
-          <div className="dropdown">
+          <div className="dropdown" ref={refSort}>
             <div
               className={cn('dropdown__button-container', {
                 'dropdown__button-container--active': isActiveCategory,
@@ -103,7 +104,7 @@ export const SortPanel: React.FC = () => {
               />
             </div>
             {isActiveCategory && (
-              <div className="dropdown__content" ref={refSort}>
+              <div className="dropdown__content">
                 {sortBy.map((sort) => {
                   return (
                     <div
@@ -136,7 +137,7 @@ export const SortPanel: React.FC = () => {
         </div>
         <div className="sortPanel__pages">
           <h2 className="dropdown-title">Items on page</h2>
-          <div className="dropdown">
+          <div className="dropdown" ref={refPages}>
             <div
               className={cn('dropdown__button-container', {
                 'dropdown__button-container--active': isActivePages,
@@ -151,7 +152,7 @@ export const SortPanel: React.FC = () => {
               />
             </div>
             {isActivePages && (
-              <div className="dropdown__content" ref={refPages}>
+              <div className="dropdown__content">
                 {pages.map((page) => {
                   return (
                     <div
@@ -183,6 +184,7 @@ export const SortPanel: React.FC = () => {
           </div>
         </div>
       </div>
+      <SearchPanel />
     </div>
   );
 };

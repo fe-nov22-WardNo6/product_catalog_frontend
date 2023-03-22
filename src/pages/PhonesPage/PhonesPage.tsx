@@ -12,6 +12,7 @@ import { Pagination } from '../../components/Pagination';
 import { useSearchParams } from 'react-router-dom';
 import { SortPanel } from '../../components/SortPanel';
 import { Loader } from '../../components/Loader';
+import { PageNotFound } from '../PageNotFound';
 
 export const PhonesPage: React.FC = () => {
   const [phones, setPhones] = useState<Phone[]>([]);
@@ -20,7 +21,7 @@ export const PhonesPage: React.FC = () => {
   const [width, setWidth] = useState(window.screen.width);
   const [countOfModels, setCountModels] = useState(0);
   const [searchParams] = useSearchParams();
-
+  const [currentCountOfPhones, setCurrentCountOfPhones] = useState(0);
   useEffect(() => {
     const resizeHandler = () => {
       setWidth(window.screen.width);
@@ -47,7 +48,8 @@ export const PhonesPage: React.FC = () => {
     try {
       setIsDataLoading(true);
       const data = await getPhones(searchParams.toString());
-      setPhones(data);
+      setPhones(data.rows);
+      setCurrentCountOfPhones(data.count);
       setIsDataLoading(false);
     } catch {
       setError(true);
@@ -85,8 +87,15 @@ export const PhonesPage: React.FC = () => {
           })}
         </div>
       )}
-      {isError && 'not found'}
-      {!!countOfModels && <Pagination countOfModels={countOfModels} />}
+      {isError && <PageNotFound />}
+      {currentCountOfPhones === 0 && (
+        <h3 className="phones-page__noPhones">
+          Phones not found, we are sorry...
+        </h3>
+      )}
+      {!!countOfModels && !(currentCountOfPhones === 0) && (
+        <Pagination countOfModels={currentCountOfPhones} />
+      )}
     </div>
   );
 };

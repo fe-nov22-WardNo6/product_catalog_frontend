@@ -99,7 +99,6 @@ export const Pagination: React.FC<Props> = ({ countOfModels }) => {
         end++;
       }
       currentPages = [...allInitialPages].slice(end - 5, end);
-      console.log(currentPages);
 
       if (currentPages[currentPages.length - 1] < countOfAllPages) {
         setIsNextAvailible(true);
@@ -120,7 +119,7 @@ export const Pagination: React.FC<Props> = ({ countOfModels }) => {
 
   useEffect(() => {
     getInitialPages();
-  }, [searchParams, isWidthLower]);
+  }, [searchParams, isWidthLower, countOfModels]);
 
   const onPageHandler = (pageNumber: number) => {
     const updatedSearchParams = getSearchWith(searchParams, {
