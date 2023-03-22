@@ -241,7 +241,7 @@
     height: 100%;
   }
 
-  spacegray &__spacegray {
+  &__spacegray {
     border: 1px solid SlateGray;
   }
 
@@ -401,52 +401,6 @@
       font-size: 12px;
       line-height: 15px;
       color: $primaryTextColor;
-    }
-  }
-
-  &__buttons {
-    display: flex;
-    justify-content: space-between;
-
-    &-addCart {
-      display: flex;
-      flex-grow: 1;
-      margin-right: 8px;
-      justify-content: center;
-      align-items: center;
-      height: 40px;
-      background-color: $primaryCardButtonColor;
-      color: $primaryTextColor;
-      text-decoration: none;
-
-      &:hover {
-        background-color: $hoverCardButtonColor;
-      }
-
-      &:active {
-        background-color: $selectedCardButtonColor;
-      }
-    }
-
-    &-addList {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 40px;
-      height: 40px;
-      background-color: $defaultButtonColor;
-      text-decoration: none;
-      background-image: url('../../icons/heart.svg');
-      background-repeat: no-repeat;
-      background-position: center;
-
-      &:hover {
-        background-color: $hoverButtonColor;
-      }
-
-      &:active {
-        background-image: url('../../icons/fullHeart.svg');
-      }
     }
   }
 }

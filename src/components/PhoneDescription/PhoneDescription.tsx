@@ -5,6 +5,7 @@ import { Phone } from '../../types/PhoneDefault';
 import './PhoneDescription.scss';
 import cn from 'classnames';
 import { Link, NavLink } from 'react-router-dom';
+import { AddButton } from '../AddButton';
 
 type Props = {
   phone: Phone;
@@ -150,12 +151,7 @@ export const PhoneDescription: React.FC<Props> = ({ phone }) => {
               <p className="price-info__price-old">${priceRegular}</p>
             </div>
 
-            <div className="price-info__buttons">
-              <a href="#AddToCart" className="price-info__buttons-addCart">
-                Add to cart
-              </a>
-              <a href="#AddToList" className="price-info__buttons-addList"></a>
-            </div>
+            <AddButton phone={phone} />
 
             <div className="price-info__characteristics">
               <div className="price-info__char">
