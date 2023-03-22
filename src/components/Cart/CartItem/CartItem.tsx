@@ -40,8 +40,11 @@ export const CartItem: React.FC<Props> = ({ good }) => {
 
   return (
     <div className="item">
-      <div className='item__adap-up'>
-        <button className="item__remove" onClick={() => removeAllFromCart(good)}>
+      <div className="item__adap-up">
+        <button
+          className="item__remove"
+          onClick={() => removeAllFromCart(good)}
+        >
           <svg
             className="item__remove-svg"
             width="16"
@@ -57,13 +60,13 @@ export const CartItem: React.FC<Props> = ({ good }) => {
           </svg>
         </button>
         <Link to={`/phones/${phoneId}`}>
-          {isDataLoading && 
-            <div className='item__loader'>
+          {isDataLoading && (
+            <div className="item__loader">
               <Loader />
             </div>
-          }
+          )}
           {!isDataLoading && (
-            <img src={cardImage} alt="phone" className="item__image"/>
+            <img src={cardImage} alt="phone" className="item__image" />
           )}
         </Link>
 
@@ -72,7 +75,7 @@ export const CartItem: React.FC<Props> = ({ good }) => {
         </div>
       </div>
 
-      <div className='item__adap-down'>
+      <div className="item__adap-down">
         <div className="item__counter">
           <button
             className={cn('item__button', { 'unactive-button': oneProd })}
