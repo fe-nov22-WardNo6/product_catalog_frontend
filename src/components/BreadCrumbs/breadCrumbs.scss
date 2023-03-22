@@ -6,6 +6,18 @@
   gap: 15px;
   padding: 25px 0;
 
+  &__home {
+    &--image {
+      vertical-align: middle;
+    }
+  }
+
+  &__arrow {
+    &--image {
+      vertical-align: middle;
+    }
+  }
+
   &__link {
     color: $colorWhite;
     text-decoration: none;

@@ -13,7 +13,7 @@ export const BreadCrumbs: React.FC = () => {
   return (
     <div className="breadcrumbs">
       <Link to="/" className="breadcrumbs__home">
-        <img src={home} alt="Home" />
+        <img src={home} alt="Home" className="breadcrumbs__home--image"/>
       </Link>
       {breadcrumbs.map(({ match, breadcrumb, location }, index) =>
         !index ? (
@@ -21,7 +21,7 @@ export const BreadCrumbs: React.FC = () => {
         ) : (
           <React.Fragment key={index}>
             <div className="breadcrumbs__arrow">
-              <img src={arrow} alt="/" />
+              <img src={arrow} alt="/" className="breadcrumbs__arrow--image"/>
             </div>
             <Link
               key={match.pathname}
