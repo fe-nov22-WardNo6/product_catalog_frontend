@@ -1,58 +1,58 @@
 @import '../../style/utils/vars.scss';
 
-  .buttons {
-    display: flex;
-    justify-content: space-between;
+.buttons {
+  display: flex;
+  justify-content: space-between;
 
-    &-addCart {
-      flex:1 1 auto;
-      flex-grow: 1;
-      border: none;
-      margin-right: 8px;
-      height: 40px;
-      background-color: $primaryCardButtonColor;
-      color: $primaryTextColor;
-      font-family: 'Mont';
-      font-style: normal;
-      font-weight: 600;
-      font-size: 14px;
-      line-height: 21px;
-      transition: background-color $timeTransition;
+  &-addCart {
+    flex: 1 1 auto;
+    flex-grow: 1;
+    border: none;
+    margin-right: 8px;
+    height: 40px;
+    background-color: $primaryCardButtonColor;
+    color: $primaryTextColor;
+    font-family: 'Mont';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 21px;
+    transition: background-color $timeTransition;
 
-      &--added {
-        background-color: $defaultButtonColor;
-      }
-
-      &:hover {
-        background-color: $defaultButtonColor;
-        cursor: pointer;
-      }
-
-      &:active {
-        background-color: $selectedCardButtonColor;
-      }
+    &--added {
+      background-color: $defaultButtonColor;
     }
 
-    &-addList {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 40px;
-      height: 40px;
+    &:hover {
       background-color: $defaultButtonColor;
-      text-decoration: none;
-      background-image: url('../../icons/heart.svg');
-      background-repeat: no-repeat;
-      background-position: center;
-      transition: background-color $timeTransition;
+      cursor: pointer;
+    }
 
-      &:hover {
-        background-color: $hoverButtonColor;
-        cursor: pointer;
-      }
-
-      &--active {
-        background-image: url('../../icons/fullHeart.svg');
-      }
+    &:active {
+      background-color: $selectedCardButtonColor;
     }
   }
+
+  &-addList {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background-color: $defaultButtonColor;
+    text-decoration: none;
+    background-image: url('../../icons/heart.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: background-color $timeTransition;
+
+    &:hover {
+      background-color: $hoverButtonColor;
+      cursor: pointer;
+    }
+
+    &--active {
+      background-image: url('../../icons/fullHeart.svg');
+    }
+  }
+}

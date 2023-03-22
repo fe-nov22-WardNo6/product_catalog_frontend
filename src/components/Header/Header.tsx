@@ -56,7 +56,7 @@ export const Header: React.FC<Props> = ({
             >
               PHONES
             </NavLink>
-            <NavLink  
+            <NavLink
               to="/tablets"
               className={({ isActive }) =>
                 cn('header__button', { 'is-active': isActive })

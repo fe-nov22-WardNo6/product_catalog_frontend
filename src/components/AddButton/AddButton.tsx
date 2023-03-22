@@ -17,7 +17,7 @@ export const AddButton: React.FC<Props> = ({ phone }) => {
     addToFavorites,
     removeFromFavorites,
   } = useContext(ActionContext);
-  
+
   const [addedToCart, setAddedToCart] = useState(false);
   const [addedToFavorites, setAddedToFavorites] = useState(false);
 
@@ -40,7 +40,7 @@ export const AddButton: React.FC<Props> = ({ phone }) => {
   useEffect(() => {
     checkFavorites();
   }, [favoritesItems]);
-  
+
   const handleAddToCart = () => {
     if (addedToCart) {
       removeAllFromCart(phone);

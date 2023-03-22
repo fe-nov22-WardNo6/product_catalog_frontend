@@ -31,13 +31,10 @@ export const Footer: React.FC = () => {
             </a>
           </li>
           <li className="footer__list_item">
-            <NavLink
-              to="/contacts"
-              className="footer__list_link"
-            >
+            <NavLink to="/contacts" className="footer__list_link">
               Contacts
             </NavLink>
-          </li> 
+          </li>
           <li className="footer__list_item">
             <a className="footer__list_link" href="#">
               Rights
