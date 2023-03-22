@@ -21,4 +21,11 @@
   &__noPhones {
     color: $colorWhite;
   }
+
+  &__sort-wrapper {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+  }
 }
