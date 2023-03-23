@@ -53,7 +53,7 @@
   background: $selectedCardButtonColor;
   border: 1px solid $selectedCardButtonColor;
   cursor: pointer;
- 
+
   &:hover {
     background: $hoverButtonColor;
   }
@@ -72,4 +72,3 @@
 .icon {
   fill: $colorWhite;
 }
-

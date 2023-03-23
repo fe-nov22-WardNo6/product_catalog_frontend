@@ -33,7 +33,7 @@ export const Header: React.FC<Props> = ({
 
     return sum;
   }
- 
+
   return (
     <header className="header">
       <div className="header__content">

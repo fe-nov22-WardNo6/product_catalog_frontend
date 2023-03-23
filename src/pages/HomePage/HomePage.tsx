@@ -40,7 +40,7 @@ export const HomePage: React.FC = () => {
   useEffect(() => {
     getNewFromServer('newest');
     getHotFromServer('hotPrices');
-  }, []); 
+  }, []);
 
   return (
     <div className="homePage container">
@@ -57,9 +57,7 @@ export const HomePage: React.FC = () => {
 
       <div className="roundaCon">
         {isDataLoading && <Loader />}
-        {!isDataLoading && (
-          <Roundabout title="Hot prices" phones={phonesHot} />  
-        )}
+        {!isDataLoading && <Roundabout title="Hot prices" phones={phonesHot} />}
       </div>
     </div>
   );
