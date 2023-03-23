@@ -7,8 +7,18 @@
   box-sizing: border-box;
 }
 
-.corousel {
-  margin-bottom: 22px;
+.slider {
+  margin-bottom: 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  @include onTablet {
+    padding: 0 24px;
+  }
+
+  @include onDesktop {
+    padding: 0 32px;
+  }
 }
 
 .slick-slider {
@@ -70,21 +80,23 @@
 }
 
 .slick-slide {
-  background-image: url('../BannerSlider/Banner-mobile.png');
+  background-image: url('../BannerSlider/banner-promo-mobile.png');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-
   height: 320px;
 
   @include onTablet {
     height: 190px;
-    background-image: url('../BannerSlider/Banner-tablet.png');
+    background-image: url('../BannerSlider/banner-promo-tablet.png');
+   background-position: center;
+
   }
 
   @include onDesktop {
     height: 400px;
-    background-image: url('../BannerSlider/Banner-desctop.png');
+    background-image: url('../BannerSlider/banner-promo.png');
+
   }
 }
 

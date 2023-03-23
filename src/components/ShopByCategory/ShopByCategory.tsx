@@ -4,6 +4,7 @@ import { getCategories, getImage } from '../../api/api';
 import { Category } from '../../types/Category';
 import { Loader } from '../Loader';
 import './ShopByCategory.scss';
+import '../../style/App.scss';
 
 export const ShopByCategory: React.FC = () => {
   const [categories, setCategoties] = useState([]);
@@ -50,7 +51,7 @@ export const ShopByCategory: React.FC = () => {
   }, [categories]);
 
   return (
-    <div className="shop">
+    <div className="shop container">
       <h1 className="shop__title">Shop by category</h1>
       {isDataLoading && <Loader />}
 

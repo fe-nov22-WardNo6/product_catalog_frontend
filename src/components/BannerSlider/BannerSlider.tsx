@@ -1,6 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Slider from 'react-slick';
-
 import './BannerSlider.scss';
 
 type Props = {
@@ -31,11 +31,17 @@ export const BannerSlider: React.FC = () => {
     nextArrow: <Arrow className="slick-next slick-arrow" />,
   };
   return (
-    <div className="corousel">
+    <div className="slider">
       <Slider {...settings}>
-        <div className="slick-slide"></div>
-        <div className="slick-slide"></div>
-        <div className="slick-slide"></div>
+        <Link to="/phones">
+          <div className="slick-slide"></div>
+        </Link>
+        <Link to="/phones">
+          <div className="slick-slide"></div>
+        </Link>
+        <Link to="/phones">
+          <div className="slick-slide"></div>
+        </Link>
       </Slider>
     </div>
   );

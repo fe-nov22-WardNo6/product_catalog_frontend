@@ -43,21 +43,17 @@ export const HomePage: React.FC = () => {
   }, []);
 
   return (
-    <div className="homePage container">
-      <h1 className="title">Welcome to Nice Gadgets store!</h1>
+    <div className="homePage">
+      <h1 className="title container">Welcome to Nice Gadgets store!</h1>
       <BannerSlider />
-      <div className="roundaCon">
-        {isDataLoading && <Loader />}
-        {!isDataLoading && (
-          <Roundabout title="Brand new models" phones={phonesNew} />
-        )}
+      <div className="roundaCon container">
+        <Roundabout title="Brand new models" phones={phonesNew} />
       </div>
 
       <ShopByCategory />
 
-      <div className="roundaCon">
-        {isDataLoading && <Loader />}
-        {!isDataLoading && <Roundabout title="Hot prices" phones={phonesHot} />}
+      <div className="roundaCon container">
+        <Roundabout title="Hot prices" phones={phonesHot} />
       </div>
     </div>
   );
