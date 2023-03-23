@@ -17,6 +17,7 @@ export const HomePage: React.FC = () => {
     try {
       setIsDataLoading(true);
       console.log('123');
+      console.log('456');
       const data = await getCollection(collection);
       setPhonesNew(data);
     } catch {
@@ -44,17 +45,21 @@ export const HomePage: React.FC = () => {
   }, []);
 
   return (
-    <div className="homePage">
-      <h1 className="title container">Welcome to Nice Gadgets store!</h1>
+    <div className="homePage container">
+      <h1 className="title">Welcome to Nice Gadgets store!</h1>
       <BannerSlider />
-      <div className="roundaCon container">
-        <Roundabout title="Brand new models" phones={phonesNew} />
+      <div className="roundaCon">
+        {isDataLoading && <Loader />}
+        {!isDataLoading && (
+          <Roundabout title="Brand new models" phones={phonesNew} />
+        )}
       </div>
 
       <ShopByCategory />
 
-      <div className="roundaCon container">
-        <Roundabout title="Hot prices" phones={phonesHot} />
+      <div className="roundaCon">
+        {isDataLoading && <Loader />}
+        {!isDataLoading && <Roundabout title="Hot prices" phones={phonesHot} />}
       </div>
     </div>
   );
