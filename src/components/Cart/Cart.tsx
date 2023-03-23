@@ -5,6 +5,11 @@ import { ActionContext } from '../../context/ActionContext';
 import { Modal } from '../Modal';
 import { useNavigate } from 'react-router-dom';
 import { Back } from '../Back';
+import {
+  NotificationContainer,
+  NotificationManager,
+} from 'react-notifications';
+import 'react-notifications/lib/notifications.css';
 
 export const Cart: React.FC = () => {
   const [modalActive, setModalActive] = useState(false);
@@ -29,6 +34,10 @@ export const Cart: React.FC = () => {
   const handleClearCart = () => {
     clearCart();
     setModalActive(false);
+  };
+
+  const createNotification = () => {
+    NotificationManager.success('Order sent', 'Successfully');
   };
 
   return (
@@ -71,20 +80,28 @@ export const Cart: React.FC = () => {
         </div>
         {modalActive && (
           <Modal setActive={setModalActive}>
-            <h3 className="modal__text">
-              To confirm your order ...
-            </h3>
+            <h3 className="modal__text">To confirm your order ...</h3>
             <div className="modal__button-wrapper">
-              <button className="modal__button" onClick={() => navigate('/phones')}>
+              <button
+                className="modal__button"
+                onClick={() => navigate('/phones')}
+              >
                 Continue
               </button>
-              <button className="modal__button" onClick={() => handleClearCart()}>
+              <button
+                className="modal__button"
+                onClick={() => {
+                  handleClearCart();
+                  createNotification();
+                }}
+              >
                 Confirm
               </button>
             </div>
           </Modal>
         )}
       </div>
+      <NotificationContainer />
     </>
   );
 };

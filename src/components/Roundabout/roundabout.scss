@@ -27,7 +27,15 @@
 }
 
 .test {
-  width: 288px;
+  min-width: 212px;
+
+  @media (min-width: 640px) {
+    min-width: 237px;
+  }
+
+  @media (min-width: 1200px) {
+    min-width: 272px;
+  }
 }
 
 .actions {
@@ -63,8 +71,4 @@
 
 .icon {
   fill: $colorWhite;
-}
-
-.section {
-  height: 550px;
 }

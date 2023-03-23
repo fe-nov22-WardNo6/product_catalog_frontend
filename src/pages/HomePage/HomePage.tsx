@@ -6,26 +6,34 @@ import { getCollection } from '../../api/api';
 import { ShopByCategory } from '../../components/ShopByCategory';
 import './HomePage.scss';
 import '../../style/App.scss';
+import { Loader } from '../../components/Loader';
 
 export const HomePage: React.FC = () => {
   const [phonesNew, setPhonesNew] = useState<Phone[]>([]);
   const [phonesHot, setPhonesHot] = useState<Phone[]>([]);
+  const [isDataLoading, setIsDataLoading] = useState(false);
 
   const getNewFromServer = async (collection: string) => {
     try {
+      setIsDataLoading(true);
       const data = await getCollection(collection);
       setPhonesNew(data);
     } catch {
-      console.log(123);
+      setIsDataLoading(false);
+    } finally {
+      setIsDataLoading(false);
     }
   };
 
   const getHotFromServer = async (collection: string) => {
     try {
+      setIsDataLoading(true);
       const data = await getCollection(collection);
       setPhonesHot(data);
     } catch {
-      console.log(123);
+      setIsDataLoading(false);
+    } finally {
+      setIsDataLoading(false);
     }
   };
 

@@ -86,18 +86,6 @@
   background-position: center;
   height: 320px;
 
-  // &__img {
-  //   // height: 320px;
-  //   object-position: center;
-
-  //   @include onTablet {
-  //     // width: 100%;
-  //   }
-  //   height: auto;
-  //   object-fit: contain;
-
-  // }
-
   @include onTablet {
     height: 190px;
     background-image: url('../BannerSlider/banner-promo-tablet.png');

@@ -6,6 +6,7 @@ import './PhoneDescription.scss';
 import cn from 'classnames';
 import { Link, NavLink } from 'react-router-dom';
 import { AddButton } from '../AddButton';
+import { Loader } from '../Loader';
 
 type Props = {
   phone: Phone;
@@ -14,7 +15,7 @@ type Props = {
 export const PhoneDescription: React.FC<Props> = ({ phone }) => {
   const [cardImage, setCardImage] = useState('');
   const [allImages, setAllImages] = useState<string[] | []>([]);
-  const [isDataLoading, setIsDataLoading] = useState(false);
+  const [isImageLoading, setIsImageLoading] = useState(false);
   const [isError, setError] = useState(false);
 
   const {
@@ -34,17 +35,17 @@ export const PhoneDescription: React.FC<Props> = ({ phone }) => {
 
   const getImageFromServer = async () => {
     try {
-      setIsDataLoading(true);
+      setIsImageLoading(true);
 
       const data = await getImage(images[0]);
 
       setCardImage(data);
-      setIsDataLoading(false);
+      setIsImageLoading(false);
     } catch {
       setError(true);
-      setIsDataLoading(false);
+      setIsImageLoading(false);
     } finally {
-      setIsDataLoading(false);
+      setIsImageLoading(false);
     }
   };
 
@@ -57,12 +58,12 @@ export const PhoneDescription: React.FC<Props> = ({ phone }) => {
       const data = await Promise.all(images.map((image) => getImage(image)));
 
       setAllImages(data);
-      setIsDataLoading(false);
+      setIsImageLoading(false);
     } catch {
       setError(true);
-      setIsDataLoading(false);
+      setIsImageLoading(false);
     } finally {
-      setIsDataLoading(false);
+      setIsImageLoading(false);
     }
   };
 
@@ -82,21 +83,37 @@ export const PhoneDescription: React.FC<Props> = ({ phone }) => {
         <div className="visual__container visual__container--photo">
           <div className="visual__photo photo">
             <div className="photo__container">
-              <img src={cardImage} alt="Phone image" className="photo__image" />
+              {isImageLoading && <Loader />}
+              {!isError && !isImageLoading && (
+                <img
+                  src={cardImage}
+                  alt="Phone image"
+                  className="photo__image"
+                />
+              )}
             </div>
           </div>
 
           <div className="visual__angles angles">
-            {allImages.map((image) => (
-              <button
-                type="button"
-                className="angles__container"
-                key={image}
-                onClick={() => changeImage(image)}
-              >
-                <img src={image} alt="Phone image" className="angles__photo" />
-              </button>
-            ))}
+            {allImages.map((image) => {
+              return (
+                <button
+                  type="button"
+                  className="angles__container"
+                  key={image}
+                  onClick={() => changeImage(image)}
+                >
+                  {isImageLoading && <Loader />}
+                  {!isError && !isImageLoading && (
+                    <img
+                      src={image}
+                      alt="Phone image"
+                      className="angles__photo"
+                    />
+                  )}
+                </button>
+              );
+            })}
           </div>
         </div>
 

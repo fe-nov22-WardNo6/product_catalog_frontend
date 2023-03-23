@@ -21,15 +21,11 @@
 }
 
 main {
-  background-color: #0f1121;
+  margin-bottom: 64px;
   flex-grow: 1;
   padding-top: 24px;
 
-  @media (min-width: 640px) {
-    margin-bottom: 84px;
-  }
-
   @media (min-width: 1200px) {
-    margin-bottom: 100px;
+    margin-bottom: 80px;
   }
 }

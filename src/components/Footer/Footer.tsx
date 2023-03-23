@@ -36,9 +36,9 @@ export const Footer: React.FC = () => {
             </NavLink>
           </li>
           <li className="footer__list_item">
-            <a className="footer__list_link" href="#">
+            <NavLink to="/rights" className="footer__list_link">
               Rights
-            </a>
+            </NavLink>
           </li>
         </ul>
         <div className="footer__top">
