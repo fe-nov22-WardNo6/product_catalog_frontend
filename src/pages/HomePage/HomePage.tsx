@@ -17,6 +17,7 @@ export const HomePage: React.FC = () => {
     try {
       setIsDataLoading(true);
       console.log('123');
+      console.log('456');
       const data = await getCollection(collection);
       setPhonesNew(data);
     } catch {
