@@ -25,6 +25,12 @@
     font-weight: 500;
     font-size: 20px;
     text-decoration: none;
+
+    &__link {
+      text-decoration: underline;
+      color: #f1f2f9;
+      margin-left: 10px;
+    }
   }
 
   &__text-normal {
