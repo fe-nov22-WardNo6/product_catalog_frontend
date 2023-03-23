@@ -1,5 +1,16 @@
+button {
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
 .back {
   display: flex;
+  font-family: 'Mont';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 15px;
 
   &__svg {
     margin-right: 10px;
