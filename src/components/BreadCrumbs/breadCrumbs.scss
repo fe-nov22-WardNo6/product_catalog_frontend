@@ -13,12 +13,14 @@
   }
 
   &__arrow {
+    padding-top: 4px;
     &--image {
       vertical-align: middle;
     }
   }
 
   &__link {
+    padding-top: 6px;
     color: $colorWhite;
     text-decoration: none;
 
