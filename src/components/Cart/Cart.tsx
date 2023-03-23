@@ -58,36 +58,36 @@ export const Cart: React.FC = () => {
             <p className="cart__total-sum">{`$${totalItems}`}</p>
 
             <p className="cart__total-text">{`Total for ${countSum} items`}</p>
-             <div className="cart__total-line"></div>
+            <div className="cart__total-line"></div>
 
-          <button
-            className="cart__total-button"
-            disabled={isDisabled}
-            onClick={() => setModalActive(true)}
-          >
+            <button
+              className="cart__total-button"
+              disabled={isDisabled}
+              onClick={() => setModalActive(true)}
+            >
             Checkout
-          </button>
+            </button>
+          </div>
         </div>
-      </div>
-      {modalActive && (
-        <Modal setActive={setModalActive}>
-          <h3 className="modal__text">
+        {modalActive && (
+          <Modal setActive={setModalActive}>
+            <h3 className="modal__text">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Non ut
             adipisci animi velit rerum. Excepturi et adipisci quas aliquid,
             nobis error repudiandae consequatur inventore in soluta ut, omnis
             eos necessitatibus!
-          </h3>
-          <div className="modal__button-wrapper">
-            <button className="modal__button" onClick={() => navigate('/')}>
+            </h3>
+            <div className="modal__button-wrapper">
+              <button className="modal__button" onClick={() => navigate('/')}>
               Home page
-            </button>
-            <button className="modal__button" onClick={() => handleClearCart()}>
+              </button>
+              <button className="modal__button" onClick={() => handleClearCart()}>
               Clear cart
-            </button>
-          </div>
-        </Modal>
-      )}
-    </div>
+              </button>
+            </div>
+          </Modal>
+        )}
+      </div>
          
     </>
   );
