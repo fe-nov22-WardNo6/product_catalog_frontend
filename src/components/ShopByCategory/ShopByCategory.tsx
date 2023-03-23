@@ -76,7 +76,9 @@ export const ShopByCategory: React.FC = () => {
                   <img src={allImages[i]} alt="" className="category__image" />
                 </div>
                 <h3 className="category__title">{nameFixed}</h3>
-                <p className="category__count">{countOfModels[i]} {word}</p>
+                <p className="category__count">
+                  {countOfModels[i]} {word}
+                </p>
               </Link>
             );
           })}

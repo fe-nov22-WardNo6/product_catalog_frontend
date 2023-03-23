@@ -3,7 +3,12 @@ import './back.scss';
 
 export const Back: React.FC = () => {
   return (
-    <button className="back" onClick={() => { history.back(); }}>
+    <button
+      className="back"
+      onClick={() => {
+        history.back();
+      }}
+    >
       <svg
         className="back__svg"
         width="16"

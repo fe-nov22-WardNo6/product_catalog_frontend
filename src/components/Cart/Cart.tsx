@@ -65,24 +65,27 @@ export const Cart: React.FC = () => {
               disabled={isDisabled}
               onClick={() => setModalActive(true)}
             >
-            Checkout
+              Checkout
             </button>
           </div>
         </div>
         {modalActive && (
           <Modal setActive={setModalActive}>
             <h3 className="modal__text">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Non ut
-            adipisci animi velit rerum. Excepturi et adipisci quas aliquid,
-            nobis error repudiandae consequatur inventore in soluta ut, omnis
-            eos necessitatibus!
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Non ut
+              adipisci animi velit rerum. Excepturi et adipisci quas aliquid,
+              nobis error repudiandae consequatur inventore in soluta ut, omnis
+              eos necessitatibus!
             </h3>
             <div className="modal__button-wrapper">
               <button className="modal__button" onClick={() => navigate('/')}>
-              Home page
+                Home page
               </button>
-              <button className="modal__button" onClick={() => handleClearCart()}>
-              Clear cart
+              <button
+                className="modal__button"
+                onClick={() => handleClearCart()}
+              >
+                Clear cart
               </button>
             </div>
           </Modal>
