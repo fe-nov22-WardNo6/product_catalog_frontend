@@ -1,9 +1,9 @@
 .sortPanel {
-  margin: 0 auto 24px;
-  width: 287px;
+  margin: 0 auto;
+  width: 310px;
 
   @media (min-width: 640px) {
-    margin: 0 0 24px;
+    margin: 0 0;
     width: 339px;
   }
 
@@ -18,7 +18,7 @@
   }
 
   &__category {
-    width: 100%;
+    width: 90%;
   }
 
   &__pages {

@@ -10,12 +10,16 @@ body {
   background-color: $colorBlack;
 }
 
+.componemt__conteiner {
+  max-width: 1150px;
+  margin: 0 auto;
+}
+
 .conteiner {
   display: flex;
   flex-direction: column;
   max-width: 1150px;
   margin: 0 auto;
-  padding: 40px 0;
 
   @media (max-width: 1199px) {
     margin: 0 24px;

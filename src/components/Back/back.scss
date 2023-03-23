@@ -1,0 +1,26 @@
+.back {
+  display: flex;
+
+  &__svg {
+    margin-right: 10px;
+    fill: #f1f2f9;
+  }
+
+  &__text {
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 15px;
+    line-height: 18px;
+    color: #f1f2f9;
+  }
+
+  &:hover {
+    .back__svg {
+      fill: #905bff;
+    }
+
+    .back__text {
+      color: #905bff;
+    }
+  }
+}

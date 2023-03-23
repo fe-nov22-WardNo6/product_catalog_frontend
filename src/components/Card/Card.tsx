@@ -1,11 +1,11 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState } from 'react';
 import { getImage } from '../../api/api';
 import { Phone } from '../../types/PhoneDefault';
 import './card.scss';
 import cn from 'classnames';
 import { Link } from 'react-router-dom';
-import { ActionContext } from '../../context/ActionContext';
 import { Loader } from '../Loader';
+import { AddButton } from '../AddButton';
 
 type Props = {
   phone: Phone;
@@ -13,16 +13,6 @@ type Props = {
 };
 
 export const Card: React.FC<Props> = ({ phone, gridClass }) => {
-  const {
-    addToCart,
-    removeAllFromCart,
-    cartItems,
-    favoritesItems,
-    addToFavorites,
-    removeFromFavorites,
-  } = useContext(ActionContext);
-  const [addedToCart, setAddedToCart] = useState(false);
-  const [addedToFavorites, setAddedToFavorites] = useState(false);
   const [cardImage, setCardImage] = useState('');
   const [isDataLoading, setIsDataLoading] = useState(false);
   const [isError, setError] = useState(false);
@@ -50,49 +40,11 @@ export const Card: React.FC<Props> = ({ phone, gridClass }) => {
     getImageFromServer();
   }, []);
 
-  const checkCart = () => {
-    if (cartItems.some((item) => item.id === phone.id)) {
-      setAddedToCart(true);
-    }
-  };
-
-  useEffect(() => {
-    checkCart();
-  }, [cartItems]);
-
-  const checkFavorites = () => {
-    if (favoritesItems.some((item) => item.id === phone.id)) {
-      setAddedToFavorites(true);
-    }
-  };
-
-  useEffect(() => {
-    checkFavorites();
-  }, [favoritesItems]);
-
-  const handleAddToCart = () => {
-    if (addedToCart) {
-      removeAllFromCart(phone);
-      setAddedToCart(false);
-    } else {
-      addToCart(phone);
-      setAddedToCart(true);
-    }
-  };
-
-  const handleAddToFavorites = () => {
-    if (addedToFavorites) {
-      removeFromFavorites(phone);
-      setAddedToFavorites(false);
-    } else {
-      addToFavorites(phone);
-      setAddedToFavorites(true);
-    }
-  };
-
   return (
     <article className={cn('card', gridClass)}>
-      <Link to={`/phones/${phoneId}`}>
+      <Link to={`/phones/${phoneId}`}
+        onClick={() => window.scroll(0, 0)}
+      >
         <div className="card__image-container">
           {isDataLoading && <Loader />}
 
@@ -131,22 +83,7 @@ export const Card: React.FC<Props> = ({ phone, gridClass }) => {
           </div>
         </div>
       </Link>
-      <div className="card__buttons">
-        <button
-          className={cn('card__buttons-addCart', {
-            'card__buttons-addCart--added': addedToCart,
-          })}
-          onClick={() => handleAddToCart()}
-        >
-          {addedToCart ? 'Added to cart' : 'Add to cart'}
-        </button>
-        <button
-          className={cn('card__buttons-addList', {
-            'card__buttons-addList--active': addedToFavorites,
-          })}
-          onClick={() => handleAddToFavorites()}
-        ></button>
-      </div>
+      <AddButton phone={phone} />
     </article>
   );
 };

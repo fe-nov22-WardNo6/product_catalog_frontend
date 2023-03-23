@@ -4,6 +4,7 @@ import { CartItem } from './CartItem';
 import { ActionContext } from '../../context/ActionContext';
 import { Modal } from '../Modal';
 import { useNavigate } from 'react-router-dom';
+import { Back } from '../Back';
 
 export const Cart: React.FC = () => {
   const [modalActive, setModalActive] = useState(false);
@@ -14,7 +15,6 @@ export const Cart: React.FC = () => {
   const totalItems = getSum(totalItem);
   const navigate = useNavigate();
   const isDisabled = cartItems.length === 0;
-  // const totalCost: number = cartItems.reduce((a, b) => a + b.price, 0);
 
   function getSum(arr: number[]) {
     let sum = 0;
@@ -32,31 +32,33 @@ export const Cart: React.FC = () => {
   };
 
   return (
-    <div className="conteiner grid grid--desktop">
-      <a href="/" className="cart__link grid__item-desktop--1-2">
-        Back
-      </a>
+    <>
+      <div className="componemt__conteiner">
+        <Back />
+      </div>
 
-      <h1 className="cart__title">Cart</h1>
+      <div className="conteiner">
+        <h1 className="cart__title">Cart</h1>
 
-      <div className="cart__flex">
-        {cartItems.length === 0 && (
-          <div className="cart__without">There are no products in the cart</div>
-        )}
-        {cartItems.length > 0 && (
-          <div className="cart__item">
-            {cartItems.map((good) => (
-              <CartItem key={good.id} good={good} />
-            ))}
-          </div>
-        )}
+        <div className="cart__flex">
+          {cartItems.length === 0 && (
+            <div className="cart__without">
+              There are no products in the cart
+            </div>
+          )}
+          {cartItems.length > 0 && (
+            <div className="cart__item">
+              {cartItems.map((good) => (
+                <CartItem key={good.id} good={good} />
+              ))}
+            </div>
+          )}
 
-        <div className="cart__total">
-          <p className="cart__total-sum">{`$${totalItems}`}</p>
+          <div className="cart__total">
+            <p className="cart__total-sum">{`$${totalItems}`}</p>
 
-          <p className="cart__total-text">{`Total for ${countSum} items`}</p>
-
-          <div className="cart__total-line"></div>
+            <p className="cart__total-text">{`Total for ${countSum} items`}</p>
+             <div className="cart__total-line"></div>
 
           <button
             className="cart__total-button"
@@ -86,5 +88,7 @@ export const Cart: React.FC = () => {
         </Modal>
       )}
     </div>
+         
+    </>
   );
 };

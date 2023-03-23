@@ -5,30 +5,32 @@
   &__title {
     margin-bottom: 24px;
     font-weight: 800;
-    font-size: 32px;
+    font-size: 22px;
     line-height: 41px;
     letter-spacing: -0.01em;
     color: #f1f2f9;
   }
 
   &__container {
-    display: flex;
-    gap: 16px;
-    width: 100%;
+    display: block;
+
+    @media (min-width: 640px) {
+      display: flex;
+      gap: 16px;
+    }
   }
 }
 
 .category {
   &__image-container {
+    display: inline-block;
     margin-bottom: 24px;
     background-color: gray;
   }
 
   &__image {
+    width: 100%;
     display: block;
-    width: 368px;
-    height: 368px;
-    object-fit: cover;
   }
 
   &__title {

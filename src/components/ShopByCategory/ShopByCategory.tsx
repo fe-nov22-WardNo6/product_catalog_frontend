@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { getCategories, getCount, getImage } from '../../api/api';
+import { getCategories, getImage } from '../../api/api';
 import { Category } from '../../types/Category';
 import { Loader } from '../Loader';
 import './ShopByCategory.scss';
@@ -10,7 +10,6 @@ export const ShopByCategory: React.FC = () => {
   const [allImages, setAllImages] = useState<string[] | []>([]);
   const [isDataLoading, setIsDataLoading] = useState(false);
   const [isError, setError] = useState(false);
-  // const [countOfModels, setCountModels] = useState<number []>([]);
   const countOfModels = [71, 0, 0];
 
   const getCategoriesFromServer = async () => {
@@ -50,21 +49,6 @@ export const ShopByCategory: React.FC = () => {
     getAllImages();
   }, [categories]);
 
-  // const getCountFromServer = async () => {
-  //   try {
-  //     const data = await Promise.all(categories.map((category: Category) => getCount(category.name)));
-  //     const counts = data.map(item => item.count);
-  //     console.log(counts);
-  //     setCountModels(counts);
-  //   } catch {
-  //     setCountModels([]);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   getCountFromServer();
-  // }, [categories]);
-
   return (
     <div className="shop">
       <h1 className="shop__title">Shop by category</h1>
@@ -76,6 +60,11 @@ export const ShopByCategory: React.FC = () => {
             const { id, name } = category;
             const nameFixed =
               name.slice(0, 1).toLocaleUpperCase() + name.slice(1);
+            let word = 'models';
+
+            if (countOfModels[i] === 1) {
+              word = 'model';
+            }
 
             return (
               <Link
@@ -87,7 +76,7 @@ export const ShopByCategory: React.FC = () => {
                   <img src={allImages[i]} alt="" className="category__image" />
                 </div>
                 <h3 className="category__title">{nameFixed}</h3>
-                <p className="category__count">{countOfModels[i]}</p>
+                <p className="category__count">{countOfModels[i]} {word}</p>
               </Link>
             );
           })}

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './SortPanel.scss';
 import '../../style/App.scss';
 import arrowUp from '../../icons/arrowUp.svg';
@@ -14,11 +14,45 @@ export const SortPanel: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const [isActiveCategory, setisActiveCategory] = useState(false);
-  const [selectedCategory, setSelectedCategory] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState(
+    searchParams.get('sortBy') || '',
+  );
   const isSelectedCategory = Boolean(selectedCategory.length);
 
   const [isActivePages, setisActivePages] = useState(false);
-  const [selectedPages, setSelectedPages] = useState('16');
+  const [selectedPages, setSelectedPages] = useState(
+    searchParams.get('perPage') || 16,
+  );
+
+  const refSort = useRef<HTMLDivElement>(null);
+  const refPages = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    function handleClickOutsideSort(event: MouseEvent): void {
+      if (refSort.current && !refSort.current.contains(event.target as Node)) {
+        setisActiveCategory(false);
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutsideSort);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutsideSort);
+    };
+  });
+
+  useEffect(() => {
+    function handleClickOutsidePages(event: MouseEvent): void {
+      if (
+        refPages.current &&
+        !refPages.current.contains(event.target as Node)
+      ) {
+        setisActivePages(false);
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutsidePages);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutsidePages);
+    };
+  });
 
   const handleClickSortList = () => {
     setisActiveCategory(!isActiveCategory);
@@ -31,6 +65,7 @@ export const SortPanel: React.FC = () => {
   const onSortByHandler = (onSortMethood: string | null) => {
     const updateSearchParams = getSearchWith(searchParams, {
       sortBy: onSortMethood,
+      currentPage: '1',
     });
 
     setSearchParams(updateSearchParams);
@@ -39,17 +74,23 @@ export const SortPanel: React.FC = () => {
   const onPerPageHandler = (pages: string | null) => {
     const updateSearchParams = getSearchWith(searchParams, {
       perPage: pages,
+      currentPage: '1',
     });
 
     setSearchParams(updateSearchParams);
   };
+
+  useEffect(() => {
+    setSelectedCategory(searchParams.get('sortBy') || '');
+    setSelectedPages(searchParams.get('perPage') || 16);
+  }, [searchParams]);
 
   return (
     <div className="sortPanel">
       <div className="sortPanel__wrapper">
         <div className="sortPanel__category">
           <h2 className="dropdown-title">Sort by</h2>
-          <div className="dropdown">
+          <div className="dropdown" ref={refSort}>
             <div
               className={cn('dropdown__button-container', {
                 'dropdown__button-container--active': isActiveCategory,
@@ -100,7 +141,7 @@ export const SortPanel: React.FC = () => {
         </div>
         <div className="sortPanel__pages">
           <h2 className="dropdown-title">Items on page</h2>
-          <div className="dropdown">
+          <div className="dropdown" ref={refPages}>
             <div
               className={cn('dropdown__button-container', {
                 'dropdown__button-container--active': isActivePages,

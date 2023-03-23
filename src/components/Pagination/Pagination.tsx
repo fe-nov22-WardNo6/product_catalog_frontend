@@ -18,7 +18,32 @@ export const Pagination: React.FC<Props> = ({ countOfModels }) => {
 
   const [isNextAvailible, setIsNextAvailible] = useState(false);
   const [isPrevAvailible, setIsPrevAvailible] = useState(false);
-  const [currentPerPage, setCurrentPerPage] = useState(16);
+  const [currentPerPage, setCurrentPerPage] = useState(
+    searchParams.get('perPage') || 16,
+  );
+
+  const [width, setWidth] = useState(window.screen.width);
+  const [isWidthLower, setIsWidthLower] = useState(false);
+
+  useEffect(() => {
+    const resizeHandler = () => {
+      setWidth(window.screen.width);
+    };
+
+    window.addEventListener('resize', resizeHandler);
+
+    return () => {
+      window.removeEventListener('resize', resizeHandler);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (width <= 640) {
+      setIsWidthLower(true);
+    } else {
+      setIsWidthLower(false);
+    }
+  }, [width]);
 
   const getCountOfPages = () => {
     const perPage = searchParams.get('perPage') || 16;
@@ -44,9 +69,8 @@ export const Pagination: React.FC<Props> = ({ countOfModels }) => {
     let pageInSearchParams = searchParams.get('currentPage') || 1;
     const perPage = searchParams.get('perPage') || 16;
 
-    if (currentPerPage !== +perPage) {
+    if (+currentPerPage !== +perPage) {
       pageInSearchParams = 1;
-      onPageHandler(1);
       setCurrentPerPage(+perPage);
     }
 
@@ -59,30 +83,43 @@ export const Pagination: React.FC<Props> = ({ countOfModels }) => {
     countOfAllPages: number,
   ) => {
     let end = page;
-
-    while (end % 5 !== 0) {
-      end++;
-    }
-    const currentPages = [...allInitialPages].slice(end - 5, end);
-
-    if (currentPages[currentPages.length - 1] < countOfAllPages) {
-      setIsNextAvailible(true);
+    let currentPages = [];
+    if (isWidthLower) {
+      if (countOfAllPages - page === 1) {
+        currentPages = [...allInitialPages].slice(page - 3, page + 1);
+      } else if (countOfAllPages === page) {
+        currentPages = [...allInitialPages].slice(page - 4, page);
+      } else if (page === 1) {
+        currentPages = [...allInitialPages].slice(0, page + 3);
+      } else {
+        currentPages = [...allInitialPages].slice(page - 2, page + 2);
+      }
     } else {
-      setIsNextAvailible(false);
+      while (end % 5 !== 0) {
+        end++;
+      }
+      currentPages = [...allInitialPages].slice(end - 5, end);
+
+      if (currentPages[currentPages.length - 1] < countOfAllPages) {
+        setIsNextAvailible(true);
+      } else {
+        setIsNextAvailible(false);
+      }
+
+      if (currentPages[0] > 5) {
+        setIsPrevAvailible(true);
+      } else {
+        setIsPrevAvailible(false);
+      }
     }
 
-    if (currentPages[0] > 5) {
-      setIsPrevAvailible(true);
-    } else {
-      setIsPrevAvailible(false);
-    }
     setCurrentPage(page);
     setPages(currentPages);
   };
 
   useEffect(() => {
     getInitialPages();
-  }, [searchParams]);
+  }, [searchParams, isWidthLower, countOfModels]);
 
   const onPageHandler = (pageNumber: number) => {
     const updatedSearchParams = getSearchWith(searchParams, {
@@ -117,7 +154,7 @@ export const Pagination: React.FC<Props> = ({ countOfModels }) => {
         </svg>
       </button>
 
-      {isPrevAvailible && (
+      {isPrevAvailible && !isWidthLower && (
         <>
           <div
             className={cn('pagination__item', {})}
@@ -148,7 +185,7 @@ export const Pagination: React.FC<Props> = ({ countOfModels }) => {
         ))}
       </div>
 
-      {isNextAvailible && (
+      {isNextAvailible && !isWidthLower && (
         <>
           <div
             className={cn('pagination__item')}

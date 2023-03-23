@@ -12,6 +12,8 @@ import { Pagination } from '../../components/Pagination';
 import { useSearchParams } from 'react-router-dom';
 import { SortPanel } from '../../components/SortPanel';
 import { Loader } from '../../components/Loader';
+import { PageNotFound } from '../PageNotFound';
+import { SearchPanel } from '../../components/SearchPanel';
 
 export const PhonesPage: React.FC = () => {
   const [phones, setPhones] = useState<Phone[]>([]);
@@ -20,6 +22,7 @@ export const PhonesPage: React.FC = () => {
   const [width, setWidth] = useState(window.screen.width);
   const [countOfModels, setCountModels] = useState(0);
   const [searchParams] = useSearchParams();
+  const [currentCountOfPhones, setCurrentCountOfPhones] = useState(0);
 
   useEffect(() => {
     const resizeHandler = () => {
@@ -36,6 +39,7 @@ export const PhonesPage: React.FC = () => {
   const getCountFromServer = async () => {
     try {
       const data = await getCount('phones');
+
       const countFromServer = data.count;
       setCountModels(countFromServer);
     } catch {
@@ -47,7 +51,9 @@ export const PhonesPage: React.FC = () => {
     try {
       setIsDataLoading(true);
       const data = await getPhones(searchParams.toString());
-      setPhones(data);
+      console.log(data);
+      setPhones(data.rows);
+      setCurrentCountOfPhones(data.count);
       setIsDataLoading(false);
     } catch {
       setError(true);
@@ -72,7 +78,10 @@ export const PhonesPage: React.FC = () => {
       <div className="phones-page__counterItem-container">
         <CounterItems countOfModels={countOfModels} text="models" />
       </div>
-      <SortPanel />
+      <div className="phones-page__sort-wrapper">
+        <SortPanel />
+        <SearchPanel />
+      </div>
       {isDataLoading && <Loader />}
       {!isDataLoading && !isError && (
         <div className="phones-page__phones-container grid grid--desktop grid--tablet grid--landscape">
@@ -85,8 +94,15 @@ export const PhonesPage: React.FC = () => {
           })}
         </div>
       )}
-      {isError && 'not found'}
-      {!!countOfModels && <Pagination countOfModels={countOfModels} />}
+      {isError && <PageNotFound />}
+      {currentCountOfPhones === 0 && !isDataLoading && (
+        <h3 className="phones-page__noPhones">
+          Phones not found, we are sorry...
+        </h3>
+      )}
+      {!!countOfModels && !(currentCountOfPhones === 0) && (
+        <Pagination countOfModels={currentCountOfPhones} />
+      )}
     </div>
   );
 };
