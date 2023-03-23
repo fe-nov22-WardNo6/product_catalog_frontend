@@ -9,7 +9,7 @@ type Props = {
 };
 
 export const Modal: React.FC<Props> = ({ setActive, children }) => {
-  const mouseDownClouse = (e: MouseEvent) => {
+  const mouseDownClose = (e: MouseEvent) => {
     if (e.target === e.currentTarget) {
       setActive(false);
     }
@@ -29,7 +29,7 @@ export const Modal: React.FC<Props> = ({ setActive, children }) => {
   }, [setActive]);
 
   return ReactDOM.createPortal(
-    <div className="modal__overlay" onClick={mouseDownClouse}>
+    <div className="modal__overlay" onClick={mouseDownClose}>
       <div className="modal__content">
         <button
           autoFocus

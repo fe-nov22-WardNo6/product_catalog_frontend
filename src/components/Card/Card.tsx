@@ -42,9 +42,7 @@ export const Card: React.FC<Props> = ({ phone, gridClass }) => {
 
   return (
     <article className={cn('card', gridClass)}>
-      <Link to={`/phones/${phoneId}`}
-        onClick={() => window.scroll(0, 0)}
-      >
+      <Link to={`/phones/${phoneId}`} onClick={() => window.scroll(0, 0)}>
         <div className="card__image-container">
           {isDataLoading && <Loader />}
 
