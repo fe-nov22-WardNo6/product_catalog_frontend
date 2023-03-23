@@ -83,7 +83,6 @@ export const Card: React.FC<Props> = ({ phone, gridClass }) => {
           </div>
         </div>
       </Link>
-
       <AddButton phone={phone} />
     </article>
   );

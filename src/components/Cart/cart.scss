@@ -142,6 +142,7 @@ body {
       font-size: 14px;
       line-height: 21px;
       border: none;
+      cursor: pointer;
 
       &:hover {
         background: $hoverCardButtonColor;
@@ -150,6 +151,49 @@ body {
       &:active {
         background: $selectedCardButtonColor;
       }
+
+      &:disabled {
+        cursor: default;
+        background: $selectedCardButtonColor;
+      }
+    }
+  }
+}
+
+.modal {
+  &__text {
+    margin-bottom: 20px;
+    text-align: center;
+    color: $primaryTextColor;
+  }
+  &__button-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  &__button {
+    display: flex;
+    flex-grow: 1;
+    border: none;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    background-color: $defaultButtonColor;
+    color: $primaryTextColor;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 21px;
+    width: 160px;
+    cursor: pointer;
+
+    &:hover {
+      background: $hoverCardButtonColor;
+    }
+
+    &:active {
+      background: $selectedCardButtonColor;
     }
   }
 }

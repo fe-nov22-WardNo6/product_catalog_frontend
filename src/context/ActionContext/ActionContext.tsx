@@ -13,6 +13,7 @@ type ContextType = {
   addToFavorites: (phone: Phone) => void;
   removeFromFavorites: (phone: Phone) => void;
   removeAllFromCart: (phone: Phone) => void;
+  clearCart: () => void;
 };
 
 export const ActionContext = createContext<ContextType>({
@@ -23,6 +24,7 @@ export const ActionContext = createContext<ContextType>({
   addToFavorites: () => null,
   removeFromFavorites: () => null,
   removeAllFromCart: () => null,
+  clearCart: () => null,
 });
 
 export const ActionProvider: React.FC<Props> = ({ children }) => {
@@ -136,6 +138,10 @@ export const ActionProvider: React.FC<Props> = ({ children }) => {
     });
   };
 
+  const clearCart = () => {
+    setCartItems([]);
+  };
+
   const contextValue = useMemo(
     () => ({
       cartItems,
@@ -145,6 +151,7 @@ export const ActionProvider: React.FC<Props> = ({ children }) => {
       addToFavorites,
       removeFromFavorites,
       removeAllFromCart,
+      clearCart,
     }),
     [cartItems, favoritesItems],
   );
