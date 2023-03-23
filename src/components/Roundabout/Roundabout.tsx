@@ -86,8 +86,8 @@ export const Roundabout: React.FC<Props> = ({ title, phones }) => {
               <Card phone={phone} gridClass={''} />
             </div>
           ))}
-        </div>
+        </div> 
       </div>
-    </div>
+    </div> 
   );
 };
