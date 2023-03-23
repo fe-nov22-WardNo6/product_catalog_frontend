@@ -51,7 +51,6 @@ export const PhonesPage: React.FC = () => {
     try {
       setIsDataLoading(true);
       const data = await getPhones(searchParams.toString());
-      console.log(data);
       setPhones(data.rows);
       setCurrentCountOfPhones(data.count);
       setIsDataLoading(false);
