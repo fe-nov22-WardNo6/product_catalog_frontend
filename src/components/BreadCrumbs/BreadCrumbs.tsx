@@ -8,12 +8,11 @@ import cn from 'classnames';
 
 export const BreadCrumbs: React.FC = () => {
   const breadcrumbs = useBreadcrumbs();
-  // console.log(breadcrumbs);
 
   return (
     <div className="breadcrumbs">
       <Link to="/" className="breadcrumbs__home">
-        <img src={home} alt="Home" className="breadcrumbs__home--image"/>
+        <img src={home} alt="Home" className="breadcrumbs__home--image" />
       </Link>
       {breadcrumbs.map(({ match, breadcrumb, location }, index) =>
         !index ? (
@@ -21,7 +20,7 @@ export const BreadCrumbs: React.FC = () => {
         ) : (
           <React.Fragment key={index}>
             <div className="breadcrumbs__arrow">
-              <img src={arrow} alt="/" className="breadcrumbs__arrow--image"/>
+              <img src={arrow} alt="/" className="breadcrumbs__arrow--image" />
             </div>
             <Link
               key={match.pathname}
