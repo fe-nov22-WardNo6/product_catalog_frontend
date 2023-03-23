@@ -5,6 +5,11 @@ import { ActionContext } from '../../context/ActionContext';
 import { Modal } from '../Modal';
 import { useNavigate } from 'react-router-dom';
 import { Back } from '../Back';
+import {
+  NotificationContainer,
+  NotificationManager,
+} from 'react-notifications';
+import 'react-notifications/lib/notifications.css';
 
 export const Cart: React.FC = () => {
   const [modalActive, setModalActive] = useState(false);
@@ -29,6 +34,10 @@ export const Cart: React.FC = () => {
   const handleClearCart = () => {
     clearCart();
     setModalActive(false);
+  };
+
+  const createNotification = () => {
+    NotificationManager.success('Order sent', 'Successfully');
   };
 
   return (
@@ -81,7 +90,10 @@ export const Cart: React.FC = () => {
               </button>
               <button
                 className="modal__button"
-                onClick={() => handleClearCart()}
+                onClick={() => {
+                  handleClearCart();
+                  createNotification();
+                }}
               >
                 Confirm
               </button>
@@ -89,6 +101,7 @@ export const Cart: React.FC = () => {
           </Modal>
         )}
       </div>
+      <NotificationContainer />
     </>
   );
 };
