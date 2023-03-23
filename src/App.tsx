@@ -14,6 +14,7 @@ import { PageNotFound } from './pages/PageNotFound';
 import { FavoritesPage } from './pages/FavoritesPage/FavoritesPage';
 import { Contacts } from './components/Contacts';
 import { Rights } from './pages/Rights';
+//some comments
 
 export const App: React.FC = () => {
   const [isBurgerActive, setIsBurgerActive] = useState(false);
