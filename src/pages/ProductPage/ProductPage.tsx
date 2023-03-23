@@ -10,20 +10,25 @@ import { Roundabout } from '../../components/Roundabout/Roundabout';
 import { getCollection } from '../../api/api';
 import { Back } from '../../components/Back';
 import { ModelNotFound } from '../../components/ModelNotFound';
+import { Loader } from '../../components/Loader';
 
 export const ItemCard: React.FC = () => {
   const [phone, setPhone] = useState<Phone | null>(null);
   const [isDataLoading, setIsDataLoading] = useState(false);
+  const [isRecLoading, setIsRecLoading] = useState(false);
   const [isError, setError] = useState(false);
   const { phoneId = '' } = useParams();
   const [phonesRecommended, setPhonesRecommended] = useState<Phone[]>([]);
 
   const getRecommendedFromServer = async (collection: string) => {
     try {
+      setIsRecLoading(true);
       const data = await getCollection(collection);
       setPhonesRecommended(data);
     } catch {
-      console.log(123);
+      setIsRecLoading(false);
+    } finally {
+      setIsRecLoading(false);
     }
   };
 
@@ -61,7 +66,10 @@ export const ItemCard: React.FC = () => {
           <AboutPhone phone={phone} />
         </>
       )}
-      <Roundabout title="You may also like" phones={phonesRecommended} />
+      {isRecLoading && <Loader />}
+      {!isRecLoading && (
+        <Roundabout title="You may also like" phones={phonesRecommended} />
+      )}
     </div>
   );
 };
