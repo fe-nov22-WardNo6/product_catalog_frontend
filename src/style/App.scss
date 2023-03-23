@@ -22,8 +22,14 @@
 
 main {
   background-color: #0f1121;
-  padding-bottom: 40px;
   flex-grow: 1;
   padding-top: 24px;
-  padding-bottom: 40px;
+
+  @media (min-width: 640px) {
+    margin-bottom: 84px;
+  }
+
+  @media (min-width: 1200px) {
+    margin-bottom: 100px;
+  }
 }

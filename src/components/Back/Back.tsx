@@ -3,7 +3,12 @@ import './back.scss';
 
 export const Back: React.FC = () => {
   return (
-    <a href="javascript:history.back()" className="back">
+    <button
+      className="back"
+      onClick={() => {
+        history.back();
+      }}
+    >
       <svg
         className="back__svg"
         width="16"
@@ -18,6 +23,6 @@ export const Back: React.FC = () => {
         />
       </svg>
       <p className="back__text">Back</p>
-    </a>
+    </button>
   );
 };

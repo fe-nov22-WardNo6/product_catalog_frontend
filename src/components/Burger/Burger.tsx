@@ -57,6 +57,7 @@ export const Burger: React.FC<Props> = ({ setIsBurgerActive }) => {
             className={({ isActive }) =>
               cn('burger__action', { 'is-active': isActive })
             }
+            onClick={() => setIsBurgerActive(false)}
           >
             <img
               src={favorites_icon}
@@ -70,6 +71,7 @@ export const Burger: React.FC<Props> = ({ setIsBurgerActive }) => {
             className={({ isActive }) =>
               cn('burger__action', { 'is-active': isActive })
             }
+            onClick={() => setIsBurgerActive(false)}
           >
             <img src={cart_icon} alt="Nice Gadgets logo" className="icon" />
           </NavLink>

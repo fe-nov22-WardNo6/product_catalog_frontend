@@ -65,7 +65,7 @@ export const Cart: React.FC = () => {
               disabled={isDisabled}
               onClick={() => setModalActive(true)}
             >
-            Checkout
+              Checkout
             </button>
           </div>
         </div>
@@ -85,7 +85,6 @@ export const Cart: React.FC = () => {
           </Modal>
         )}
       </div>
-
     </>
   );
 };

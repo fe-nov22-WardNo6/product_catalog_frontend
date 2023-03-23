@@ -49,30 +49,30 @@ export const Contacts: React.FC = () => {
               className="dev__text-normal"
               href="mailto: anton.zhytonbaiev.dev@gmail.com"
             >
-              anton.zhytonbaiev.dev@gmail.com
+              bogdankutasevich@gmail.com
             </a>
           </p>
           <p className="dev__text-main">
             LinkedIn:&nbsp;&nbsp;
             <a
               className="dev__text-normal"
-              href="https://www.linkedin.com/in/anton-zhytonbaiev-2b0070266/?locale=uk_UA"
+              href="https://www.linkedin.com/in/bogdan-kutasevich-17b881265/"
             >
-              Anton Zhytonbaiev
+              Kutasevich Bogdan
             </a>
           </p>
           <p className="dev__text-main">
             <a
               className="dev__text-normal"
-              href="http://github.com/Anton-Zhytonbaiev"
+              href="https://github.com/Bogdan-Kutasevich"
             >
               GitHub
             </a>
           </p>
         </div>
         <div className="dev__information">
-          <p className="dev__text-main">Telegram: @Anton_Zhytonbaiev</p>
-          <p className="dev__text-main">City: Kyiv</p>
+          <p className="dev__text-main">Telegram: @Bogdan_Kutasevich</p>
+          <p className="dev__text-main">City: Zaporizhzhia</p>
         </div>
       </div>
 
@@ -83,32 +83,32 @@ export const Contacts: React.FC = () => {
             Email:&nbsp;&nbsp;
             <a
               className="dev__text-normal"
-              href="mailto: anton.zhytonbaiev.dev@gmail.com"
+              href="mailto: polina.sukhorukova@gmail.com"
             >
-              anton.zhytonbaiev.dev@gmail.com
+              polina.sukhorukova@gmail.com
             </a>
           </p>
           <p className="dev__text-main">
             LinkedIn:&nbsp;&nbsp;
             <a
               className="dev__text-normal"
-              href="https://www.linkedin.com/in/anton-zhytonbaiev-2b0070266/?locale=uk_UA"
+              href="https://www.linkedin.com/in/polina-sukhorukova-0274bb228/"
             >
-              Anton Zhytonbaiev
+              Polina Sukhorukova
             </a>
           </p>
           <p className="dev__text-main">
             <a
               className="dev__text-normal"
-              href="http://github.com/Anton-Zhytonbaiev"
+              href="https://github.com/PolinaSukhorukova"
             >
               GitHub
             </a>
           </p>
         </div>
         <div className="dev__information">
-          <p className="dev__text-main">Telegram: @Anton_Zhytonbaiev</p>
-          <p className="dev__text-main">City: Kyiv</p>
+          <p className="dev__text-main">Telegram: @polinasukhorukova</p>
+          <p className="dev__text-main">City: Kharkiv</p>
         </div>
       </div>
 
