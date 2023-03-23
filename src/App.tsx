@@ -13,6 +13,7 @@ import { ItemCard } from './pages/ProductPage';
 import { PageNotFound } from './pages/PageNotFound';
 import { FavoritesPage } from './pages/FavoritesPage/FavoritesPage';
 import { Contacts } from './components/Contacts';
+import { Rights } from './pages/Rights';
 
 export const App: React.FC = () => {
   const [isBurgerActive, setIsBurgerActive] = useState(false);
@@ -38,6 +39,7 @@ export const App: React.FC = () => {
               <Route path="/phones/:phoneId" element={<ItemCard />} />
               <Route path="/favorites" element={<FavoritesPage />} />
               <Route path="/contacts" element={<Contacts />} />
+              <Route path="/rights" element={<Rights />} />
             </Routes>
           </main>
           <Footer />
