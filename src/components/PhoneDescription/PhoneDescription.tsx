@@ -83,11 +83,13 @@ export const PhoneDescription: React.FC<Props> = ({ phone }) => {
         <div className="visual__container visual__container--photo">
           <div className="visual__photo photo">
             <div className="photo__container">
-              {isImageLoading && (
-                <Loader />
-              )}
+              {isImageLoading && <Loader />}
               {!isError && !isImageLoading && (
-                <img src={cardImage} alt="Phone image" className="photo__image" />
+                <img
+                  src={cardImage}
+                  alt="Phone image"
+                  className="photo__image"
+                />
               )}
             </div>
           </div>
@@ -101,11 +103,13 @@ export const PhoneDescription: React.FC<Props> = ({ phone }) => {
                   key={image}
                   onClick={() => changeImage(image)}
                 >
-                  {isImageLoading && (
-                    <Loader />
-                  )}
+                  {isImageLoading && <Loader />}
                   {!isError && !isImageLoading && (
-                    <img src={image} alt="Phone image" className="angles__photo" />
+                    <img
+                      src={image}
+                      alt="Phone image"
+                      className="angles__photo"
+                    />
                   )}
                 </button>
               );
