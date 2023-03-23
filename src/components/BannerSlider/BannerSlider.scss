@@ -7,19 +7,14 @@
   box-sizing: border-box;
 }
 
-.banner {
-  margin-bottom: 90px;
+.corousel {
+  margin-bottom: 22px;
 }
 
 .slick-slider {
   display: flex;
   justify-content: space-between;
   gap: 19px;
-
-  // @include onTablet {
-  //   padding-left: 24px;
-  //   padding-right: 24px;
-  // }
 }
 
 .slick-arrow {

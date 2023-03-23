@@ -71,14 +71,18 @@ export const Cart: React.FC = () => {
         </div>
         {modalActive && (
           <Modal setActive={setModalActive}>
-            <h3 className="modal__text">
-              To confirm your order ...
-            </h3>
+            <h3 className="modal__text">To confirm your order ...</h3>
             <div className="modal__button-wrapper">
-              <button className="modal__button" onClick={() => navigate('/phones')}>
+              <button
+                className="modal__button"
+                onClick={() => navigate('/phones')}
+              >
                 Continue
               </button>
-              <button className="modal__button" onClick={() => handleClearCart()}>
+              <button
+                className="modal__button"
+                onClick={() => handleClearCart()}
+              >
                 Confirm
               </button>
             </div>
