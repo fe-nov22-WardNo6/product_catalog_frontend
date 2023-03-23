@@ -12,11 +12,7 @@
   background-color: $colorBlack;
   z-index: 2;
 
-  @include onTablet {
-    height: 48px;
-  }
-
-  @include onMobile {
+  @media (max-width: 1199px) {
     height: 48px;
   }
 
@@ -91,13 +87,7 @@
       border: 1px solid #0f1121;
     }
 
-    @include onTablet {
-      width: 48px;
-      height: 48px;
-    }
-
-    @include onMobile {
-      width: 48px;
+    @media (max-width: 1199px) {
       height: 48px;
     }
   }

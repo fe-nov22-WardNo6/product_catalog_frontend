@@ -6,26 +6,34 @@ import { getCollection } from '../../api/api';
 import { ShopByCategory } from '../../components/ShopByCategory';
 import './HomePage.scss';
 import '../../style/App.scss';
+import { Loader } from '../../components/Loader';
 
 export const HomePage: React.FC = () => {
   const [phonesNew, setPhonesNew] = useState<Phone[]>([]);
   const [phonesHot, setPhonesHot] = useState<Phone[]>([]);
+  const [isDataLoading, setIsDataLoading] = useState(false);
 
   const getNewFromServer = async (collection: string) => {
     try {
+      setIsDataLoading(true);
       const data = await getCollection(collection);
       setPhonesNew(data);
     } catch {
-      console.log(123);
+      setIsDataLoading(false);
+    } finally {
+      setIsDataLoading(false);
     }
   };
 
   const getHotFromServer = async (collection: string) => {
     try {
+      setIsDataLoading(true);
       const data = await getCollection(collection);
       setPhonesHot(data);
     } catch {
-      console.log(123);
+      setIsDataLoading(false);
+    } finally {
+      setIsDataLoading(false);
     }
   };
 
@@ -39,13 +47,17 @@ export const HomePage: React.FC = () => {
       <h1 className="title">Welcome to Nice Gadgets store!</h1>
       <BannerSlider />
       <div className="roundaCon">
-        <Roundabout title="Brand new models" phones={phonesNew} />
+        {isDataLoading && <Loader />}
+        {!isDataLoading && (
+          <Roundabout title="Brand new models" phones={phonesNew} />
+        )}
       </div>
 
       <ShopByCategory />
 
       <div className="roundaCon">
-        <Roundabout title="Hot prices" phones={phonesHot} />
+        {isDataLoading && <Loader />}
+        {!isDataLoading && <Roundabout title="Hot prices" phones={phonesHot} />}
       </div>
     </div>
   );
