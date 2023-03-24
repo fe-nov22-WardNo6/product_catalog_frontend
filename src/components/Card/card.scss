@@ -9,7 +9,7 @@
   background-color: $backgroundCardColor;
   padding: 32px;
   height: 506px;
-  max-width: 287px;
+  width: 272px;
   border: 2px solid $backgroundCardColor;
   box-sizing: border-box;
   transition: border, border-radius $timeTransition;
@@ -26,6 +26,14 @@
     &:last-child {
       margin-bottom: 0;
     }
+  }
+
+  @media (min-width: 768px) {
+    width: 229px;
+  }
+
+  @media (min-width: 1200px) {
+    width: 272px;
   }
 
   &__image-container {
