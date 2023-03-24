@@ -15,7 +15,7 @@ type Props = {
 };
 
 export const Header: React.FC<Props> = ({
-  setIsBurgerActive, 
+  setIsBurgerActive,
   isBurgerActive,
 }) => {
   const { cartItems, favoritesItems } = useContext(ActionContext);

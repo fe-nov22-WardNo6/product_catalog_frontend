@@ -21,7 +21,7 @@ export const Contacts: React.FC = () => {
             <a
               className="dev__text-normal"
               href="https://www.linkedin.com/in/andrew-borys-233365200/"
-              target='_blank'
+              target="_blank"
               rel="noreferrer"
             >
               Andrew Borys
@@ -31,7 +31,7 @@ export const Contacts: React.FC = () => {
             <a
               className="dev__text-normal"
               href="https://github.com/Borys-Andrew"
-              target='_blank'
+              target="_blank"
               rel="noreferrer"
             >
               GitHub
@@ -44,7 +44,7 @@ export const Contacts: React.FC = () => {
             <a
               className="dev__text-main__link"
               href="https://t.me/BorysAndrew"
-              target='_blank'
+              target="_blank"
               rel="noreferrer"
             >
               @BorysAndrew
@@ -71,7 +71,7 @@ export const Contacts: React.FC = () => {
             <a
               className="dev__text-normal"
               href="https://www.linkedin.com/in/bogdan-kutasevich-17b881265/"
-              target='_blank'
+              target="_blank"
               rel="noreferrer"
             >
               Kutasevich Bogdan
@@ -81,7 +81,7 @@ export const Contacts: React.FC = () => {
             <a
               className="dev__text-normal"
               href="https://github.com/Bogdan-Kutasevich"
-              target='_blank'
+              target="_blank"
               rel="noreferrer"
             >
               GitHub
@@ -94,7 +94,7 @@ export const Contacts: React.FC = () => {
             <a
               className="dev__text-main__link"
               href="https://t.me/Bogdan_Kutasevich"
-              target='_blank'
+              target="_blank"
               rel="noreferrer"
             >
               @Bogdan_Kutasevich
@@ -121,7 +121,7 @@ export const Contacts: React.FC = () => {
             <a
               className="dev__text-normal"
               href="https://www.linkedin.com/in/polina-sukhorukova-0274bb228/"
-              target='_blank'
+              target="_blank"
               rel="noreferrer"
             >
               Polina Sukhorukova
@@ -131,7 +131,7 @@ export const Contacts: React.FC = () => {
             <a
               className="dev__text-normal"
               href="https://github.com/PolinaSukhorukova"
-              target='_blank'
+              target="_blank"
               rel="noreferrer"
             >
               GitHub
@@ -144,7 +144,7 @@ export const Contacts: React.FC = () => {
             <a
               className="dev__text-main__link"
               href="https://t.me/polinasukhorukova"
-              target='_blank'
+              target="_blank"
               rel="noreferrer"
             >
               @polinasukhorukova
@@ -171,7 +171,7 @@ export const Contacts: React.FC = () => {
             <a
               className="dev__text-normal"
               href="https://www.linkedin.com/in/anton-zhytonbaiev-2b0070266/?locale=uk_UA"
-              target='_blank'
+              target="_blank"
               rel="noreferrer"
             >
               Anton Zhytonbaiev
@@ -181,7 +181,7 @@ export const Contacts: React.FC = () => {
             <a
               className="dev__text-normal"
               href="http://github.com/Anton-Zhytonbaiev"
-              target='_blank'
+              target="_blank"
               rel="noreferrer"
             >
               GitHub
@@ -194,7 +194,7 @@ export const Contacts: React.FC = () => {
             <a
               className="dev__text-main__link"
               href="https://t.me/Anton_Zhytonbaiev"
-              target='_blank'
+              target="_blank"
               rel="noreferrer"
             >
               @Anton_Zhytonbaiev
