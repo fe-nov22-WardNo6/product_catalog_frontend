@@ -1,14 +1,17 @@
 {
   "files": {
-    "main.css": "/product_catalog_frontend/static/css/main.12f5a9a9.css",
-    "main.js": "/product_catalog_frontend/static/js/main.e138405f.js",
+    "main.css": "/product_catalog_frontend/static/css/main.4e0781b0.css",
+    "main.js": "/product_catalog_frontend/static/js/main.55817a84.js",
+    "static/media/banner-2-desktop.png": "/product_catalog_frontend/static/media/banner-2-desktop.54036b129f008b43d608.png",
+    "static/media/banner-3-desktop.png": "/product_catalog_frontend/static/media/banner-3-desktop.b5b8183643794c773a75.png",
     "static/media/logo.svg": "/product_catalog_frontend/static/media/logo.1b84728b90078b7eea014ac44cc8fc43.svg",
+    "static/media/banner-3-mobile.png": "/product_catalog_frontend/static/media/banner-3-mobile.d43aedac28504173573a.png",
     "static/media/Mont-Regular.otf": "/product_catalog_frontend/static/media/Mont-Regular.1d26d89f7339866d3133.otf",
     "static/media/Mont-SemiBold.otf": "/product_catalog_frontend/static/media/Mont-SemiBold.8979d71a3146ca1d761f.otf",
     "static/media/Mont-Bold.otf": "/product_catalog_frontend/static/media/Mont-Bold.03c8c2f6127c1da0fc39.otf",
-    "static/media/Banner-desctop.png": "/product_catalog_frontend/static/media/Banner-desctop.f1991d32ca5fffb6a2f2.png",
-    "static/media/Banner-mobile.png": "/product_catalog_frontend/static/media/Banner-mobile.a98b7e5fe3d4c501e9cc.png",
-    "static/media/Banner-tablet.png": "/product_catalog_frontend/static/media/Banner-tablet.ab4d35859befa3fd8014.png",
+    "static/media/banner-1-desktop.png": "/product_catalog_frontend/static/media/banner-1-desktop.f1991d32ca5fffb6a2f2.png",
+    "static/media/banner-1-mobile.png": "/product_catalog_frontend/static/media/banner-1-mobile.0dad938c6246d83c8cb5.png",
+    "static/media/banner-2-mobile.png": "/product_catalog_frontend/static/media/banner-2-mobile.0dccdf4d0cdfc65dbab7.png",
     "static/media/pageNotFound.svg": "/product_catalog_frontend/static/media/pageNotFound.5076771b6ae294b24bdd79e1a3df0062.svg",
     "static/media/notification.svg?s3g3t9": "/product_catalog_frontend/static/media/notification.5d0158671dd860c714c4.svg",
     "static/media/slick.svg": "/product_catalog_frontend/static/media/slick.2630a3e3eab21c607e21.svg",
@@ -29,11 +32,11 @@
     "static/media/arrowRight.svg": "/product_catalog_frontend/static/media/arrowRight.756d3b79b5aacd8a12e61c2aca7b8047.svg",
     "static/media/arrowDown.svg": "/product_catalog_frontend/static/media/arrowDown.0a75b98d9165f32dc53134e728970af1.svg",
     "static/media/arrowUp.svg": "/product_catalog_frontend/static/media/arrowUp.a617e9ecb57a4e24fcfecbff7a7744a0.svg",
-    "main.12f5a9a9.css.map": "/product_catalog_frontend/static/css/main.12f5a9a9.css.map",
-    "main.e138405f.js.map": "/product_catalog_frontend/static/js/main.e138405f.js.map"
+    "main.4e0781b0.css.map": "/product_catalog_frontend/static/css/main.4e0781b0.css.map",
+    "main.55817a84.js.map": "/product_catalog_frontend/static/js/main.55817a84.js.map"
   },
   "entrypoints": [
-    "static/css/main.12f5a9a9.css",
-    "static/js/main.e138405f.js"
+    "static/css/main.4e0781b0.css",
+    "static/js/main.55817a84.js"
   ]
 }
