@@ -6,7 +6,7 @@
   padding-bottom: 40px;
   color: $colorWhite;
 
-  @media (min-width: 640px) {
+  @media (min-width: 1200px) {
     display: flex;
     justify-content: space-between;
     gap: 64px;
@@ -15,9 +15,6 @@
   &__container {
     &--details {
       margin-bottom: 40px;
-      @media (min-width: 640px) {
-        max-width: 320px;
-      }
 
       @media (min-width: 1200px) {
         max-width: 550px;

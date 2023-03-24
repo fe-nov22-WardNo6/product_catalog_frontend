@@ -27,10 +27,14 @@
 }
 
 .test {
-  min-width: 212px;
+  min-width: 277px;
 
   @media (min-width: 640px) {
-    min-width: 237px;
+    min-width: 272px;
+  }
+
+  @media (min-width: 768px) {
+    min-width: 233px;
   }
 
   @media (min-width: 1200px) {
