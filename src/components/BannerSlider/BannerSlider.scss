@@ -17,9 +17,8 @@
   position: relative;
   width: 32px;
   display: none;
-  height: 100%;
+  height: inherit;
   left: 0;
-  height: 320px;
   top: 0;
   bottom: 0;
   transform: translateY(0);
@@ -28,11 +27,6 @@
 
   @include onTablet {
     display: block;
-    height: 190px;
-  }
-
-  @include onDesktop {
-    height: 400px;
   }
 }
 
@@ -65,22 +59,20 @@
   background-image: url('../../icons/arrowRight.svg');
 }
 
-.slick-slide {
-  background-image: url('../BannerSlider/Banner-mobile.png');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-
-  height: 320px;
+#slick-slide__img-desk {
+  display: none;
 
   @include onTablet {
-    height: 190px;
-    background-image: url('../BannerSlider/Banner-tablet.png');
+    display: block;
+    width: 100%;
   }
+}
 
-  @include onDesktop {
-    height: 400px;
-    background-image: url('../BannerSlider/Banner-desctop.png');
+#slick-slide__img-mob {
+  width: 100%;
+
+  @include onTablet {
+    display: none;
   }
 }
 
