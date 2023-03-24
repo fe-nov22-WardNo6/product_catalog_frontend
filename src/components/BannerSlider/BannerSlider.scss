@@ -7,10 +7,6 @@
   box-sizing: border-box;
 }
 
-.corousel {
-  margin-bottom: 22px;
-}
-
 .slick-slider {
   display: flex;
   justify-content: space-between;
@@ -90,6 +86,13 @@
 
 .slick-list {
   width: 100vw;
+  margin-left: -16px;
+  margin-right: -16px;
+
+  @include onTablet {
+    margin-left: 0;
+    margin-right: 0;
+  }
 }
 
 .slick-dots {
