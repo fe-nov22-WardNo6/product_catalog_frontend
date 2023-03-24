@@ -29,7 +29,7 @@ export const Footer: React.FC = () => {
             </a>
           </li>
           <li className="footer__list_item">
-            <NavLink to="/contacts" className="footer__list_link">
+            <NavLink to="/contacts" className="footer__list_link" onClick={handleClick}>
               Contacts
             </NavLink>
           </li>
