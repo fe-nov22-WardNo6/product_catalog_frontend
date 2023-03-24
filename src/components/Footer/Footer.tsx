@@ -11,8 +11,6 @@ export const Footer: React.FC = () => {
       top: 0,
       behavior: 'smooth',
     });
-
-    console.log('to top');
   };
 
   return (
