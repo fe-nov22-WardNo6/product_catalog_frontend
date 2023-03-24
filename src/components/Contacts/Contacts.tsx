@@ -16,7 +16,7 @@ export const Contacts: React.FC = () => {
               anton.zhytonbaiev.dev@gmail.com
             </a>
           </div>
-          <p className="dev__text-main"> 
+          <p className="dev__text-main">
             LinkedIn:&nbsp;&nbsp;
             <a
               className="dev__text-normal"

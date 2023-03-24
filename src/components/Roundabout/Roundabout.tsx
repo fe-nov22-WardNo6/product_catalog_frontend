@@ -85,7 +85,7 @@ export const Roundabout: React.FC<Props> = ({ title, phones }) => {
             <div key={phone.id} className="test">
               <Card phone={phone} gridClass={''} />
             </div>
-          ))} 
+          ))}
         </div>
       </div>
     </div>
