@@ -7,7 +7,7 @@ export const Contacts: React.FC = () => {
       <div className="dev">
         <p className="dev__name">Borys Andrew</p>
         <div className="dev__information">
-          <p className="dev__text-main">
+          <div className="dev__text-main">
             Email:&nbsp;&nbsp;
             <a
               className="dev__text-normal"
@@ -15,8 +15,8 @@ export const Contacts: React.FC = () => {
             >
               anton.zhytonbaiev.dev@gmail.com
             </a>
-          </p>
-          <p className="dev__text-main">
+          </div>
+          <p className="dev__text-main"> 
             LinkedIn:&nbsp;&nbsp;
             <a
               className="dev__text-normal"
