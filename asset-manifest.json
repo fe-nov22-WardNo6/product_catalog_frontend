@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/product_catalog_frontend/static/css/main.4e0781b0.css",
-    "main.js": "/product_catalog_frontend/static/js/main.55817a84.js",
+    "main.css": "/product_catalog_frontend/static/css/main.4e524e27.css",
+    "main.js": "/product_catalog_frontend/static/js/main.6e61ccff.js",
     "static/media/banner-2-desktop.png": "/product_catalog_frontend/static/media/banner-2-desktop.54036b129f008b43d608.png",
     "static/media/banner-3-desktop.png": "/product_catalog_frontend/static/media/banner-3-desktop.b5b8183643794c773a75.png",
     "static/media/logo.svg": "/product_catalog_frontend/static/media/logo.1b84728b90078b7eea014ac44cc8fc43.svg",
@@ -32,11 +32,11 @@
     "static/media/arrowRight.svg": "/product_catalog_frontend/static/media/arrowRight.756d3b79b5aacd8a12e61c2aca7b8047.svg",
     "static/media/arrowDown.svg": "/product_catalog_frontend/static/media/arrowDown.0a75b98d9165f32dc53134e728970af1.svg",
     "static/media/arrowUp.svg": "/product_catalog_frontend/static/media/arrowUp.a617e9ecb57a4e24fcfecbff7a7744a0.svg",
-    "main.4e0781b0.css.map": "/product_catalog_frontend/static/css/main.4e0781b0.css.map",
-    "main.55817a84.js.map": "/product_catalog_frontend/static/js/main.55817a84.js.map"
+    "main.4e524e27.css.map": "/product_catalog_frontend/static/css/main.4e524e27.css.map",
+    "main.6e61ccff.js.map": "/product_catalog_frontend/static/js/main.6e61ccff.js.map"
   },
   "entrypoints": [
-    "static/css/main.4e0781b0.css",
-    "static/js/main.55817a84.js"
+    "static/css/main.4e524e27.css",
+    "static/js/main.6e61ccff.js"
   ]
 }
